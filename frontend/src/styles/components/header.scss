@@ -1,0 +1,121 @@
+@import '../../../styles/themes/variables';
+
+.agri-header {
+  .navbar-brand {
+    font-family: $font-family-heading;
+    transition: $transition-base;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  .nav-link {
+    color: $dark-gray;
+    font-weight: $font-weight-medium;
+    padding: 0.5rem 1rem;
+    border-radius: $border-radius;
+    transition: $transition-base;
+    position: relative;
+
+    &:hover {
+      color: $primary-green;
+      background-color: $light-green;
+    }
+
+    &.active {
+      color: $primary-green;
+      font-weight: $font-weight-semibold;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 1rem;
+        right: 1rem;
+        height: 2px;
+        background: $agri-gradient;
+        border-radius: 1px;
+      }
+    }
+  }
+
+  .user-avatar {
+    font-weight: $font-weight-semibold;
+  }
+
+  .dropdown-menu {
+    border: none;
+    box-shadow: $box-shadow-lg;
+    border-radius: $border-radius-lg;
+    padding: 0.5rem;
+
+    .dropdown-item {
+      border-radius: $border-radius-sm;
+      padding: 0.5rem 1rem;
+      font-weight: $font-weight-medium;
+      transition: $transition-fast;
+
+      &:hover {
+        background-color: $light-green;
+        color: $primary-green;
+      }
+
+      &.active {
+        background-color: $primary-green;
+        color: $white;
+      }
+    }
+  }
+
+  // Mobile styles
+  @media (max-width: $breakpoint-lg) {
+    .navbar-collapse {
+      margin-top: 1rem;
+    }
+
+    .nav-link {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid $light-gray;
+
+      &.active::after {
+        display: none;
+      }
+    }
+
+    .dropdown {
+      margin-top: 1rem;
+    }
+  }
+
+  // Small mobile devices
+  @media (max-width: $breakpoint-sm) {
+    .navbar-brand {
+      font-size: 1.1rem !important;
+    }
+
+    .btn {
+      font-size: 0.875rem;
+      padding: 0.375rem 0.75rem;
+    }
+  }
+}
+
+// Language switcher specific styles
+#languageDropdown {
+  min-width: 120px;
+  
+  @media (max-width: $breakpoint-md) {
+    min-width: auto;
+  }
+}
+
+// User dropdown specific styles
+#userDropdown {
+  border: 1px solid $primary-green;
+  
+  &:hover {
+    background-color: $primary-green;
+    color: $white;
+  }
+}
