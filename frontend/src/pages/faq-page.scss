@@ -1,0 +1,186 @@
+@import '../styles/themes/variables';
+
+.faq-page {
+  .page-header {
+    background: linear-gradient(135deg, $primary-green 0%, $secondary-green 100%);
+    
+    h1 {
+      font-family: $font-family-heading;
+      text-shadow: 0 2px 4px rgba($black, 0.1);
+    }
+  }
+
+  .search-section {
+    .search-box {
+      .input-group {
+        box-shadow: $box-shadow-sm;
+        border-radius: $border-radius-lg;
+        overflow: hidden;
+
+        .input-group-text {
+          border: none;
+          padding: 0.75rem 1rem;
+        }
+
+        .form-control {
+          border: none;
+          padding: 0.75rem;
+          font-size: 1rem;
+
+          &:focus {
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+
+  .faq-categories {
+    .faq-category {
+      .category-header {
+        .category-icon {
+          font-size: 2rem;
+          width: 60px;
+          height: 60px;
+          background: $light-green;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .category-title {
+          color: $dark-green;
+          font-family: $font-family-heading;
+          font-size: 1.75rem;
+        }
+      }
+
+      .accordion {
+        .accordion-item {
+          background: $white;
+          border-radius: $border-radius-lg;
+          box-shadow: $box-shadow-sm;
+          overflow: hidden;
+          margin-bottom: 1rem;
+          border: 1px solid rgba($primary-green, 0.1);
+
+          .accordion-button {
+            background: $white;
+            color: $dark-green;
+            font-size: 1rem;
+            padding: 1.25rem;
+            border: none;
+            box-shadow: none;
+            font-weight: $font-weight-semibold;
+
+            &:not(.collapsed) {
+              background: $light-green;
+              color: $dark-green;
+            }
+
+            &::after {
+              background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%232d5016'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+            }
+
+            &:focus {
+              border-color: $primary-green;
+              box-shadow: 0 0 0 0.2rem rgba($primary-green, 0.25);
+            }
+          }
+
+          .accordion-body {
+            background: $light-green;
+            border-top: 1px solid rgba($primary-green, 0.1);
+            line-height: 1.6;
+            font-size: 0.95rem;
+          }
+        }
+      }
+    }
+  }
+
+  .contact-cta {
+    background: linear-gradient(135deg, $light-green 0%, rgba($white, 0.8) 100%);
+
+    h2 {
+      color: $dark-green;
+      font-family: $font-family-heading;
+    }
+
+    .btn {
+      border-radius: $border-radius-lg;
+      transition: $transition-base;
+      font-weight: $font-weight-semibold;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-md) {
+  .faq-page {
+    .page-header {
+      padding: 3rem 0 !important;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .category-header {
+      text-align: center;
+      flex-direction: column;
+
+      .d-flex {
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .faq-page {
+    .page-header {
+      padding: 2rem 0 !important;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .lead {
+        font-size: 1rem;
+      }
+    }
+
+    .accordion-button {
+      font-size: 0.9rem !important;
+      padding: 1rem !important;
+    }
+
+    .contact-cta {
+      .btn {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .faq-page {
+    .btn {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}

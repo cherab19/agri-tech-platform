@@ -1,0 +1,115 @@
+@import '../styles/themes/variables';
+
+.legal-page {
+  .page-header {
+    background: linear-gradient(135deg, $light-green 0%, rgba($white, 0.8) 100%);
+    border-bottom: 1px solid rgba($primary-green, 0.1);
+
+    h1 {
+      font-family: $font-family-heading;
+      color: $dark-green;
+    }
+  }
+
+  .policy-content,
+  .terms-content {
+    background: $white;
+
+    .policy-container,
+    .terms-container {
+      .policy-intro,
+      .terms-intro {
+        p.lead {
+          line-height: 1.7;
+          font-size: 1.1rem;
+        }
+      }
+
+      .policy-section,
+      .terms-section {
+        .section-title {
+          color: $dark-green;
+          font-family: $font-family-heading;
+          font-size: 1.5rem;
+          border-bottom: 2px solid $light-green;
+          padding-bottom: 0.5rem;
+          margin-bottom: 1rem;
+        }
+
+        .section-content {
+          line-height: 1.7;
+          font-size: 1rem;
+        }
+
+        .section-items {
+          .section-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 0.5rem 0;
+            line-height: 1.5;
+            color: $dark-gray;
+
+            i {
+              margin-top: 0.375rem;
+              flex-shrink: 0;
+            }
+          }
+        }
+      }
+
+      .consent-section,
+      .acceptance-section {
+        border-left: 4px solid $primary-green;
+        
+        h3 {
+          color: $dark-green;
+          font-family: $font-family-heading;
+        }
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-md) {
+  .legal-page {
+    .page-header {
+      padding: 3rem 0 !important;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .policy-container,
+    .terms-container {
+      .policy-section,
+      .terms-section {
+        .section-title {
+          font-size: 1.25rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .legal-page {
+    .page-header {
+      padding: 2rem 0 !important;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .lead {
+        font-size: 1rem;
+      }
+    }
+
+    .policy-content,
+    .terms-content {
+      padding: 2rem 0 !important;
+    }
+  }
+}
