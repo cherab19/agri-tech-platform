@@ -1,0 +1,257 @@
+@import '../../styles/themes/variables';
+
+.how-it-works-section {
+  .section-title {
+    color: $dark-green;
+    font-family: $font-family-heading;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: $agri-gradient;
+      border-radius: 2px;
+    }
+  }
+
+  .process-steps {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 2rem 0;
+
+    .process-step {
+      flex: 1;
+      position: relative;
+      z-index: 2;
+
+      .step-connector {
+        position: absolute;
+        top: 60px;
+        left: 60%;
+        right: -40%;
+        height: 2px;
+        background: linear-gradient(90deg, $primary-green, $secondary-green);
+        z-index: 1;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: -2px;
+          left: 0;
+          right: 0;
+          height: 6px;
+          background: inherit;
+          border-radius: 3px;
+          opacity: 0.3;
+        }
+      }
+
+      .step-content {
+        position: relative;
+        z-index: 2;
+
+        .step-number {
+          width: 60px;
+          height: 60px;
+          font-size: 1.5rem;
+          font-weight: $font-weight-bold;
+          border: 4px solid $white;
+          box-shadow: $box-shadow;
+        }
+
+        .step-icon {
+          font-size: 2.5rem;
+          opacity: 0.9;
+        }
+
+        .step-title {
+          color: $dark-green;
+          font-size: 1.1rem;
+          min-height: 3rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .step-desc {
+          line-height: 1.5;
+        }
+
+        .step-role {
+          .badge {
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+          }
+        }
+      }
+
+      &:hover {
+        .step-number {
+          transform: scale(1.1);
+          transition: $transition-base;
+        }
+
+        .step-icon {
+          transform: translateY(-5px);
+          transition: $transition-base;
+        }
+      }
+    }
+  }
+
+  .user-type-card {
+    background: $white;
+    border-radius: $border-radius-lg;
+    box-shadow: $box-shadow-sm;
+    transition: $transition-base;
+    border: 1px solid rgba($primary-green, 0.1);
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $box-shadow-lg;
+      border-color: $primary-green;
+    }
+
+    .user-type-icon {
+      font-size: 3rem;
+      opacity: 0.9;
+    }
+
+    .user-type-title {
+      color: $dark-green;
+      font-size: 1.25rem;
+    }
+
+    .benefits-list {
+      .benefit-item {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid $light-gray;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .btn {
+      border-radius: $border-radius-lg;
+      font-weight: $font-weight-medium;
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-lg) {
+  .how-it-works-section {
+    .process-steps {
+      flex-direction: column;
+      gap: 3rem;
+
+      .process-step {
+        .step-connector {
+          display: none;
+        }
+
+        .step-content {
+          display: flex;
+          align-items: center;
+          text-align: left;
+          gap: 1.5rem;
+
+          .step-number {
+            flex-shrink: 0;
+          }
+
+          .step-icon {
+            flex-shrink: 0;
+          }
+
+          .step-content-text {
+            flex: 1;
+          }
+
+          .step-title {
+            min-height: auto;
+            justify-content: flex-start;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .how-it-works-section {
+    .process-steps {
+      .process-step {
+        .step-content {
+          flex-direction: column;
+          text-align: center;
+          gap: 1rem;
+
+          .step-title {
+            justify-content: center;
+          }
+        }
+      }
+    }
+
+    .user-type-card {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .how-it-works-section {
+    padding: 2rem 0 !important;
+
+    .section-title {
+      font-size: 1.75rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+    }
+
+    .process-steps {
+      gap: 2rem;
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .how-it-works-section {
+    .process-step {
+      .step-number,
+      .step-icon {
+        transition: none;
+      }
+
+      &:hover {
+        .step-number,
+        .step-icon {
+          transform: none;
+        }
+      }
+    }
+
+    .user-type-card {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
