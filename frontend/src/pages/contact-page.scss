@@ -1,0 +1,175 @@
+@import '../styles/themes/variables';
+
+.contact-page {
+  .page-header {
+    background: linear-gradient(135deg, $primary-green 0%, $secondary-green 100%);
+    
+    h1 {
+      font-family: $font-family-heading;
+      text-shadow: 0 2px 4px rgba($black, 0.1);
+    }
+  }
+
+  .regional-offices {
+    .office-card {
+      background: $white;
+      border-radius: $border-radius-lg;
+      box-shadow: $box-shadow-sm;
+      border: 1px solid rgba($primary-green, 0.1);
+      transition: $transition-base;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: $box-shadow-lg;
+        border-color: $primary-green;
+      }
+
+      .office-icon {
+        font-size: 2rem;
+        opacity: 0.9;
+      }
+
+      .office-region {
+        color: $dark-green;
+        font-size: 1.1rem;
+      }
+
+      .office-details {
+        p {
+          margin-bottom: 0.5rem;
+          font-size: 0.9rem;
+
+          i {
+            width: 16px;
+            color: $primary;
+          }
+
+          a {
+            color: $dark-gray;
+            transition: $transition-fast;
+
+            &:hover {
+              color: $primary-green;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .support-categories {
+    .support-card {
+      background: $white;
+      border-radius: $border-radius-lg;
+      box-shadow: $box-shadow-sm;
+      border: 1px solid rgba($primary-green, 0.1);
+      transition: $transition-base;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: $box-shadow-lg;
+        border-color: $primary-green;
+      }
+
+      .support-category {
+        color: $dark-green;
+        font-size: 1.1rem;
+        border-bottom: 2px solid $light-green;
+        padding-bottom: 0.5rem;
+      }
+
+      .support-desc {
+        line-height: 1.5;
+        font-size: 0.9rem;
+      }
+
+      .support-contact {
+        a {
+          color: $dark-gray;
+          transition: $transition-fast;
+          font-size: 0.9rem;
+
+          &:hover {
+            color: $primary-green;
+          }
+        }
+      }
+    }
+  }
+
+  .faq-quicklinks {
+    .btn {
+      border-radius: $border-radius-lg;
+      transition: $transition-base;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-md) {
+  .contact-page {
+    .page-header {
+      padding: 3rem 0 !important;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .office-card,
+    .support-card {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .contact-page {
+    .page-header {
+      padding: 2rem 0 !important;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .lead {
+        font-size: 1rem;
+      }
+    }
+
+    .office-card,
+    .support-card {
+      .card-body {
+        padding: 1.5rem !important;
+      }
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .contact-page {
+    .office-card,
+    .support-card {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+
+    .btn:hover {
+      transform: none;
+    }
+
+    .office-details a,
+    .support-contact a {
+      transition: none;
+    }
+  }
+}

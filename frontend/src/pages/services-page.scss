@@ -1,0 +1,227 @@
+@import '../styles/themes/variables';
+
+.services-page {
+  .page-header {
+    background: linear-gradient(135deg, $primary-green 0%, $secondary-green 100%);
+    
+    h1 {
+      font-family: $font-family-heading;
+      text-shadow: 0 2px 4px rgba($black, 0.1);
+    }
+  }
+
+  .detailed-services {
+    .role-service-card {
+      background: $white;
+      border-radius: $border-radius-lg;
+      box-shadow: $box-shadow-sm;
+      border: 1px solid rgba($primary-green, 0.1);
+      transition: $transition-base;
+      overflow: hidden;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: $box-shadow-lg;
+        border-color: $primary-green;
+      }
+
+      .card-header {
+        background: linear-gradient(135deg, $light-green 0%, rgba($white, 0.8) 100%);
+        border-bottom: 1px solid rgba($primary-green, 0.1);
+
+        .role-icon {
+          font-size: 3rem;
+          opacity: 0.9;
+        }
+
+        .role-title {
+          color: $dark-green;
+        }
+      }
+
+      .card-body {
+        .section-title {
+          color: $dark-green;
+          font-size: 1rem;
+          border-bottom: 2px solid $light-green;
+          padding-bottom: 0.5rem;
+        }
+
+        .features-list,
+        .benefits-list {
+          .feature-item,
+          .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 0.25rem 0;
+            color: $dark-gray;
+            font-size: 0.9rem;
+            line-height: 1.4;
+
+            i {
+              margin-top: 0.125rem;
+              flex-shrink: 0;
+            }
+          }
+        }
+      }
+
+      .card-footer {
+        .btn {
+          border-radius: $border-radius-lg;
+          transition: $transition-base;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: $box-shadow;
+          }
+        }
+      }
+    }
+  }
+
+  .integration-section {
+    background: linear-gradient(135deg, $light-green 0%, rgba($white, 0.8) 100%);
+
+    h2 {
+      color: $dark-green;
+      font-family: $font-family-heading;
+    }
+
+    .integration-list {
+      .integration-item {
+        display: flex;
+        align-items: center;
+        padding: 0.75rem;
+        background: $white;
+        border-radius: $border-radius;
+        box-shadow: $box-shadow-sm;
+        transition: $transition-fast;
+
+        &:hover {
+          transform: translateX(5px);
+          box-shadow: $box-shadow;
+        }
+
+        i {
+          font-size: 1.25rem;
+          width: 24px;
+          text-align: center;
+        }
+      }
+    }
+
+    .integration-visual {
+      .visual-item {
+        display: inline-flex;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: $white;
+        border-radius: $border-radius-lg;
+        box-shadow: $box-shadow-sm;
+        font-weight: $font-weight-semibold;
+        font-size: 1.1rem;
+
+        i {
+          font-size: 1.5rem;
+        }
+
+        &.farmer-visual {
+          border-left: 4px solid $success;
+        }
+
+        &.platform-visual {
+          border-left: 4px solid $primary;
+        }
+
+        &.vendor-visual {
+          border-left: 4px solid $info;
+        }
+      }
+
+      .visual-arrow {
+        font-size: 1.5rem;
+        color: $primary;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-lg) {
+  .services-page {
+    .integration-section {
+      .integration-visual {
+        .visual-item {
+          padding: 0.75rem 1.5rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .services-page {
+    .page-header {
+      padding: 3rem 0 !important;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .role-service-card {
+      margin-bottom: 2rem;
+    }
+
+    .integration-section {
+      text-align: center;
+
+      .integration-list {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .services-page {
+    .page-header {
+      padding: 2rem 0 !important;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .lead {
+        font-size: 1rem;
+      }
+    }
+
+    .integration-visual {
+      .visual-item {
+        padding: 0.75rem 1rem !important;
+        font-size: 0.9rem !important;
+      }
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .services-page {
+    .role-service-card,
+    .integration-item {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+
+    .card-footer .btn:hover {
+      transform: none;
+    }
+  }
+}
