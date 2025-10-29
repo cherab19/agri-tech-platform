@@ -1,0 +1,218 @@
+@import '../../styles/themes/variables';
+
+.hero-section {
+  background: linear-gradient(135deg, $primary-green 0%, $secondary-green 100%);
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+
+    .hero-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at center, rgba($accent-green, 0.2) 0%, transparent 70%);
+    }
+
+    .hero-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.1;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+
+    .hero-badge {
+      .badge {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba($white, 0.2);
+      }
+    }
+
+    .hero-title {
+      font-family: $font-family-heading;
+      line-height: 1.2;
+      text-shadow: 0 2px 4px rgba($black, 0.1);
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      .btn {
+        border-radius: $border-radius-lg;
+        transition: $transition-base;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 25px rgba($black, 0.15);
+        }
+      }
+    }
+
+    .hero-stats {
+      .stat-number {
+        color: $white;
+      }
+      
+      .stat-label {
+        color: rgba($white, 0.8);
+      }
+    }
+  }
+
+  .hero-features {
+    position: relative;
+    z-index: 2;
+
+    .feature-card {
+      background: rgba($white, 0.95);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba($white, 0.2);
+      transition: $transition-base;
+      height: 100%;
+
+      &:hover {
+        transform: translateY(-5px);
+        background: $white;
+        box-shadow: 0 10px 30px rgba($black, 0.15);
+      }
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      opacity: 0.9;
+    }
+
+    .feature-title {
+      color: $dark-green;
+    }
+  }
+
+  .scroll-indicator {
+    .scroll-arrow {
+      width: 30px;
+      height: 30px;
+      border-right: 2px solid rgba($white, 0.8);
+      border-bottom: 2px solid rgba($white, 0.8);
+      transform: rotate(45deg);
+      animation: bounce 2s infinite;
+      
+      @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+          transform: rotate(45deg) translateY(0);
+        }
+        40% {
+          transform: rotate(45deg) translateY(-10px);
+        }
+        60% {
+          transform: rotate(45deg) translateY(-5px);
+        }
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-lg) {
+  .hero-section {
+    .hero-title {
+      font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .hero-section {
+    text-align: center;
+    padding: 4rem 0;
+
+    .hero-content {
+      .hero-actions {
+        justify-content: center;
+      }
+    }
+
+    .hero-features {
+      margin-top: 3rem;
+      
+      .row {
+        justify-content: center;
+      }
+      
+      .col-6 {
+        flex: 0 0 auto;
+        width: 45%;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .hero-section {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .hero-actions {
+      .btn {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .hero-features {
+      .col-6 {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .hero-stats {
+      .col-4 {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .hero-section {
+    .feature-card,
+    .btn,
+    .scroll-arrow {
+      transition: none;
+      animation: none;
+    }
+  }
+}
