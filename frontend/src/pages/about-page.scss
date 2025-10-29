@@ -1,0 +1,115 @@
+@import '../styles/themes/variables';
+
+.about-page {
+  .page-header {
+    background: linear-gradient(135deg, $primary-green 0%, $secondary-green 100%);
+    
+    h1 {
+      font-family: $font-family-heading;
+      text-shadow: 0 2px 4px rgba($black, 0.1);
+    }
+  }
+
+  .additional-content {
+    .content-section {
+      padding: 2rem 0;
+      
+      h2 {
+        color: $dark-green;
+        font-family: $font-family-heading;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 60px;
+          height: 3px;
+          background: $agri-gradient;
+          border-radius: 2px;
+        }
+      }
+
+      p.lead {
+        line-height: 1.7;
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, $light-green 0%, rgba($white, 0.8) 100%);
+
+    h2 {
+      color: $dark-green;
+      font-family: $font-family-heading;
+    }
+
+    .btn {
+      border-radius: $border-radius-lg;
+      transition: $transition-base;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-md) {
+  .about-page {
+    .page-header {
+      padding: 3rem 0 !important;
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    .additional-content {
+      .content-section {
+        padding: 1.5rem 0;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .about-page {
+    .page-header {
+      padding: 2rem 0 !important;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .lead {
+        font-size: 1rem;
+      }
+    }
+
+    .cta-section {
+      .btn {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .about-page {
+    .btn {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}

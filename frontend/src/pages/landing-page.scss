@@ -1,0 +1,35 @@
+@import '../styles/themes/variables';
+
+.landing-page {
+  section {
+    position: relative;
+  }
+
+  // Smooth scrolling for anchor links
+  html {
+    scroll-behavior: smooth;
+  }
+
+  // Section spacing
+  section:not(:first-child) {
+    border-top: 1px solid rgba($primary-green, 0.1);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-sm) {
+  .landing-page {
+    section {
+      padding: 2rem 0;
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .landing-page {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
