@@ -1,0 +1,27 @@
+// Agri-tech Color Palette
+$primary-green: #2d5016;
+$secondary-green: #4a7c3a;
+$accent-green: #6b8e23;
+$light-green: #e8f5e8;
+$dark-green: #1a3310;
+
+$soil-brown: #8b4513;
+$sun-yellow: #ffd700;
+$harvest-orange: #ff8c00;
+
+// Neutral Colors
+$white: #ffffff;
+$light-gray: #f8f9fa;
+$medium-gray: #6c757d;
+$dark-gray: #343a40;
+$black: #000000;
+
+// Status Colors
+$success: #28a745;
+$warning: #ffc107;
+$error: #dc3545;
+$info: #17a2b8;
+
+// Gradients
+$agri-gradient: linear-gradient(135deg, $primary-green 0%, $secondary-green 100%);
+$leaf-gradient: linear-gradient(135deg, $accent-green 0%, $light-green 100%);
