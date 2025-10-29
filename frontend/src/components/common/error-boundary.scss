@@ -1,0 +1,135 @@
+@import '../../styles/themes/variables';
+
+.error-boundary {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  background-color: $light-green;
+
+  .error-card {
+    border-radius: $border-radius-xl;
+    overflow: hidden;
+    background: $white;
+
+    .error-icon {
+      font-size: 4rem;
+      opacity: 0.8;
+    }
+
+    .error-title {
+      font-size: 1.75rem;
+      font-family: $font-family-heading;
+    }
+
+    .error-message {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .error-actions {
+      .btn {
+        border-radius: $border-radius-lg;
+        font-weight: $font-weight-medium;
+        transition: $transition-base;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: $box-shadow;
+        }
+      }
+    }
+
+    .error-details {
+      summary {
+        color: $medium-gray;
+        font-weight: $font-weight-medium;
+        cursor: pointer;
+        transition: $transition-fast;
+
+        &:hover {
+          color: $dark-gray;
+        }
+      }
+
+      pre {
+        background-color: rgba($error, 0.05);
+        border: 1px solid rgba($error, 0.1);
+        border-radius: $border-radius;
+        padding: 1rem;
+        max-height: 200px;
+        overflow-y: auto;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      }
+    }
+
+    .error-support {
+      a {
+        color: $medium-gray;
+        transition: $transition-fast;
+
+        &:hover {
+          color: $primary-green;
+        }
+      }
+    }
+  }
+}
+
+// Animation for error icon
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.error-icon {
+  animation: bounce 2s infinite;
+}
+
+// Responsive styles
+@media (max-width: $breakpoint-md) {
+  .error-boundary {
+    .error-card .card-body {
+      padding: 2rem !important;
+    }
+
+    .error-title {
+      font-size: 1.5rem;
+    }
+
+    .error-message {
+      font-size: 1rem;
+    }
+
+    .error-actions {
+      flex-direction: column;
+      align-items: center;
+
+      .btn {
+        width: 200px;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .error-boundary {
+    .error-card .card-body {
+      padding: 1.5rem !important;
+    }
+
+    .error-support {
+      .d-flex {
+        flex-direction: column;
+        gap: 0.5rem !important;
+      }
+    }
+  }
+}
