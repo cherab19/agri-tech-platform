@@ -1,0 +1,126 @@
+@import '../../../styles/themes/variables';
+
+.agri-footer {
+  margin-top: auto;
+
+  .footer-brand {
+    img {
+      transition: $transition-base;
+      
+      &:hover {
+        transform: scale(1.1) rotate(5deg);
+      }
+    }
+  }
+
+  .footer-link {
+    transition: $transition-fast;
+    opacity: 0.8;
+    
+    &:hover {
+      opacity: 1;
+      color: $light-green !important;
+      padding-left: 5px;
+    }
+  }
+
+  .footer-content {
+    opacity: 0.8;
+    
+    p {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      
+      i {
+        width: 16px;
+        color: $light-green;
+      }
+    }
+  }
+
+  .social-links {
+    .social-link {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba($white, 0.1);
+      color: $white;
+      text-decoration: none;
+      transition: $transition-base;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--social-color);
+        opacity: 0;
+        transition: $transition-base;
+        border-radius: 50%;
+      }
+
+      i {
+        position: relative;
+        z-index: 1;
+        transition: $transition-base;
+      }
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+        &::before {
+          opacity: 1;
+        }
+
+        i {
+          color: $white;
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    background-color: rgba($black, 0.2);
+  }
+
+  // Mobile styles
+  @media (max-width: $breakpoint-md) {
+    .container {
+      text-align: center;
+    }
+
+    .footer-brand {
+      img {
+        margin: 0 auto 1rem;
+        display: block;
+      }
+    }
+
+    .social-links {
+      justify-content: center;
+      
+      .d-flex {
+        justify-content: center;
+      }
+    }
+  }
+
+  // Small mobile devices
+  @media (max-width: $breakpoint-sm) {
+    .py-5 {
+      padding-top: 2rem !important;
+      padding-bottom: 2rem !important;
+    }
+
+    .footer-link {
+      font-size: 0.9rem;
+    }
+  }
+}
