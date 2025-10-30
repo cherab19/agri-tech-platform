@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage } from '../../../contexts/LanguageContext'
+import { useLanguage } from '../../contexts/LanguageContext'
 
 const AnalyticsPage = () => {
   const { t } = useLanguage()

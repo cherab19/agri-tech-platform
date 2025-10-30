@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useLanguage } from '../../../contexts/LanguageContext'
-import { notify } from '../../common/Notification'
+import { useLanguage } from '../../contexts/LanguageContext'
+import { notify } from '../common/Notification'
 import './contact-section.scss'
 
 const ContactSection = () => {

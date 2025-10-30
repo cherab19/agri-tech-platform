@@ -1,8 +1,8 @@
 import React from 'react'
-import { useAuth } from '../../../../contexts/AuthContext'
-import { useLanguage } from '../../../../contexts/LanguageContext'
+import { useAuth } from '../../../contexts/AuthContext'
+import { useLanguage } from '../../../contexts/LanguageContext'
 import Navigation from './Navigation'
-import LanguageSwitcher from './LanguageSwitcher'
+import LanguageSwitcher from '../Header/LanguageSwitcher'
 import './header.scss'
 
 const Header = () => {

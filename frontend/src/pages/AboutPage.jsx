@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage } from '../../contexts/LanguageContext'
+import { useLanguage } from '../contexts/LanguageContext'
 import AboutSection from '../components/landing/AboutSection'
 import './about-page.scss'
 

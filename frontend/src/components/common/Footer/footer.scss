@@ -1,0 +1,26 @@
+/* Minimal footer styles to satisfy imports and provide base layout */
+.agri-footer {
+  .footer-brand img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .footer-link {
+    color: rgba(255,255,255,0.9);
+  }
+
+  .footer-bottom {
+    background: rgba(0,0,0,0.15);
+  }
+}
+
+.social-links .social-link {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 50%;
+  background: var(--social-color, #333);
+}

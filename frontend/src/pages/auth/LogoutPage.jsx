@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { useAuth } from '../../../contexts/AuthContext'
-import { useLanguage } from '../../../contexts/LanguageContext'
+import { useAuth } from '../../contexts/AuthContext'
+import { useLanguage } from '../../contexts/LanguageContext'
 import { useNavigate } from 'react-router-dom'
 import { FarmerLoading } from '../../components/common/LoadingSpinner'
 import './auth-pages.scss'

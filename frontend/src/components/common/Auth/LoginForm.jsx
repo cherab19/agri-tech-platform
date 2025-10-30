@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useAuth } from '../../../../contexts/AuthContext'
-import { useLanguage } from '../../../../contexts/LanguageContext'
+import { useAuth } from '../../../contexts/AuthContext'
+import { useLanguage } from '../../../contexts/LanguageContext'
 
 const LoginForm = () => {
   const { login, loading } = useAuth()

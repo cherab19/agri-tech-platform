@@ -1,0 +1,20 @@
+/* Minimal header styles to satisfy imports and provide base layout */
+.agri-header {
+  .navbar-brand img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .user-avatar {
+    font-weight: 700;
+  }
+}
+
+.navbar-toggler-icon {
+  /* fallback icon color */
+  background-color: rgba(0,0,0,0.1);
+}
+
+.cooperative-badge {
+  font-size: 0.9rem;
+}

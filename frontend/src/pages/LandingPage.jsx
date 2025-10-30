@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage } from '../../contexts/LanguageContext'
+import { useLanguage } from '../contexts/LanguageContext'
 import HeroSection from '../components/landing/HeroSection'
 import AboutSection from '../components/landing/AboutSection'
 import HowItWorks from '../components/landing/HowItWorks'

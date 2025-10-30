@@ -1,6 +1,15 @@
 // Import color palette
 @import './agri-colors';
 
+// Backwards-compatible aliases
+// Some styles reference $primary/$secondary etc. Provide aliases to main agri palette
+$primary: $primary-green !default;
+$secondary: $secondary-green !default;
+$accent: $accent-green !default;
+$light: $light-green !default;
+$dark: $dark-green !default;
+
+
 // Typography
 $font-family-base: 'Inter', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 $font-family-heading: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;

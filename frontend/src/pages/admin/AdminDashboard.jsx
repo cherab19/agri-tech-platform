@@ -1,6 +1,6 @@
 import React from 'react'
-import { useAuth } from '../../../contexts/AuthContext'
-import { useLanguage } from '../../../contexts/LanguageContext'
+import { useAuth } from '../../contexts/AuthContext'
+import { useLanguage } from '../../contexts/LanguageContext'
 import { AdminLoading } from '../../components/common/LoadingSpinner'
 
 const AdminDashboard = () => {

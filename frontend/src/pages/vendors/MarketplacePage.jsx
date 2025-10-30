@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useLanguage } from '../../../contexts/LanguageContext'
+import { useLanguage } from '../../contexts/LanguageContext'
 import { VendorLoading } from '../../components/common/LoadingSpinner'
 import { notify } from '../../components/common/Notification'
 import './marketplace-page.scss'

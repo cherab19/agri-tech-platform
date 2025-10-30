@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useLanguage } from '../../../contexts/LanguageContext'
-import { useCart } from '../../../contexts/CartContext'
+import { useLanguage } from '../../contexts/LanguageContext'
+import { useCart } from '../../contexts/CartContext'
 import { VendorLoading } from '../../components/common/LoadingSpinner'
 import { notify } from '../../components/common/Notification'
 import './cart-page.scss'

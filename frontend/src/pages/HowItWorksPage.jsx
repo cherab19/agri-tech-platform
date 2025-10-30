@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLanguage } from '../../contexts/LanguageContext'
+import { useLanguage } from '../contexts/LanguageContext'
 import HowItWorks from '../components/landing/HowItWorks'
 import './how-it-works-page.scss'
 
