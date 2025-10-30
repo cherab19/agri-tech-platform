@@ -30,22 +30,22 @@ const AboutSection = () => {
 
   const teamMembers = [
     {
-      name: 'Alemayehu Teklu',
-      role: t('about.founder', 'Founder & CEO'),
-      image: '/images/team/alemayehu.jpg',
-      description: t('about.founder_desc', 'Agricultural economist with 10+ years experience')
+      name: 'Chernet Degefe',
+      role: t('about.founder', 'member of a team from software engineering'),
+      image: '/images/team/cheru.jpg',
+      description: t('about.founder_desc', 'Software engineering student passionate about agri-tech solutions')
     },
     {
-      name: 'Meron Abebe',
-      role: t('about.cto', 'Chief Technology Officer'),
-      image: '/images/team/meron.jpg',
-      description: t('about.cto_desc', 'Software engineer passionate about agri-tech solutions')
+      name: 'Abdi Dereje ',
+      role: t('about.cto', 'member of a team from software engineering'),
+      image: '/images/team/abu.jpg',
+      description: t('about.cto_desc', 'Software engineer curious about tech solutions')
     },
     {
-      name: 'Tewodros Getachew',
-      role: t('about.operations', 'Operations Director'),
-      image: '/images/team/tewodros.jpg',
-      description: t('about.operations_desc', 'Logistics expert with deep knowledge of Ethiopian agriculture')
+      name: 'Muaz Amin ',
+      role: t('about.operations', 'member of a team from software engineering'),
+      image: '/images/team/muaz.jpg',
+      description: t('about.operations_desc', 'software engineering student with deep passion in tech ecosystem ')
     }
   ]
 
@@ -55,9 +55,6 @@ const AboutSection = () => {
         {/* Section Header */}
         <div className="row justify-content-center text-center mb-5">
           <div className="col-lg-8">
-            <h2 className="section-title fw-bold mb-3">
-              {t('about.about_agar', 'About Agar Agritech')}
-            </h2>
             <p className="section-subtitle lead text-muted">
               {t('about.about_description', 'We are revolutionizing Ethiopian agriculture through technology, connecting farmers directly with vendors for a more efficient and fair supply chain.')}
             </p>
@@ -67,13 +64,19 @@ const AboutSection = () => {
         {/* Mission and Vision */}
         <div className="row align-items-center mb-5">
           <div className="col-lg-6 mb-4 mb-lg-0">
-            <div className="about-image position-relative">
-              <img 
-                src="/images/about-us.jpg" 
-                alt={t('about.team_photo', 'Agar Agritech Team')}
-                className="img-fluid rounded-3 shadow"
-              />
-              <div className="image-overlay"></div>
+            {/* Decorative illustration to avoid empty left column */}
+            <div className="about-image mb-3 mb-lg-0 d-flex align-items-center justify-content-center">
+              <div className="illustration">
+                {/* Replace with a real brand/photo image placed at public/images/about/your-image.png */}
+                <img
+                  src="/images/about-us.jpg"
+                  alt="About Agar Agritech"
+                  className="img-fluid"
+                  loading="lazy"
+                  width={520}
+                  height={320}
+                />
+              </div>
             </div>
           </div>
           <div className="col-lg-6">
@@ -91,27 +94,6 @@ const AboutSection = () => {
               <p className="mb-4">
                 {t('about.vision_text', 'To become Ethiopia\'s leading agri-tech platform, transforming the agricultural supply chain and contributing to food security and economic growth.')}
               </p>
-
-              <div className="stats-grid row text-center mt-4">
-                <div className="col-4">
-                  <div className="stat-value h3 fw-bold text-primary">2023</div>
-                  <div className="stat-label small text-muted">
-                    {t('about.founded', 'Founded')}
-                  </div>
-                </div>
-                <div className="col-4">
-                  <div className="stat-value h3 fw-bold text-primary">10+</div>
-                  <div className="stat-label small text-muted">
-                    {t('about.regions', 'Regions')}
-                  </div>
-                </div>
-                <div className="col-4">
-                  <div className="stat-value h3 fw-bold text-primary">50K+</div>
-                  <div className="stat-label small text-muted">
-                    {t('about.transactions', 'Transactions')}
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

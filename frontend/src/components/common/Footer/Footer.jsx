@@ -45,13 +45,6 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="col-lg-4 col-md-6 mb-4">
             <div className="footer-brand">
-              <img 
-                src="/icons/farmer-icon.svg" 
-                alt={t('app.name')}
-                width="50"
-                height="50"
-                className="mb-3"
-              />
               <h5 className="fw-bold text-white mb-3">{t('app.name')}</h5>
               <p className="text-light mb-4">
                 {t('footer.tagline', 'Connecting farmers and vendors directly for fresh produce delivery with fair prices and efficient logistics.')}
@@ -99,7 +92,7 @@ const Footer = () => {
             </div>
             <div className="col-md-6 text-center text-md-end">
               <p className="mb-0 text-light">
-                {t('footer.built_with_love', 'Built with ❤️ for Ethiopian agriculture')}
+                {t('footer.built_with_love', 'Built with our team for Ethiopian agriculture')}
               </p>
             </div>
           </div>

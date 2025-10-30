@@ -16,8 +16,7 @@ const Header = () => {
           {/* Brand Logo */}
           <a className="navbar-brand d-flex align-items-center" href="/">
             <img 
-              src="/icons/farmer-icon.svg" 
-              alt={t('app.name')}
+              src="/icons/farmer-icon.jpg" 
               width="40"
               height="40"
               className="me-2"
