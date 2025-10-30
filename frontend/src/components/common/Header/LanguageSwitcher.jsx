@@ -27,7 +27,6 @@ const LanguageSwitcher = () => {
               }`}
               onClick={() => changeLanguage(lang.code)}
             >
-              <span className="me-2">{getLanguageFlag(lang.code)}</span>
               <div className="d-flex flex-column">
                 <span>{lang.nativeName}</span>
                 <small className="text-muted">{lang.name}</small>
@@ -43,15 +42,6 @@ const LanguageSwitcher = () => {
   )
 }
 
-// Helper function to get flag emoji for each language
-const getLanguageFlag = (languageCode) => {
-  const flags = {
-    en: '🇺🇸', // English - US flag
-    am: '🇪🇹', // Amharic - Ethiopia flag
-    om: '🇪🇹', // Afaan Oromo - Ethiopia flag
-    so: '🇸🇴', // Somali - Somalia flag
-  }
-  return flags[languageCode] || '🌐'
-}
+// Flags removed to present language names only
 
 export default LanguageSwitcher

@@ -90,9 +90,6 @@ const HowItWorks = () => {
         {/* Section Header */}
         <div className="row justify-content-center text-center mb-5">
           <div className="col-lg-8">
-            <h2 className="section-title fw-bold mb-3">
-              {t('how_it_works.how_it_works', 'How Agar Agritech Works')}
-            </h2>
             <p className="section-subtitle lead text-muted">
               {t('how_it_works.process_description', 'A simple, efficient process that connects farmers directly with vendors through our digital platform.')}
             </p>

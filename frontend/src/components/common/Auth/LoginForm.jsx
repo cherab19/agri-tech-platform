@@ -66,35 +66,6 @@ const LoginForm = () => {
           </div>
         )}
 
-        {/* User Type Selection */}
-        <div className="mb-4">
-          <label className="form-label fw-semibold">
-            {t('auth.i_am_a', 'I am a')}
-          </label>
-          <div className="row g-2">
-            {userTypes.map((type) => (
-              <div key={type.value} className="col-6">
-                <input
-                  type="radio"
-                  className="btn-check"
-                  name="userType"
-                  id={`userType-${type.value}`}
-                  value={type.value}
-                  checked={formData.userType === type.value}
-                  onChange={handleChange}
-                />
-                <label 
-                  className="btn btn-outline-primary w-100 d-flex flex-column align-items-center py-3"
-                  htmlFor={`userType-${type.value}`}
-                >
-                  <i className={`${type.icon} mb-2 fs-5`}></i>
-                  <span className="small">{type.label}</span>
-                </label>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Email Field */}
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
