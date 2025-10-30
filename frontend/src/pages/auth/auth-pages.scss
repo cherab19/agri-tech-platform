@@ -1,0 +1,240 @@
+@import '../../styles/themes/variables';
+
+.login-page {
+  .min-vh-100 {
+    min-height: 100vh;
+  }
+
+  .benefits-side {
+    background: linear-gradient(135deg, $primary-green 0%, $secondary-green 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.3;
+    }
+
+    .benefits-container {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+
+      .benefits-content {
+        max-width: 500px;
+        width: 100%;
+      }
+    }
+
+    .role-selection {
+      .role-btn {
+        background: rgba($white, 0.1);
+        border: 1px solid rgba($white, 0.2);
+        color: $white;
+        transition: $transition-base;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+
+        &:hover {
+          background: rgba($white, 0.2);
+          transform: translateY(-2px);
+        }
+
+        &.active {
+          background: rgba($white, 0.25);
+          border-color: $white;
+          box-shadow: 0 4px 15px rgba($black, 0.2);
+        }
+
+        .role-icon {
+          font-size: 1.25rem;
+          opacity: 0.9;
+        }
+      }
+    }
+
+    .benefits-list {
+      .benefit-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 0.5rem 0;
+        line-height: 1.4;
+
+        i {
+          margin-top: 0.125rem;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+  .form-side {
+    background: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .form-container {
+      max-width: 400px;
+      width: 100%;
+      padding: 2rem;
+
+      .form-content {
+        .login-form-wrapper {
+          background: $white;
+          padding: 2rem;
+          border-radius: $border-radius-lg;
+          box-shadow: $box-shadow-lg;
+          border: 1px solid $light-gray;
+        }
+      }
+
+      .additional-links {
+        a {
+          transition: $transition-fast;
+
+          &:hover {
+            color: $primary-green !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.logout-page {
+  background: linear-gradient(135deg, $light-green 0%, rgba($white, 0.8) 100%);
+
+  .logout-card {
+    background: $white;
+    padding: 3rem 2rem;
+    border-radius: $border-radius-xl;
+    box-shadow: $box-shadow-lg;
+    border: 1px solid rgba($primary-green, 0.1);
+
+    .logout-icon {
+      font-size: 4rem;
+      opacity: 0.8;
+    }
+
+    h2 {
+      color: $dark-green;
+      font-family: $font-family-heading;
+    }
+
+    .loading-spinner {
+      .loading-spinner {
+        padding: 0;
+      }
+    }
+
+    .logout-progress {
+      .progress {
+        background-color: $light-gray;
+        border-radius: 2px;
+
+        .progress-bar {
+          background: $agri-gradient;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-lg) {
+  .login-page {
+    .benefits-side {
+      display: none;
+    }
+
+    .form-side {
+      .form-container {
+        max-width: 100%;
+        padding: 1rem;
+
+        .form-content {
+          .login-form-wrapper {
+            padding: 1.5rem;
+            box-shadow: $box-shadow;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .login-page {
+    .form-side {
+      .form-container {
+        padding: 0.5rem;
+
+        .form-content {
+          .login-form-wrapper {
+            padding: 1.25rem;
+            box-shadow: $box-shadow-sm;
+          }
+        }
+      }
+    }
+  }
+
+  .logout-page {
+    .logout-card {
+      padding: 2rem 1.5rem;
+      margin: 1rem;
+
+      .logout-icon {
+        font-size: 3rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .login-page {
+    .role-btn {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+
+  .logout-page {
+    .progress-bar-animated {
+      animation: none;
+    }
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .login-page {
+    .benefits-side {
+      background: $primary-green;
+    }
+
+    .role-btn {
+      border: 2px solid $white;
+    }
+  }
+}
