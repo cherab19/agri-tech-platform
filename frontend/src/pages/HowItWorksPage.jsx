@@ -90,36 +90,6 @@ const HowItWorksPage = () => {
           </div>
         </div>
       </section>
-
-      {/* Get Started Section */}
-      <section className="get-started-section py-5 text-center">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-8">
-              <h2 className="fw-bold mb-3">
-                {t('how_it_works.ready_to_get_started', 'Ready to Get Started?')}
-              </h2>
-              <p className="lead text-muted mb-4">
-                {t('how_it_works.get_started_description', 'Join thousands of farmers, vendors, and drivers who are already using Agar Agritech to transform their agricultural business.')}
-              </p>
-              <div className="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="/login?role=farmer" className="btn btn-success btn-lg px-4">
-                  <i className="fas fa-tractor me-2"></i>
-                  {t('how_it_works.im_a_farmer', 'I\'m a Farmer')}
-                </a>
-                <a href="/login?role=vendor" className="btn btn-primary btn-lg px-4">
-                  <i className="fas fa-store me-2"></i>
-                  {t('how_it_works.im_a_vendor', 'I\'m a Vendor')}
-                </a>
-                <a href="/login?role=driver" className="btn btn-warning btn-lg px-4">
-                  <i className="fas fa-truck me-2"></i>
-                  {t('how_it_works.im_a_driver', 'I\'m a Driver')}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

@@ -62,6 +62,16 @@
         height: 70px;
         font-size: 1.75rem;
         transition: $transition-base;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          width: 28px;
+          height: 28px;
+          display: block;
+          fill: currentColor; // take text color
+        }
       }
 
       .service-title {

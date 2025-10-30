@@ -93,10 +93,6 @@ const AboutPage = () => {
                 {t('about.cta_description', 'Be part of the movement transforming Ethiopian agriculture. Whether you\'re a farmer, vendor, or driver, we have a place for you.')}
               </p>
               <div className="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="/login" className="btn btn-primary btn-lg px-4">
-                  <i className="fas fa-user-plus me-2"></i>
-                  {t('about.sign_up', 'Sign Up Now')}
-                </a>
                 <a href="/contact" className="btn btn-outline-primary btn-lg px-4">
                   <i className="fas fa-envelope me-2"></i>
                   {t('about.contact_us', 'Contact Us')}
