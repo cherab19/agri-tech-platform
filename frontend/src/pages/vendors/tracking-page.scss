@@ -1,0 +1,255 @@
+@import '../../styles/themes/variables';
+
+.tracking-page {
+  background-color: $light-gray;
+
+  .page-header {
+    border-bottom: 1px solid $light-gray;
+
+    .tracking-badge {
+      font-size: 0.875rem;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  .delivery-summary {
+    .info-item {
+      label {
+        font-size: 0.875rem;
+        margin-bottom: 0.25rem;
+        display: block;
+      }
+
+      .fw-bold {
+        color: $dark-green;
+      }
+    }
+
+    .delivery-status {
+      .status-icon {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  .tracking-content {
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+
+      .timeline-item {
+        position: relative;
+        padding-bottom: 2rem;
+
+        &:last-child {
+          padding-bottom: 0;
+        }
+
+        .timeline-marker {
+          position: absolute;
+          left: -2rem;
+          top: 0;
+
+          .marker {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: $light-gray;
+            border: 3px solid $white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            transition: $transition-base;
+
+            i {
+              color: $medium-gray;
+              font-size: 1rem;
+            }
+
+            &.completed {
+              background: $success;
+              border-color: $success;
+
+              i {
+                color: $white;
+              }
+            }
+
+            &.current {
+              background: $primary;
+              border-color: $primary;
+              box-shadow: 0 0 0 4px rgba($primary, 0.2);
+
+              i {
+                color: $white;
+              }
+            }
+          }
+
+          .timeline-connector {
+            position: absolute;
+            top: 50px;
+            left: 24px;
+            width: 2px;
+            height: calc(100% + 2rem);
+            background: $light-gray;
+            z-index: 1;
+          }
+
+          &:last-child .timeline-connector {
+            display: none;
+          }
+        }
+
+        .timeline-content {
+          background: $white;
+          padding: 1rem;
+          border-radius: $border-radius;
+          border: 1px solid $light-gray;
+          transition: $transition-base;
+
+          &:hover {
+            border-color: $primary;
+            box-shadow: $box-shadow-sm;
+          }
+
+          .timeline-header {
+            h6 {
+              font-size: 0.9rem;
+            }
+          }
+
+          .timeline-description {
+            line-height: 1.4;
+          }
+        }
+      }
+    }
+
+    .driver-info {
+      .driver-avatar {
+        font-size: 1.5rem;
+      }
+
+      .contact-buttons {
+        .btn {
+          border-radius: $border-radius;
+          transition: $transition-base;
+
+          &:hover {
+            transform: translateY(-1px);
+            box-shadow: $box-shadow-sm;
+          }
+        }
+      }
+    }
+  }
+}
+
+.tracking-page-loading {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $light-gray;
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-lg) {
+  .tracking-page {
+    .delivery-summary {
+      .col-lg-8 {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .tracking-page {
+    .page-header {
+      text-align: center;
+
+      .col-auto {
+        margin-top: 1rem;
+      }
+    }
+
+    .timeline {
+      padding-left: 1.5rem !important;
+
+      .timeline-marker {
+        left: -1.5rem !important;
+
+        .marker {
+          width: 40px !important;
+          height: 40px !important;
+
+          i {
+            font-size: 0.875rem !important;
+          }
+        }
+
+        .timeline-connector {
+          left: 19px !important;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .tracking-page {
+    .page-header {
+      padding: 1.5rem 0 !important;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .timeline-content {
+      padding: 0.75rem !important;
+
+      .timeline-header {
+        flex-direction: column;
+        align-items: flex-start !important;
+
+        .timeline-time {
+          text-align: left !important;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+
+    .driver-info {
+      .contact-buttons {
+        .btn {
+          font-size: 0.8rem;
+          padding: 0.5rem 0.75rem;
+        }
+      }
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .tracking-page {
+    .timeline-marker .marker,
+    .timeline-content,
+    .contact-buttons .btn {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
