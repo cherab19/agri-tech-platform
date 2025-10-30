@@ -14,11 +14,15 @@ export const LanguageProvider = ({ children }) => {
   const [currentLanguage, setCurrentLanguage] = useState('am') // Amharic as default
   const [translations, setTranslations] = useState({})
 
+  // Simple in-memory cache to avoid refetching locale files repeatedly
+  // Keys: language code -> parsed JSON object
+  const translationsCache = React.useRef({})
+
   const languages = {
     en: { code: 'en', name: 'English', nativeName: 'English' },
     am: { code: 'am', name: 'Amharic', nativeName: 'አማርኛ' },
     om: { code: 'om', name: 'Afaan Oromo', nativeName: 'Afaan Oromoo' },
-    so: { code: 'so', name: 'Somali', nativeName: 'Soomaali' }
+    
   }
 
   useEffect(() => {
@@ -26,61 +30,37 @@ export const LanguageProvider = ({ children }) => {
     const savedLanguage = localStorage.getItem('agar_language') || 'am'
     setCurrentLanguage(savedLanguage)
     loadTranslations(savedLanguage)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const loadTranslations = async (languageCode) => {
+    if (!languageCode) return
+
+    // Return cached copy if available
+    if (translationsCache.current[languageCode]) {
+      setTranslations(translationsCache.current[languageCode])
+      return
+    }
+
+    const localePath = `/locales/${languageCode}/common.json`
     try {
-      // In a real app, this would fetch from an API or load from JSON files
-      const mockTranslations = {
-        en: {
-          'app.name': 'Agar Agritech',
-          'nav.home': 'Home',
-          'nav.about': 'About Us',
-          'nav.how_it_works': 'How It Works',
-          'nav.services': 'Services',
-          'nav.contact': 'Contact',
-          'nav.login': 'Login',
-          'welcome.title': 'Connecting Farmers and Vendors Directly',
-          'welcome.subtitle': 'Fresh produce, direct delivery, fair prices',
-          // ... more translations
-        },
-        am: {
-          'app.name': 'አጋር አግሪቴክ',
-          'nav.home': 'መግቢያ',
-          'nav.about': 'ስለ እኛ',
-          'nav.how_it_works': 'እንዴት እንደሚሰራ',
-          'nav.services': 'አገልግሎቶች',
-          'nav.contact': 'አግኙን',
-          'nav.login': 'ግባ',
-          'welcome.title': 'ገበሬዎችን እና ሻጮችን በቀጥታ በማገናኘት ላይ',
-          'welcome.subtitle': 'ትኩስ ምርት, ቀጥታ አቅርቦት, ፍትሃዊ ዋጋ',
-          // ... more translations
-        },
-        om: {
-          'app.name': 'Agar Agritech',
-          'nav.home': 'Mana',
-          'nav.about': 'Waa\'ee Keenya',
-          'nav.how_it_works': 'Akkaataa Hojii',
-          'nav.services': 'Tajaajila',
-          'nav.contact': 'Nu Qunnamuu',
-          'nav.login': 'Seeni',
-          // ... more translations
-        },
-        so: {
-          'app.name': 'Agar Agritech',
-          'nav.home': 'Bogga',
-          'nav.about': 'Ku Saabsan',
-          'nav.how_it_works': 'Sida ay U Shaqeyso',
-          'nav.services': 'Adeegyada',
-          'nav.contact': 'Nala Soo Xiriir',
-          'nav.login': 'Gali',
-          // ... more translations
+      const res = await fetch(localePath)
+      if (!res.ok) {
+        // fallback to English if requested locale not found
+        if (languageCode !== 'en') {
+          console.warn(`${localePath} not found, falling back to /locales/en/common.json`)
+          return loadTranslations('en')
         }
+        throw new Error(`Failed to load translations: ${res.status}`)
       }
 
-      setTranslations(mockTranslations[languageCode] || mockTranslations.en)
+      const data = await res.json()
+      translationsCache.current[languageCode] = data
+      setTranslations(data)
     } catch (error) {
       console.error('Error loading translations:', error)
+      // if all else fails, ensure translations is an empty object to avoid crashes
+      setTranslations({})
     }
   }
 
@@ -92,14 +72,26 @@ export const LanguageProvider = ({ children }) => {
     }
   }
 
+  // Resolve dotted keys from nested JSON, e.g. 'app.name' -> translations.app.name
+  const resolveKey = (obj, dottedKey) => {
+    if (!obj || !dottedKey) return undefined
+    return dottedKey.split('.').reduce((acc, part) => (acc && acc[part] !== undefined) ? acc[part] : undefined, obj)
+  }
+
   const t = (key, params = {}) => {
-    let translation = translations[key] || key
-    
-    // Replace parameters in translation string
-    Object.keys(params).forEach(param => {
-      translation = translation.replace(`{{${param}}}`, params[param])
-    })
-    
+    // Try to resolve nested key first (object-based locale files)
+    let translation = resolveKey(translations, key)
+
+    // If not found, fallback to raw key (avoid returning undefined)
+    if (translation === undefined) translation = key
+
+    // Replace parameters in translation string if it's a string
+    if (typeof translation === 'string') {
+      Object.keys(params).forEach(param => {
+        translation = translation.replace(new RegExp(`{{\\s*${param}\\s*}}`, 'g'), params[param])
+      })
+    }
+
     return translation
   }
 

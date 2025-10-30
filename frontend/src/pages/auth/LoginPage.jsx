@@ -77,116 +77,9 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <div className="container-fluid">
-        <div className="row min-vh-100">
-          {/* Left Side - Benefits Section */}
-          <div className="col-lg-6 d-none d-lg-block benefits-side">
-            <div className="benefits-container">
-              <div className="benefits-content">
-                {/* Logo and Title */}
-                <div className="text-center mb-5">
-                  <img 
-                    src="/icons/farmer-icon.svg" 
-                    alt="Agar Agritech"
-                    width="80"
-                    height="80"
-                    className="mb-3"
-                  />
-                  <h2 className="text-white fw-bold">
-                    {t('login.welcome_back', 'Welcome Back')}
-                  </h2>
-                  <p className="text-white opacity-75">
-                    {t('login.join_agricultural_revolution', 'Join the agricultural revolution in Ethiopia')}
-                  </p>
-                </div>
-
-                {/* Role Selection */}
-                <div className="role-selection mb-4">
-                  <label className="form-label text-white fw-semibold mb-3">
-                    {t('login.i_am_a', 'I am a:')}
-                  </label>
-                  <div className="row g-2">
-                    {['farmer', 'vendor', 'driver', 'admin'].map((role) => (
-                      <div key={role} className="col-6">
-                        <button
-                          className={`role-btn w-100 text-start p-3 rounded ${
-                            selectedRole === role ? 'active' : ''
-                          }`}
-                          onClick={() => setSelectedRole(role)}
-                        >
-                          <div className="d-flex align-items-center">
-                            <div className="role-icon me-2">
-                              <i className={`fas fa-${
-                                role === 'farmer' ? 'tractor' :
-                                role === 'vendor' ? 'store' :
-                                role === 'driver' ? 'truck' : 'cogs'
-                              }`}></i>
-                            </div>
-                            <div>
-                              <div className="fw-semibold">
-                                {t(`login.${role}`, role.charAt(0).toUpperCase() + role.slice(1))}
-                              </div>
-                              <small className="opacity-75">
-                                {t(`login.${role}_short`, role)}
-                              </small>
-                            </div>
-                          </div>
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Role Description */}
-                <div className="role-description mb-4">
-                  <p className="text-white opacity-85">
-                    {roleDescriptions[selectedRole]}
-                  </p>
-                </div>
-
-                {/* Benefits List */}
-                <div className="benefits-list">
-                  <h6 className="text-white fw-semibold mb-3">
-                    {t('login.benefits', 'Benefits:')}
-                  </h6>
-                  <ul className="list-unstyled">
-                    {roleBenefits[selectedRole].map((benefit, index) => (
-                      <li key={index} className="benefit-item text-white opacity-85 mb-2">
-                        <i className="fas fa-check-circle text-success me-2"></i>
-                        {benefit}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Stats */}
-                <div className="stats mt-5 pt-4 border-top border-white border-opacity-25">
-                  <div className="row text-center">
-                    <div className="col-4">
-                      <div className="stat-number text-white fw-bold h5">500+</div>
-                      <div className="stat-label text-white opacity-75 small">
-                        {t('login.farmers', 'Farmers')}
-                      </div>
-                    </div>
-                    <div className="col-4">
-                      <div className="stat-number text-white fw-bold h5">1.2K+</div>
-                      <div className="stat-label text-white opacity-75 small">
-                        {t('login.vendors', 'Vendors')}
-                      </div>
-                    </div>
-                    <div className="col-4">
-                      <div className="stat-number text-white fw-bold h5">15K+</div>
-                      <div className="stat-label text-white opacity-75 small">
-                        {t('login.deliveries', 'Deliveries')}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side - Login Form */}
-          <div className="col-lg-6 form-side">
+        <div className="row min-vh-100 justify-content-center">
+          {/* Centered Login Form */}
+          <div className="col-lg-8 col-xl-6 form-side">
             <div className="form-container">
               <div className="form-content">
                 {/* Mobile Logo */}
@@ -206,22 +99,6 @@ const LoginPage = () => {
                 {/* Login Form */}
                 <div className="login-form-wrapper">
                   <LoginForm />
-                </div>
-
-                {/* Additional Links */}
-                <div className="additional-links text-center mt-4">
-                  <p className="text-muted mb-2">
-                    {t('login.no_account', "Don't have an account?")}{' '}
-                    <a href="/register" className="text-primary text-decoration-none fw-semibold">
-                      {t('login.sign_up', 'Sign up')}
-                    </a>
-                  </p>
-                  <p className="small text-muted">
-                    {t('login.need_help', 'Need help?')}{' '}
-                    <a href="/contact" className="text-muted text-decoration-none">
-                      {t('login.contact_support', 'Contact support')}
-                    </a>
-                  </p>
                 </div>
               </div>
             </div>

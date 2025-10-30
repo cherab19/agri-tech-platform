@@ -32,6 +32,15 @@
         font-size: 1.25rem;
         flex-shrink: 0;
         transition: $transition-base;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+          width: 24px;
+          height: 24px;
+          display: block;
+        }
       }
 
       .method-content {

@@ -29,10 +29,10 @@ const ContactPage = () => {
       hours: t('contact.standard_hours', 'Mon - Fri: 8:00 AM - 6:00 PM')
     },
     {
-      region: t('contact.snnpr', 'SNNPR Region'),
-      address: t('contact.snnpr_address', 'Hawassa, Main Highway'),
+      region: t('contact.snnpr', 'Central-ethiopia Region'),
+      address: t('contact.snnpr_address', 'Wolkite'),
       phone: '+251 944 567 890',
-      email: 'snnpr@agaragritech.com',
+      email: 'CER@agaragritech.com',
       hours: t('contact.standard_hours', 'Mon - Fri: 8:00 AM - 6:00 PM')
     }
   ]
