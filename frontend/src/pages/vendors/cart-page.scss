@@ -1,0 +1,314 @@
+@import '../../styles/themes/variables';
+
+.cart-page {
+  background-color: $light-gray;
+
+  .page-header {
+    border-bottom: 1px solid $light-gray;
+
+    .checkout-steps {
+      .steps {
+        .step {
+          text-align: center;
+          position: relative;
+
+          .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: $light-gray;
+            color: $medium-gray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: $font-weight-semibold;
+            margin: 0 auto 0.5rem;
+            transition: $transition-base;
+          }
+
+          .step-label {
+            font-size: 0.75rem;
+            color: $medium-gray;
+            font-weight: $font-weight-medium;
+            transition: $transition-base;
+          }
+
+          &.active {
+            .step-number {
+              background: $primary;
+              color: $white;
+            }
+
+            .step-label {
+              color: $primary;
+              font-weight: $font-weight-semibold;
+            }
+          }
+        }
+
+        .step-connector {
+          width: 40px;
+          height: 2px;
+          background: $light-gray;
+          margin: 0 0.5rem;
+          position: relative;
+          top: -15px;
+        }
+      }
+    }
+  }
+
+  .cart-content {
+    .cart-items-section,
+    .delivery-section {
+      .card {
+        .cart-item {
+          transition: $transition-base;
+
+          &:hover {
+            background: $light-green;
+          }
+
+          .item-image {
+            .bg-light {
+              background-color: $light-green !important;
+            }
+          }
+
+          .item-name {
+            color: $dark-green;
+          }
+
+          .quantity-controls {
+            .btn {
+              width: 32px;
+              height: 32px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: $border-radius;
+            }
+
+            .quantity {
+              min-width: 40px;
+              text-align: center;
+            }
+          }
+        }
+
+        .empty-cart {
+          .empty-icon {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+
+    .delivery-section {
+      .delivery-option {
+        cursor: pointer;
+        transition: $transition-base;
+        border: 2px solid transparent;
+
+        &:hover {
+          border-color: $primary;
+          transform: translateY(-1px);
+        }
+
+        &.border-primary {
+          border-color: $primary !important;
+          background: $light-green;
+        }
+
+        .form-check-input {
+          margin-top: 0.25rem;
+        }
+      }
+    }
+
+    .confirmation-section {
+      .confirmation-icon {
+        opacity: 0.9;
+      }
+
+      .order-details {
+        background: $light-green;
+        border-radius: $border-radius;
+        padding: 1.5rem;
+      }
+    }
+
+    .order-summary {
+      .card {
+        .summary-items {
+          max-height: 200px;
+          overflow-y: auto;
+
+          .summary-item {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid $light-gray;
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            .item-name {
+              color: $dark-gray;
+            }
+          }
+        }
+
+        .summary-totals {
+          hr {
+            margin: 1rem 0;
+          }
+        }
+
+        .checkout-button {
+          .btn {
+            border-radius: $border-radius-lg;
+            transition: $transition-base;
+
+            &:hover:not(:disabled) {
+              transform: translateY(-2px);
+              box-shadow: $box-shadow;
+            }
+          }
+        }
+
+        .security-notice {
+          i {
+            color: $success;
+          }
+        }
+      }
+    }
+  }
+}
+
+.cart-page-loading {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $light-gray;
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-lg) {
+  .cart-page {
+    .order-summary {
+      .card {
+        position: static !important;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .cart-page {
+    .page-header {
+      text-align: center;
+
+      .col-auto {
+        margin-top: 1rem;
+      }
+    }
+
+    .cart-content {
+      .cart-item {
+        flex-direction: column;
+        align-items: flex-start !important;
+        text-align: center;
+
+        .item-image {
+          margin: 0 auto 1rem !important;
+        }
+
+        .item-details {
+          text-align: center;
+          margin-bottom: 1rem;
+        }
+
+        .item-quantity,
+        .item-total,
+        .item-actions {
+          margin: 0.5rem 0 !important;
+        }
+
+        .quantity-controls {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .cart-page {
+    .page-header {
+      padding: 1.5rem 0 !important;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .checkout-steps {
+        .steps {
+          .step {
+            .step-number {
+              width: 25px;
+              height: 25px;
+              font-size: 0.75rem;
+            }
+
+            .step-label {
+              font-size: 0.7rem;
+            }
+          }
+
+          .step-connector {
+            width: 20px;
+          }
+        }
+      }
+    }
+
+    .cart-content {
+      .delivery-section {
+        .card-body {
+          padding: 1rem;
+        }
+      }
+
+      .order-summary {
+        .card-body {
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .cart-page {
+    .cart-content {
+      .cart-items-section .cart-item,
+      .delivery-section .delivery-option,
+      .order-summary .checkout-button .btn {
+        transition: none;
+
+        &:hover {
+          transform: none;
+        }
+      }
+
+      .checkout-steps .steps .step .step-number,
+      .checkout-steps .steps .step .step-label {
+        transition: none;
+      }
+    }
+  }
+}
