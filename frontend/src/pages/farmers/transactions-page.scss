@@ -1,0 +1,157 @@
+@import '../../styles/themes/variables';
+
+.transactions-page {
+  background-color: $light-gray;
+
+  .page-header {
+    border-bottom: 1px solid $light-gray;
+  }
+
+  .summary-stats {
+    .stat-card {
+      .card {
+        transition: $transition-base;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: $box-shadow-lg !important;
+        }
+
+        .stat-icon {
+          width: 70px;
+          height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+        }
+
+        .stat-value {
+          font-family: $font-family-heading;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .transactions-list {
+    .card {
+      .table {
+        th {
+          color: $dark-green;
+          font-weight: $font-weight-semibold;
+          border-bottom: 2px solid $light-green;
+          font-size: 0.875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          padding: 1rem 0.75rem;
+        }
+
+        td {
+          vertical-align: middle;
+          padding: 1rem 0.75rem;
+          font-size: 0.9rem;
+        }
+
+        .badge {
+          font-size: 0.75rem;
+          font-weight: $font-weight-medium;
+          padding: 0.35rem 0.65rem;
+        }
+
+        .btn-sm {
+          font-size: 0.8rem;
+          padding: 0.25rem 0.75rem;
+        }
+      }
+    }
+
+    .empty-state-icon {
+      opacity: 0.5;
+    }
+  }
+}
+
+.transactions-page-loading {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $light-gray;
+}
+
+// Responsive Design
+@media (max-width: $breakpoint-lg) {
+  .transactions-page {
+    .summary-stats {
+      .col-lg-6 {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-md) {
+  .transactions-page {
+    .page-header {
+      text-align: center;
+
+      .col-auto {
+        margin-top: 1rem;
+      }
+    }
+
+    .transactions-list {
+      .table-responsive {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .transactions-page {
+    .page-header {
+      padding: 1.5rem 0 !important;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .summary-stats {
+      .stat-card {
+        .stat-icon {
+          width: 60px !important;
+          height: 60px !important;
+          font-size: 1.25rem !important;
+        }
+
+        .stat-value {
+          font-size: 1.25rem !important;
+        }
+      }
+    }
+
+    .transactions-list {
+      .table {
+        td, th {
+          padding: 0.75rem 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .transactions-page {
+    .summary-stats .stat-card .card {
+      transition: none;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
