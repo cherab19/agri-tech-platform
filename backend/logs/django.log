@@ -1,0 +1,166 @@
+INFO 2025-10-31 22:07:41,606 autoreload 3996 14588 Watching for file changes with StatReloader
+INFO 2025-10-31 22:56:30,857 autoreload 10816 1056 Watching for file changes with StatReloader
+ERROR 2025-10-31 22:56:51,193 log 10816 10684 Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'djdt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\debug_toolbar\middleware.py", line 145, in __call__
+    return self._postprocess(request, response, toolbar)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\debug_toolbar\middleware.py", line 187, in _postprocess
+    rendered = toolbar.render_toolbar()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\debug_toolbar\toolbar.py", line 93, in render_toolbar
+    return render_to_string("debug_toolbar/base.html", context)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\test\utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'djdt' is not a registered namespace
+ERROR 2025-10-31 22:56:52,706 log 10816 8928 Internal Server Error: /favicon.ico
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'djdt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\debug_toolbar\middleware.py", line 145, in __call__
+    return self._postprocess(request, response, toolbar)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\debug_toolbar\middleware.py", line 187, in _postprocess
+    rendered = toolbar.render_toolbar()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\debug_toolbar\toolbar.py", line 93, in render_toolbar
+    return render_to_string("debug_toolbar/base.html", context)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\test\utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'djdt' is not a registered namespace
+ERROR 2025-10-31 22:57:05,473 log 10816 13340 Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'djdt'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\debug_toolbar\middleware.py", line 145, in __call__
+    return self._postprocess(request, response, toolbar)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\debug_toolbar\middleware.py", line 187, in _postprocess
+    rendered = toolbar.render_toolbar()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\debug_toolbar\toolbar.py", line 93, in render_toolbar
+    return render_to_string("debug_toolbar/base.html", context)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\test\utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'djdt' is not a registered namespace
+INFO 2025-10-31 22:59:12,900 autoreload 10816 1056 C:\agri-tech-platform\backend\backend\urls.py changed, reloading.
+INFO 2025-10-31 22:59:14,896 autoreload 8196 1476 Watching for file changes with StatReloader
+INFO 2025-10-31 23:05:09,942 autoreload 15476 1476 Watching for file changes with StatReloader
+WARNING 2025-10-31 23:05:17,149 log 15476 6052 Not Found: /
+INFO 2025-10-31 23:14:20,760 autoreload 15476 1476 C:\agri-tech-platform\backend\backend\settings\development.py changed, reloading.
+INFO 2025-10-31 23:14:24,125 autoreload 14532 11484 Watching for file changes with StatReloader
+INFO 2025-10-31 23:14:30,002 autoreload 14532 11484 C:\agri-tech-platform\backend\backend\urls.py changed, reloading.
+INFO 2025-10-31 23:14:31,916 autoreload 7176 17824 Watching for file changes with StatReloader
+INFO 2025-10-31 23:16:29,886 autoreload 18216 14420 Watching for file changes with StatReloader
+INFO 2025-10-31 23:16:36,618 autoreload 18216 14420 C:\agri-tech-platform\backend\backend\settings\development.py changed, reloading.
+INFO 2025-10-31 23:16:38,637 autoreload 1448 15280 Watching for file changes with StatReloader
