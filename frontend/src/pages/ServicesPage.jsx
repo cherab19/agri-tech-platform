@@ -187,28 +187,6 @@ const ServicesPage = () => {
                 </li>
               </ul>
             </div>
-            <div className="col-lg-6 text-center">
-              <div className="integration-visual">
-                <div className="visual-item farmer-visual mb-4">
-                  <i className="fas fa-tractor text-success"></i>
-                  <span className="ms-2">Farmers</span>
-                </div>
-                <div className="visual-arrow mb-4">
-                  <i className="fas fa-arrow-down text-primary"></i>
-                </div>
-                <div className="visual-item platform-visual mb-4">
-                  <i className="fas fa-cloud text-primary"></i>
-                  <span className="ms-2">Agar Platform</span>
-                </div>
-                <div className="visual-arrow mb-4">
-                  <i className="fas fa-arrow-down text-primary"></i>
-                </div>
-                <div className="visual-item vendor-visual">
-                  <i className="fas fa-store text-info"></i>
-                  <span className="ms-2">Vendors</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
