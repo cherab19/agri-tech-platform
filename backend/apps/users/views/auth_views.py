@@ -93,7 +93,44 @@ class UserLoginView(APIView):
             
             return Response(response_data, status=status.HTTP_200_OK)
         
-        return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
+        # Map serializer errors to clearer client-friendly responses
+        errors = serializer.errors
+
+        # Handle non-field errors (common for auth failures)
+        non_field = errors.get('non_field_errors') or errors.get('__all__')
+        if non_field:
+            # non_field may be a list of messages
+            message = non_field[0] if isinstance(non_field, (list, tuple)) and non_field else str(non_field)
+
+            # Map common backend messages to consistent client codes/messages
+            msg_lower = message.lower()
+            if 'unable to log in' in msg_lower or 'invalid credentials' in msg_lower:
+                return Response(
+                    {'code': 'invalid_credentials', 'message': _('Invalid username or password.')},
+                    status=status.HTTP_401_UNAUTHORIZED
+                )
+            if 'disabled' in msg_lower or 'disabled.' in msg_lower:
+                return Response(
+                    {'code': 'account_disabled', 'message': _('User account is disabled.')},
+                    status=status.HTTP_403_FORBIDDEN
+                )
+            if 'user type' in msg_lower or 'invalid user type' in msg_lower:
+                return Response(
+                    {'code': 'invalid_user_type', 'message': _('Invalid user type for this account.')},
+                    status=status.HTTP_403_FORBIDDEN
+                )
+
+            # Generic fallback for non-field errors
+            return Response({'code': 'authentication_failed', 'message': message}, status=status.HTTP_401_UNAUTHORIZED)
+
+        # Field-specific errors (e.g., missing username/password)
+        # Convert serializer field errors to a simple map for client consumption
+        if isinstance(errors, dict):
+            field_errors = {k: v[0] if isinstance(v, (list, tuple)) and v else str(v) for k, v in errors.items()}
+            return Response({'code': 'validation_error', 'errors': field_errors}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Fallback generic response
+        return Response({'code': 'authentication_failed', 'message': _('Login failed.')}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 class UserLogoutView(APIView):

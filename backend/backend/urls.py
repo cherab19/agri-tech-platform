@@ -8,7 +8,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     
     # API Routes
-    path('api/auth/', include('apps.users.urls')),
+    # Mount app routes under /api/ so app-level prefixes (auth/, users/, etc.) resolve
+    path('api/', include('apps.users.urls')),
     path('api/products/', include('apps.products.urls')),
     # Other app routes are disabled in this workspace snapshot. Add them
     # back when the corresponding modules are available.

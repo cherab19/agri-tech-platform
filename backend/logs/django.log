@@ -164,3 +164,477 @@ INFO 2025-10-31 23:14:31,916 autoreload 7176 17824 Watching for file changes wit
 INFO 2025-10-31 23:16:29,886 autoreload 18216 14420 Watching for file changes with StatReloader
 INFO 2025-10-31 23:16:36,618 autoreload 18216 14420 C:\agri-tech-platform\backend\backend\settings\development.py changed, reloading.
 INFO 2025-10-31 23:16:38,637 autoreload 1448 15280 Watching for file changes with StatReloader
+INFO 2025-11-01 10:12:22,019 autoreload 18708 9652 Watching for file changes with StatReloader
+WARNING 2025-11-01 10:16:07,456 log 18708 1148 Not Found: /
+INFO 2025-11-01 17:53:31,422 autoreload 10200 2972 Watching for file changes with StatReloader
+WARNING 2025-11-01 18:02:14,552 log 10200 13220 Not Found: /favicon.ico
+WARNING 2025-11-01 18:09:01,053 log 10200 13068 Not Found: /api/auth/login
+WARNING 2025-11-01 18:16:13,567 log 10200 11540 Not Found: /api/auth/login
+WARNING 2025-11-01 18:19:28,260 log 10200 12128 Not Found: /api/auth/login
+WARNING 2025-11-01 18:20:19,080 log 10200 12128 Not Found: /api/auth/login
+WARNING 2025-11-01 18:21:03,863 log 10200 12128 Not Found: /api/auth/login
+WARNING 2025-11-01 18:21:06,360 log 10200 12128 Not Found: /api/auth/login
+WARNING 2025-11-01 18:23:45,168 log 10200 6332 Not Found: /api/auth/login/
+WARNING 2025-11-01 18:24:20,355 log 10200 6332 Not Found: /api/auth/login/
+WARNING 2025-11-01 18:24:32,063 log 10200 6332 Not Found: /api/auth/login/
+WARNING 2025-11-01 18:29:31,029 log 10200 5076 Not Found: /api/auth/login/
+WARNING 2025-11-01 18:29:38,045 log 10200 5076 Not Found: /api/auth/login/
+INFO 2025-11-01 18:31:48,539 autoreload 10200 2972 C:\agri-tech-platform\backend\backend\urls.py changed, reloading.
+INFO 2025-11-01 18:31:57,177 autoreload 13264 10316 Watching for file changes with StatReloader
+INFO 2025-11-01 18:32:27,558 autoreload 13264 10316 C:\agri-tech-platform\backend\backend\urls.py changed, reloading.
+INFO 2025-11-01 18:32:29,109 autoreload 10788 11796 Watching for file changes with StatReloader
+WARNING 2025-11-01 18:32:39,116 log 10788 10160 Unauthorized: /api/auth/login/
+WARNING 2025-11-01 18:32:47,388 log 10788 10160 Unauthorized: /api/auth/login/
+WARNING 2025-11-01 18:33:08,683 log 10788 10160 Unauthorized: /api/auth/login/
+WARNING 2025-11-01 18:35:47,246 log 10788 6976 Unauthorized: /api/auth/login/
+WARNING 2025-11-01 18:36:35,096 log 10788 6976 Unauthorized: /api/auth/login/
+WARNING 2025-11-01 18:37:35,063 log 10788 6976 Unauthorized: /api/auth/login/
+WARNING 2025-11-01 18:39:06,240 log 10788 6976 Unauthorized: /api/auth/login/
+INFO 2025-11-01 18:44:14,625 autoreload 10788 11796 C:\agri-tech-platform\backend\apps\users\serializers\user_serializers.py changed, reloading.
+INFO 2025-11-01 18:44:16,971 autoreload 7584 12352 Watching for file changes with StatReloader
+INFO 2025-11-01 18:44:50,764 autoreload 7584 12352 C:\agri-tech-platform\backend\apps\users\serializers\user_serializers.py changed, reloading.
+INFO 2025-11-01 18:44:53,040 autoreload 7260 12144 Watching for file changes with StatReloader
+WARNING 2025-11-01 18:44:59,066 log 7260 5052 Unauthorized: /api/auth/login/
+WARNING 2025-11-01 18:45:24,041 log 7260 5052 Unauthorized: /api/auth/login/
+WARNING 2025-11-01 18:45:47,276 log 7260 10752 Method Not Allowed: /api/auth/login/
+WARNING 2025-11-01 18:45:47,571 log 7260 6596 Not Found: /favicon.ico
+WARNING 2025-11-01 18:48:30,266 log 7260 4884 Unauthorized: /api/auth/login/
+WARNING 2025-11-01 18:53:02,924 log 7260 11524 Method Not Allowed: /api/auth/login/
+WARNING 2025-11-01 18:53:03,046 log 7260 2588 Not Found: /favicon.ico
+ERROR 2025-11-01 19:05:23,737 log 7260 6336 Internal Server Error: /admin/users/customuser/add/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: NOT NULL constraint failed: driver_profiles.vehicle_capacity_kg
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\contrib\admin\sites.py", line 246, in inner
+    return view(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\contrib\auth\admin.py", line 124, in add_view
+    return self._add_view(request, form_url, extra_context)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\contrib\auth\admin.py", line 152, in _add_view
+    return super().add_view(request, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\contrib\admin\options.py", line 1984, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\contrib\admin\options.py", line 1843, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\contrib\admin\options.py", line 1894, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\contrib\admin\options.py", line 1314, in save_model
+    obj.save()
+    ~~~~~~~~^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\contrib\auth\base_user.py", line 65, in save
+    super().save(*args, **kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\models\base.py", line 1023, in save_base
+    post_save.send(
+    ~~~~~~~~~~~~~~^
+        sender=origin,
+        ^^^^^^^^^^^^^^
+    ...<4 lines>...
+        using=using,
+        ^^^^^^^^^^^^
+    )
+    ^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\dispatch\dispatcher.py", line 189, in send
+    response = receiver(signal=self, sender=sender, **named)
+  File "C:\agri-tech-platform\backend\apps\users\signals.py", line 22, in create_user_profile
+    profile_model.objects.create(user=instance)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\models\query.py", line 663, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\models\base.py", line 902, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\models\base.py", line 1008, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\models\base.py", line 1169, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\models\base.py", line 1210, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\models\query.py", line 1868, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\models\sql\compiler.py", line 1882, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 360, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: NOT NULL constraint failed: driver_profiles.vehicle_capacity_kg
+INFO 2025-11-01 19:06:57,567 autoreload 7260 12144 C:\agri-tech-platform\backend\apps\users\signals.py changed, reloading.
+INFO 2025-11-01 19:06:59,562 autoreload 5836 7788 Watching for file changes with StatReloader
+INFO 2025-11-01 19:07:45,796 autoreload 5836 7788 C:\agri-tech-platform\backend\apps\users\signals.py changed, reloading.
+INFO 2025-11-01 19:07:47,763 autoreload 11708 10576 Watching for file changes with StatReloader
+WARNING 2025-11-02 06:24:02,191 log 11708 15032 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-02 06:24:02,197 log 11708 13396 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-02 07:05:23,333 log 11708 13308 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:05:23,356 log 11708 7740 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 07:05:23,636 log 11708 13308 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:05:23,704 log 11708 7740 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 07:09:13,994 log 11708 11892 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 07:09:14,010 log 11708 15308 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:15:20,700 log 11708 5588 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:15:20,710 log 11708 8212 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 07:15:20,730 log 11708 5980 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 07:15:20,793 log 11708 8108 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:15:20,832 log 11708 15352 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 07:15:20,913 log 11708 6960 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:15:42,970 log 11708 5588 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 07:15:42,976 log 11708 8108 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:15:49,755 log 11708 5588 Not Found: /api/drivers/6/availability
+WARNING 2025-11-02 07:15:50,883 log 11708 8108 Not Found: /api/drivers/6/availability
+WARNING 2025-11-02 07:16:18,754 log 11708 5588 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:16:18,759 log 11708 6960 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:17:02,502 log 11708 8108 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:17:02,515 log 11708 5588 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:17:09,951 log 11708 8108 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:17:09,984 log 11708 8108 Not Found: /api/drivers/6/deliveries/history
+INFO 2025-11-02 07:36:39,878 autoreload 2772 5468 Watching for file changes with StatReloader
+WARNING 2025-11-02 07:40:10,242 log 2772 2108 Not Found: /favicon.ico
+WARNING 2025-11-02 07:40:16,151 log 2772 2116 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 07:40:16,158 log 2772 11552 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 07:40:16,163 log 2772 9816 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:40:16,172 log 2772 11064 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:41:20,049 log 2772 9816 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:41:20,060 log 2772 11064 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:41:36,362 log 2772 11064 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:41:36,372 log 2772 9816 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:41:49,151 log 2772 11064 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:41:49,158 log 2772 9816 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:41:56,656 log 2772 9816 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:41:56,667 log 2772 11064 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:47:21,647 log 2772 10652 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:47:21,662 log 2772 10780 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:47:23,359 log 2772 10780 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:47:23,362 log 2772 10652 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:47:31,559 log 2772 10652 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:47:31,564 log 2772 10780 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:47:35,598 log 2772 10652 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:47:35,609 log 2772 10780 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:47:39,113 log 2772 10652 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:47:39,124 log 2772 10780 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:47:43,182 log 2772 10652 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:47:43,194 log 2772 10780 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:47:48,704 log 2772 10780 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:47:48,708 log 2772 10652 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:47:52,458 log 2772 10652 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:47:52,463 log 2772 10780 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:48:30,043 log 2772 10780 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:48:30,052 log 2772 10652 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:49:34,479 log 2772 10780 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:49:34,483 log 2772 10652 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:55:41,991 log 2772 6944 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:56:11,877 log 2772 6944 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:56:11,892 log 2772 11704 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:59:08,075 log 2772 11284 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:59:08,085 log 2772 3224 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 07:59:20,419 log 2772 11284 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 07:59:20,423 log 2772 3224 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:00:19,394 log 2772 11284 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:00:19,398 log 2772 3224 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:00:21,263 log 2772 3224 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:00:21,267 log 2772 11284 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:00:22,823 log 2772 11284 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:00:22,825 log 2772 3224 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:00:36,223 log 2772 11284 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:00:36,230 log 2772 3224 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:01:29,944 log 2772 11284 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:01:29,954 log 2772 3224 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:01:58,917 log 2772 3224 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:01:58,928 log 2772 11284 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:02:04,647 log 2772 11284 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:02:04,649 log 2772 3224 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:02:07,051 log 2772 11284 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:02:07,064 log 2772 3224 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:16:33,039 log 2772 8244 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 08:16:33,079 log 2772 11996 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:17:16,490 log 2772 11996 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:17:16,497 log 2772 8244 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:17:22,711 log 2772 11996 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:17:22,715 log 2772 8244 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:17:48,144 log 2772 11996 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-02 08:17:48,145 log 2772 8244 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-02 08:18:04,426 log 2772 11996 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 08:18:04,437 log 2772 8244 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:18:04,453 log 2772 1872 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 08:18:04,474 log 2772 6944 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:18:08,770 log 2772 11996 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:18:08,775 log 2772 8244 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:18:27,485 log 2772 6944 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:47:02,106 log 2772 4592 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:47:02,111 log 2772 4124 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:47:03,940 log 2772 4592 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:47:03,945 log 2772 4124 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:47:09,521 log 2772 4592 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:47:09,525 log 2772 4124 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:47:24,188 log 2772 4124 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:47:24,191 log 2772 4592 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:48:03,684 log 2772 4592 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:48:03,690 log 2772 4124 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:48:05,529 log 2772 4592 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:48:05,534 log 2772 4124 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:48:08,015 log 2772 4592 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:48:08,018 log 2772 4124 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:48:09,862 log 2772 4592 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:48:09,867 log 2772 4124 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:58:31,903 log 2772 5052 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:58:31,919 log 2772 10880 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 08:58:33,494 log 2772 5052 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:58:33,509 log 2772 10880 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 08:59:20,186 log 2772 10880 Not Found: /api/drivers/6/availability
+WARNING 2025-11-02 09:01:09,013 log 2772 5052 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:01:09,019 log 2772 10880 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:01:17,452 log 2772 5052 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:01:17,462 log 2772 10880 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:01:26,441 log 2772 5052 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:01:26,445 log 2772 10880 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:01:32,574 log 2772 5052 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:01:32,578 log 2772 10880 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:01:34,025 log 2772 10880 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:01:34,029 log 2772 5052 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:01:44,469 log 2772 10880 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:01:44,473 log 2772 5052 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:05:39,994 log 2772 12996 Not Found: /api/drivers/6/availability
+WARNING 2025-11-02 09:05:46,773 log 2772 12996 Not Found: /api/drivers/6/availability
+WARNING 2025-11-02 09:05:48,895 log 2772 12996 Not Found: /api/drivers/6/availability
+WARNING 2025-11-02 09:06:10,702 log 2772 12996 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:06:10,720 log 2772 12380 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:06:16,086 log 2772 12996 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:06:16,094 log 2772 12380 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:07:02,366 log 2772 12996 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:07:02,370 log 2772 12380 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:07:24,612 log 2772 12380 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:07:24,617 log 2772 12996 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:07:26,460 log 2772 12996 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:07:26,478 log 2772 12380 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:07:32,316 log 2772 12996 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:07:32,326 log 2772 12380 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:07:33,790 log 2772 12996 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:07:33,798 log 2772 12380 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:07:36,043 log 2772 12996 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:07:36,045 log 2772 12380 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:07:37,784 log 2772 12996 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:07:37,792 log 2772 12380 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:08:21,486 log 2772 12996 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:08:21,497 log 2772 12380 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:08:56,458 log 2772 12996 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:08:56,470 log 2772 12380 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:09:31,731 log 2772 12996 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:09:31,732 log 2772 12380 Not Found: /api/drivers/6/orders/assigned
+INFO 2025-11-02 09:33:03,471 autoreload 11896 11900 Watching for file changes with StatReloader
+WARNING 2025-11-02 09:34:14,563 log 11896 11436 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-02 09:34:14,563 log 11896 11080 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-02 09:34:53,953 log 11896 11080 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 09:34:53,957 log 11896 11924 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:34:53,960 log 11896 11916 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:34:53,971 log 11896 11436 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 09:37:43,687 log 11896 7188 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 09:37:43,691 log 11896 10520 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:37:50,937 log 11896 7188 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:37:50,938 log 11896 10520 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:37:57,137 log 11896 7188 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:37:57,149 log 11896 10520 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:38:03,755 log 11896 10520 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:38:03,756 log 11896 7188 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:38:07,915 log 11896 10520 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:38:07,920 log 11896 7188 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:45:10,104 log 11896 3832 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:45:10,112 log 11896 10252 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:45:12,788 log 11896 10252 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:45:12,795 log 11896 3832 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:47:51,327 log 11896 5672 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:47:51,349 log 11896 5604 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:47:54,042 log 11896 5672 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:47:54,048 log 11896 5604 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:49:37,060 log 11896 5672 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:49:37,067 log 11896 5604 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:49:42,961 log 11896 5672 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:49:42,967 log 11896 5604 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:49:44,497 log 11896 5672 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:49:44,500 log 11896 5604 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:49:49,248 log 11896 5672 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:49:49,251 log 11896 5604 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:52:13,941 log 11896 8500 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:52:54,811 log 11896 8500 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:52:54,821 log 11896 4212 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:52:56,318 log 11896 8500 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:52:56,323 log 11896 4212 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:53:40,016 log 11896 8500 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:53:40,020 log 11896 4212 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:53:44,559 log 11896 8500 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:53:44,569 log 11896 4212 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:54:26,162 log 11896 8500 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:54:26,167 log 11896 4212 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:54:46,207 log 11896 4212 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:54:46,210 log 11896 8500 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:56:32,861 log 11896 4212 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:56:32,865 log 11896 8500 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 09:56:38,577 log 11896 4212 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 09:56:38,581 log 11896 8500 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 10:08:51,866 log 11896 2316 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 10:08:51,881 log 11896 8036 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 10:08:51,987 log 11896 2860 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 10:08:52,034 log 11896 12232 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 10:08:56,644 log 11896 12232 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 10:08:56,649 log 11896 8036 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 10:08:58,132 log 11896 12232 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 10:08:58,138 log 11896 8036 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 10:10:38,728 log 11896 12232 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 10:11:03,084 log 11896 12232 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 10:11:03,090 log 11896 7668 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 10:11:11,136 log 11896 12232 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 10:11:11,148 log 11896 7668 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 10:11:41,633 log 11896 7668 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 10:11:41,642 log 11896 12232 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 10:11:43,544 log 11896 7668 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 10:11:43,549 log 11896 12232 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 10:11:57,792 log 11896 7668 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 10:11:57,797 log 11896 12232 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 10:12:11,668 log 11896 12232 Not Found: /api/drivers/6/availability
+WARNING 2025-11-02 11:46:11,834 log 11896 9776 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-02 11:46:11,845 log 11896 4072 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-02 11:50:24,085 log 11896 9776 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 11:50:24,088 log 11896 12140 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 11:50:24,091 log 11896 9940 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 11:50:24,101 log 11896 9892 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 11:51:04,347 log 11896 12140 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 11:51:04,351 log 11896 9892 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 11:51:07,963 log 11896 12140 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 11:51:07,967 log 11896 9892 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 11:55:18,765 log 11896 7728 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 11:55:18,786 log 11896 3760 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 11:55:18,797 log 11896 8528 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 11:55:18,807 log 11896 1564 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 11:55:43,104 log 11896 1564 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 11:55:43,113 log 11896 8528 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 11:55:46,980 log 11896 1564 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 11:55:46,989 log 11896 8528 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 12:07:16,936 log 11896 3300 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 12:07:16,940 log 11896 12420 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 12:07:16,953 log 11896 4804 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 12:07:16,970 log 11896 9348 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 12:07:26,909 log 11896 9348 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 12:07:26,917 log 11896 12420 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 12:07:37,303 log 11896 9348 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 12:07:37,307 log 11896 12420 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 12:08:53,548 log 11896 9348 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 12:08:53,563 log 11896 3300 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 12:08:53,577 log 11896 4804 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 12:08:53,577 log 11896 12420 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 12:12:05,168 log 11896 12400 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 12:12:05,175 log 11896 4504 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 12:12:05,187 log 11896 2852 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 12:12:05,205 log 11896 10952 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 12:18:32,546 log 11896 8548 Unauthorized: /api/auth/login/
+INFO 2025-11-02 12:28:37,526 autoreload 11896 11900 C:\agri-tech-platform\backend\apps\users\views\auth_views.py changed, reloading.
+INFO 2025-11-02 12:28:44,225 autoreload 10732 7800 Watching for file changes with StatReloader
+INFO 2025-11-02 12:33:26,832 autoreload 10732 7800 C:\agri-tech-platform\backend\apps\users\views\auth_views.py changed, reloading.
+INFO 2025-11-02 12:33:29,062 autoreload 13084 12904 Watching for file changes with StatReloader
+WARNING 2025-11-02 12:33:34,785 log 13084 5296 Unauthorized: /api/auth/login/
+WARNING 2025-11-02 12:33:55,933 log 13084 5296 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 12:33:55,953 log 13084 5364 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 12:33:55,956 log 13084 11144 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 12:33:55,966 log 13084 11236 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 12:35:43,888 log 13084 5364 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 12:35:43,892 log 13084 11236 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 12:35:45,580 log 13084 11236 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 12:35:45,594 log 13084 5364 Not Found: /api/drivers/6/deliveries/history
