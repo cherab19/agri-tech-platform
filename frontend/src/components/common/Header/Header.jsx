@@ -9,6 +9,15 @@ const Header = () => {
   const { user, isAuthenticated } = useAuth()
   const { t } = useLanguage()
 
+  // Derive display name and role safely from whatever shape the backend returned.
+  const displayName = user
+    ? (user.name || user.username || user.full_name || `${user.first_name || ''} ${user.last_name || ''}`.trim() || user.email || '')
+    : ''
+
+  const avatarLetter = displayName ? displayName.charAt(0).toUpperCase() : ''
+  const roleValue = user ? (user.role || (user.user_type ? user.user_type.toLowerCase() : null)) : null
+  const roleLabel = roleValue ? (roleValue.charAt(0).toUpperCase() + roleValue.slice(1)) : ''
+
   return (
     <header className="agri-header">
       <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
@@ -59,19 +68,19 @@ const Header = () => {
                   >
                     <div className="user-avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2" 
                          style={{ width: '32px', height: '32px', fontSize: '14px' }}>
-                      {user.name.charAt(0).toUpperCase()}
+                      {avatarLetter}
                     </div>
-                    <span className="d-none d-sm-inline">{user.name}</span>
+                    <span className="d-none d-sm-inline">{displayName || t('nav.user', 'User')}</span>
                   </button>
                   <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                     <li>
                       <span className="dropdown-item-text small text-muted">
-                        {user.role.charAt(0).toUpperCase() + user.role.slice(1)}
+                        {roleLabel}
                       </span>
                     </li>
                     <li><hr className="dropdown-divider" /></li>
                     <li>
-                      <a className="dropdown-item" href={`/${user.role}/dashboard`}>
+                      <a className="dropdown-item" href={`/${roleValue || ''}/dashboard`}>
                         <i className="fas fa-tachometer-alt me-2"></i>
                         Dashboard
                       </a>
