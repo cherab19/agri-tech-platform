@@ -21,6 +21,8 @@ $success: #28a745;
 $warning: #ffc107;
 $error: #dc3545;
 $info: #17a2b8;
+// Backwards-compatible alias used in some components
+$danger: $error;
 
 // Gradients
 $agri-gradient: linear-gradient(135deg, $primary-green 0%, $secondary-green 100%);
