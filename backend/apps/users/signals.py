@@ -9,17 +9,15 @@ from apps.users.models import CustomUser, FarmerProfile, VendorProfile, DriverPr
 def create_user_profile(sender, instance, created, **kwargs):
     """Create appropriate profile when a user is created"""
     if created:
-        profile_models = {
-            'FARMER': FarmerProfile,
-            'VENDOR': VendorProfile,
-            'DRIVER': DriverProfile,
-            'ADMIN': AdminProfile,
-        }
-        
-        profile_model = profile_models.get(instance.user_type)
-        if profile_model:
-            # Create basic profile
-            profile_model.objects.create(user=instance)
+        # NOTE: Auto-creating full profile objects on user creation can fail when
+        # the profile model contains non-nullable fields (e.g. DriverProfile).
+        # Instead of creating incomplete profiles (which causes IntegrityError),
+        # we skip automatic creation here and let admins or dedicated flows create
+        # profiles with the required data.
+        # If you want certain profile types to be auto-created with defaults,
+        # implement that logic here carefully ensuring all required fields are
+        # provided.
+        return
 
 
 @receiver(post_save, sender=CustomUser)

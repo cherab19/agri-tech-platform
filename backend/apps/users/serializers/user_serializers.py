@@ -91,11 +91,30 @@ class UserLoginSerializer(serializers.Serializer):
         user_type = attrs.get('user_type')
         
         if username and password:
+            # First try normal authenticate (username may be the actual username)
             user = authenticate(
                 request=self.context.get('request'),
                 username=username,
                 password=password
             )
+
+            # Fallback: if authenticate failed and the provided username looks like an email,
+            # try to find a user with that email and authenticate using that user's username.
+            if not user:
+                try:
+                    from django.core.validators import validate_email
+                    validate_email(username)
+                    # It's a valid email string; try lookup
+                    user_obj = CustomUser.objects.filter(email__iexact=username).first()
+                    if user_obj:
+                        user = authenticate(
+                            request=self.context.get('request'),
+                            username=user_obj.username,
+                            password=password
+                        )
+                except Exception:
+                    # Not an email or lookup/auth failed — ignore and fall through
+                    pass
             
             if not user:
                 raise serializers.ValidationError(
