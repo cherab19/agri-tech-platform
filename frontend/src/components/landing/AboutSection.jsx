@@ -32,19 +32,19 @@ const AboutSection = () => {
     {
       name: 'Chernet Degefe',
       role: t('about.founder', 'member of a team from software engineering'),
-      image: '/images/team/cheru.jpg',
+      image: '/images/team/',
       description: t('about.founder_desc', 'Software engineering student passionate about agri-tech solutions')
     },
     {
       name: 'Abdi Dereje ',
       role: t('about.cto', 'member of a team from software engineering'),
-      image: '/images/team/abu.jpg',
+      image: '/images/team/',
       description: t('about.cto_desc', 'Software engineer curious about tech solutions')
     },
     {
       name: 'Muaz Amin ',
       role: t('about.operations', 'member of a team from software engineering'),
-      image: '/images/team/muaz.jpg',
+      image: '/images/team/',
       description: t('about.operations_desc', 'software engineering student with deep passion in tech ecosystem ')
     }
   ]
