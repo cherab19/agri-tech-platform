@@ -638,3 +638,33 @@ WARNING 2025-11-02 12:35:43,888 log 13084 5364 Not Found: /api/drivers/6/orders/
 WARNING 2025-11-02 12:35:43,892 log 13084 11236 Not Found: /api/drivers/6/orders/assigned
 WARNING 2025-11-02 12:35:45,580 log 13084 11236 Not Found: /api/drivers/6/deliveries/history
 WARNING 2025-11-02 12:35:45,594 log 13084 5364 Not Found: /api/drivers/6/deliveries/history
+INFO 2025-11-02 22:35:53,940 autoreload 6584 9748 Watching for file changes with StatReloader
+WARNING 2025-11-02 22:37:26,113 log 6584 3556 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-02 22:37:26,114 log 6584 12148 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-02 22:52:56,369 log 6584 6836 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 22:52:56,372 log 6584 4792 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 22:52:56,376 log 6584 13084 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 22:52:56,381 log 6584 9928 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 22:58:24,994 log 6584 11932 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 22:58:25,000 log 6584 10352 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 22:58:33,704 log 6584 10352 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 22:58:33,741 log 6584 11932 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 22:58:41,082 log 6584 11932 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 22:58:41,085 log 6584 10352 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 23:12:13,592 log 6584 1500 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 23:12:13,601 log 6584 13004 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 23:12:13,604 log 6584 12432 Not Found: /api/drivers/6/stats
+WARNING 2025-11-02 23:12:13,610 log 6584 5444 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 23:12:26,140 log 6584 5444 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 23:12:26,143 log 6584 13004 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 23:12:31,467 log 6584 13004 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 23:12:31,473 log 6584 5444 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 23:12:40,433 log 6584 13004 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 23:12:40,446 log 6584 5444 Not Found: /api/drivers/6/deliveries/history
+WARNING 2025-11-02 23:12:41,939 log 6584 13004 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 23:12:41,946 log 6584 5444 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 23:12:44,922 log 6584 13004 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-02 23:12:44,933 log 6584 5444 Not Found: /api/drivers/6/orders/assigned
+INFO 2025-11-04 14:23:21,403 autoreload 6092 10492 Watching for file changes with StatReloader
+WARNING 2025-11-04 14:25:32,855 log 6092 11452 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-04 14:25:32,856 log 6092 11876 Unauthorized: /api/auth/token/verify/
