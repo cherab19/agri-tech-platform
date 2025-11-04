@@ -34,7 +34,7 @@ const MarketplacePage = () => {
       reviews: 45,
       image: '/images/products/tomatoes.jpg',
       deliveryTime: '1-2 days',
-      organic: true
+    
     },
     {
       id: 2,
@@ -49,7 +49,7 @@ const MarketplacePage = () => {
       reviews: 32,
       image: '/images/products/peppers.jpg',
       deliveryTime: '1-2 days',
-      organic: true
+  
     },
     {
       id: 3,
@@ -64,7 +64,7 @@ const MarketplacePage = () => {
       reviews: 28,
       image: '/images/products/carrots.jpg',
       deliveryTime: '2-3 days',
-      organic: false
+ 
     },
     {
       id: 4,
@@ -79,7 +79,7 @@ const MarketplacePage = () => {
       reviews: 38,
       image: '/images/products/onions.jpg',
       deliveryTime: '1-2 days',
-      organic: false
+     
     },
     {
       id: 5,
@@ -94,7 +94,7 @@ const MarketplacePage = () => {
       reviews: 52,
       image: '/images/products/potatoes.jpg',
       deliveryTime: '2-3 days',
-      organic: true
+      
     },
     {
       id: 6,
@@ -109,7 +109,7 @@ const MarketplacePage = () => {
       reviews: 41,
       image: '/images/products/bananas.jpg',
       deliveryTime: '1 day',
-      organic: true
+     
     }
   ]
 
@@ -272,7 +272,6 @@ const MarketplacePage = () => {
                     <div className="product-image position-relative">
                       <img
                         src={product.image}
-                        alt={product.name}
                         className="card-img-top"
                         style={{ height: '200px', objectFit: 'cover' }}
                       />
@@ -326,43 +325,44 @@ const MarketplacePage = () => {
                       </div>
 
                       {/* Price and Actions */}
-                      <div className="product-actions">
-                        <div className="d-flex justify-content-between align-items-center">
-                          <div className="price-section">
-                            <h4 className="price fw-bold text-primary mb-0">
-                              ₦{product.price}
-                              <small className="text-muted">/{product.unit}</small>
-                            </h4>
-                            <small className="text-muted">
-                              {t('marketplace.min_order', 'Min. order')}: {product.minOrder} {product.unit}
-                            </small>
-                          </div>
-                          <div className="action-buttons">
-                            <button
-                              className="btn btn-outline-primary btn-sm me-2"
-                              onClick={() => handleAddToCart(product)}
-                              disabled={loading}
-                            >
-                              <i className="fas fa-cart-plus"></i>
-                            </button>
-                            <button
-                              className="btn btn-primary btn-sm"
-                              onClick={() => handleQuickOrder(product)}
-                              disabled={loading}
-                            >
-                              {t('marketplace.order', 'Order')}
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                                  <div className="product-actions">
+                                  <div className="d-flex justify-content-between align-items-center">
+                                    <div className="price-section">
+                                    <h4 className="price fw-bold text-primary mb-0">
+                                      ₦{product.price}
+                                      <small className="text-muted">/{product.unit}</small>
+                                    </h4>
+                                    <small className="text-muted">
+                                      {t('marketplace.min_order', 'Min. order')}: {product.minOrder} {product.unit}
+                                    </small>
+                                    </div>
+                                    <div className="action-buttons">
+                                    <button
+                                      className="btn btn-outline-primary btn-sm me-2"
+                                      onClick={() => handleAddToCart(product)}
+                                      disabled={loading}
+                                    >
+                                      <i className="fas fa-cart-plus me-1"></i>
+                                      {t('marketplace.add_to_cart', 'Add to Cart')}
+                                    </button>
+                                    <button
+                                      className="btn btn-primary btn-sm"
+                                      onClick={() => handleQuickOrder(product)}
+                                      disabled={loading}
+                                    >
+                                      {t('marketplace.order', 'Order')}
+                                    </button>
+                                    </div>
+                                  </div>
+                                  </div>
+                                </div>
+                                </div>
+                              </div>
+                              </div>
+                            ))}
+                            </div>
 
-          {/* Empty State */}
+                            {/* Empty State */}
           {sortedProducts.length === 0 && (
             <div className="text-center py-5">
               <div className="empty-state-icon mb-3">
