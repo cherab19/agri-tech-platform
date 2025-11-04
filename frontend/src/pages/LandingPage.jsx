@@ -5,6 +5,7 @@ import AboutSection from '../components/landing/AboutSection'
 import HowItWorks from '../components/landing/HowItWorks'
 import ServicesSection from '../components/landing/ServicesSection'
 import ContactSection from '../components/landing/ContactSection'
+import MarketplacePage from '../components/landing/MarketplacePage'
 import './landing-page.scss'
 
 const LandingPage = () => {
@@ -16,7 +17,10 @@ const LandingPage = () => {
       <section id="home">
         <HeroSection />
       </section>
-
+      {/* market-place Section */}
+      <section id="marketplace">
+        <MarketplacePage />
+      </section>
       {/* About Section */}
       <section id="about">
         <AboutSection />

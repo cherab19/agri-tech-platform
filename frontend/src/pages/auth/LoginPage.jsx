@@ -6,15 +6,26 @@ import LoginForm from '../../components/common/Auth/LoginForm'
 import './auth-pages.scss'
 
 const LoginPage = () => {
-  const { user, isAuthenticated } = useAuth()
+  const { user, isAuthenticated, logout } = useAuth()
   const { t } = useLanguage()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const [selectedRole, setSelectedRole] = useState('farmer')
 
   useEffect(() => {
-    // Redirect if already authenticated
-    if (isAuthenticated && user) {
+    // Always clear any previous session when visiting /login
+    if (window.location.pathname === '/login') {
+      // Clear persisted and in-memory session without navigating away
+      try {
+        logout({ redirect: false })
+      } catch (e) {
+        // fallback: remove persisted session only
+        localStorage.removeItem('agar_user')
+      }
+    }
+
+    // Only redirect if authenticated and NOT on /login
+    if (isAuthenticated && user && window.location.pathname !== '/login') {
       switch (user.role) {
         case 'farmer':
           navigate('/farmer/dashboard')

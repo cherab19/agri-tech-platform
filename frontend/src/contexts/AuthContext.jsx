@@ -1,5 +1,7 @@
 import React, { createContext, useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { authService } from '../services/api/auth'
+import { storageService } from '../services/storage/localStorage'
 
 const AuthContext = createContext()
 
@@ -13,75 +15,96 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
+  const [token, setToken] = useState(storageService.getAuthToken() || null)
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    // Check for stored user session on app load
-    const storedUser = localStorage.getItem('agar_user')
-    if (storedUser) {
-      try {
-        setUser(JSON.parse(storedUser))
-      } catch (error) {
-        console.error('Error parsing stored user:', error)
-        localStorage.removeItem('agar_user')
-      }
+  // Helper to map backend user_type/user.role values to client-side role string
+  const mapServerTypeToRole = (userOrType) => {
+    const ROLE_MAP = {
+      FARMER: 'farmer',
+      VENDOR: 'vendor',
+      DRIVER: 'driver',
+      ADMIN: 'admin',
+      STAFF: 'admin'
     }
-    setLoading(false)
+
+    const serverType = userOrType && typeof userOrType === 'object'
+      ? (userOrType.user_type || userOrType.userType || userOrType.role)
+      : userOrType
+
+    return ROLE_MAP[serverType] || (typeof serverType === 'string' ? serverType.toLowerCase() : null)
+  }
+
+  useEffect(() => {
+    const initializeAuth = async () => {
+      // Try to restore token and verify with backend
+      const savedToken = storageService.getAuthToken()
+      const savedUser = storageService.getUserData()
+
+      if (savedToken) {
+        try {
+          const res = await authService.verifyToken(savedToken)
+          // If backend returns user info, use it; otherwise fall back to savedUser
+          const serverUser = res?.user || savedUser
+
+          // Normalize user object: ensure `role` (lowercase) exists for client-side checks
+          const mappedRole = mapServerTypeToRole(serverUser)
+          const normalizedUser = serverUser ? { ...serverUser, role: mappedRole } : null
+
+          setUser(normalizedUser)
+          setToken(savedToken)
+          storageService.setUserData(normalizedUser)
+        } catch (err) {
+          console.warn('Token verify failed, clearing saved auth:', err)
+          storageService.removeAuthToken()
+          storageService.removeUserData()
+          setUser(null)
+          setToken(null)
+        }
+      } else if (savedUser) {
+        // If there's a saved user but no token, restore user (session may be client-side only)
+        setUser(savedUser)
+      }
+
+      setLoading(false)
+    }
+
+    initializeAuth()
   }, [])
 
   const login = async (email, password, userType) => {
     try {
       setLoading(true)
-      
-      // Simulate API call - replace with actual authentication
-      const mockUsers = {
-        farmer: {
-          id: 1,
-          name: 'Farmers Cooperative Rep',
-          email: email,
-          role: 'farmer',
-          cooperative: 'Green Valley Farmers',
-          region: 'Oromia'
-        },
-        vendor: {
-          id: 2,
-          name: 'Vendors Cooperative Rep',
-          email: email,
-          role: 'vendor',
-          cooperative: 'City Market Vendors',
-          region: 'Addis Ababa'
-        },
-        driver: {
-          id: 3,
-          name: 'Truck Driver',
-          email: email,
-          role: 'driver',
-          vehicle: 'Toyota Truck - A1234',
-          region: 'Multiple Regions'
-        },
-        admin: {
-          id: 4,
-          name: 'System Administrator',
-          email: email,
-          role: 'admin',
-          permissions: ['all']
-        }
+
+      // Call backend login endpoint
+      // Backend expects 'username' and optional 'user_type' in specific enum values.
+      const payload = {
+        username: email,
+        password,
+      }
+      const res = await authService.login(payload)
+
+      // Expecting res to include token(s) and user object
+  const accessToken = res?.access_token || res?.token || res?.accessToken || res?.tokens?.access || res?.data?.access_token || res?.data?.token || res?.data?.tokens?.access
+      const userData = res?.user || res?.data?.user || res?.data || res
+
+      if (!accessToken || !userData) {
+        throw new Error('Invalid login response from server')
       }
 
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // Normalize user object: ensure `role` (lowercase) exists for client-side checks
+      const mappedRole = mapServerTypeToRole(userData)
+      const normalizedUser = { ...userData, role: mappedRole }
 
-      const userData = mockUsers[userType]
-      if (!userData) {
-        throw new Error('Invalid user type')
-      }
+      // Persist token and normalized user
+      storageService.setAuthToken(accessToken)
+      storageService.setUserData(normalizedUser)
+      setToken(accessToken)
+      setUser(normalizedUser)
 
-      setUser(userData)
-      localStorage.setItem('agar_user', JSON.stringify(userData))
-
-      // Redirect based on user role
-      switch (userType) {
+      // Determine role from normalized user and route accordingly
+      switch (normalizedUser.role) {
         case 'farmer':
           navigate('/farmer/dashboard')
           break
@@ -101,20 +124,50 @@ export const AuthProvider = ({ children }) => {
       return { success: true }
     } catch (error) {
       console.error('Login error:', error)
-      return { 
-        success: false, 
-        error: error.message || 'Login failed. Please try again.' 
+
+      // Try to extract a friendly message from structured backend errors.
+      // apiClient attaches `body` to thrown errors when the server returned JSON.
+      let friendly = 'Login failed. Please try again.'
+      const body = error && error.body
+
+      if (body) {
+        // DRF / our backend returns { code: '...', message: '...' } or
+        // { code: 'validation_error', errors: { field: ['msg'] } }
+        if (typeof body === 'string') {
+          friendly = body
+        } else if (body.message) {
+          friendly = body.message
+        } else if (body.detail) {
+          friendly = body.detail
+        } else if (body.code === 'validation_error' && body.errors) {
+          // Join all validation messages into a single string for display
+          try {
+            const msgs = Object.values(body.errors).flat().map(v => Array.isArray(v) ? v.join(' ') : String(v))
+            friendly = msgs.join(' ')
+          } catch (e) {
+            friendly = JSON.stringify(body.errors)
+          }
+        } else {
+          // Fallback to stringifying body
+          friendly = JSON.stringify(body)
+        }
+      } else if (error && error.message) {
+        friendly = error.message
       }
+
+      return { success: false, error: friendly }
     } finally {
       setLoading(false)
     }
   }
 
-  const logout = () => {
+  const logout = (options = { redirect: true }) => {
     setUser(null)
     localStorage.removeItem('agar_user')
     localStorage.removeItem('agar_cart')
-    navigate('/')
+    if (options && options.redirect !== false) {
+      navigate('/')
+    }
   }
 
   const updateUser = (updatedUserData) => {
@@ -127,11 +180,13 @@ export const AuthProvider = ({ children }) => {
 
   const hasRole = (allowedRoles) => {
     if (!user) return false
-    return allowedRoles.includes(user.role)
+    const roleValue = user.role || (user.user_type ? user.user_type.toLowerCase() : null)
+    return allowedRoles.includes(roleValue)
   }
 
   const value = {
     user,
+    token,
     loading,
     login,
     logout,
