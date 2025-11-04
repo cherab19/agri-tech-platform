@@ -141,6 +141,19 @@ const VendorDashboard = () => {
     }
   ]
 
+  const getProductIcon = (productName) => {
+    if (!productName) return '🥦'
+    const name = productName.toLowerCase()
+    if (name.includes('tomato')) return '🍅'
+    if (name.includes('pepper')) return '🫑'
+    if (name.includes('carrot')) return '🥕'
+    if (name.includes('onion') || name.includes('onions')) return '🧅'
+    if (name.includes('potato')) return '🥔'
+    if (name.includes('banana')) return '🍌'
+    // default
+    return '🥦'
+  }
+
   if (!user) {
     return (
       <div className="vendor-dashboard-loading">
@@ -335,8 +348,8 @@ const VendorDashboard = () => {
                         <div key={index} className="product-item d-flex align-items-center mb-3 pb-3 border-bottom">
                           <div className="product-image me-3">
                             <div className="bg-light rounded-circle d-flex align-items-center justify-content-center" 
-                                 style={{ width: '40px', height: '40px' }}>
-                              <i className="fas fa-carrot text-primary"></i>
+                                 style={{ width: '40px', height: '40px', fontSize: '18px' }}>
+                              <span aria-hidden="true">{getProductIcon(product.name)}</span>
                             </div>
                           </div>
                           <div className="flex-grow-1">
