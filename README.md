@@ -3,25 +3,19 @@
 ## 🧭 1. Clone the project
 
 Open Terminal (or Command Prompt) and run:
-```bash
-git clone https://github.com/username/projectname.git
-```
 
-Replace username and projectname with the actual GitHub repository URL.
-Example:
 
 ```bash
-git clone https://github.com/johndoe/react-django-app.git
+git clone https://github.com/cherab19/agri-tech-platform.git
 ```
 
 ## 🧭 2. Navigate into the project folder
 ```bash
-cd projectname
+cd agri-tech-platform
 ```
-
 ## ⚙️ 3. Setup the Django (Backend) part
 
-Go into the backend folder — for example:
+Go into the backend folder :
 ```bash
 cd backend
 ```
@@ -29,14 +23,14 @@ cd backend
 
 Then create a virtual environment:
 ```bash
-python -m venv venv
+python -m venv myenv
 ```
 
 Activate it:
 
 Windows:
 ```bash
-venv\Scripts\activate
+myenv\Scripts\activate
 ```
 
 Mac/Linux:
