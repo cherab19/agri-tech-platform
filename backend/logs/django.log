@@ -668,3 +668,7 @@ WARNING 2025-11-02 23:12:44,933 log 6584 5444 Not Found: /api/drivers/6/orders/a
 INFO 2025-11-04 14:23:21,403 autoreload 6092 10492 Watching for file changes with StatReloader
 WARNING 2025-11-04 14:25:32,855 log 6092 11452 Unauthorized: /api/auth/token/verify/
 WARNING 2025-11-04 14:25:32,856 log 6092 11876 Unauthorized: /api/auth/token/verify/
+INFO 2025-11-05 21:28:00,545 autoreload 1184 2312 Watching for file changes with StatReloader
+INFO 2025-11-05 21:28:01,186 autoreload 8056 10220 Watching for file changes with StatReloader
+WARNING 2025-11-05 21:30:18,795 log 8056 2728 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-05 21:30:18,795 log 8056 3060 Unauthorized: /api/auth/token/verify/

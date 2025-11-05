@@ -1,7 +1,5 @@
 NB:all mocked data should be removed
 
-
-
 🌾 SMART ORDER FLOW (from Public UI Perspective)
 🧍‍♂️ Vendor’s UI Flow (Buyer Cooperative)
 Step 1: Browse Marketplace
@@ -118,7 +116,7 @@ Map (Google Maps / OpenStreetMap)
 
 Status badges: 🟢 In Transit, 🔴 Delayed, ⚪ Delivered
 
-Chat/contact button (optional)
+
 
 Step 7: Delivery Confirmation
 
@@ -128,9 +126,9 @@ Vendor sees “Goods Delivered” notification.
 
 Vendor inspects goods and clicks:
 
-✅ “Confirm Delivery” (if all good)
+✅ “Confirm Delivery” (if all good)                                                                                                                ⚠️ “Raise Issue” (if there’s a problem)                                                                                                                              
 
-⚠️ “Raise Issue” (if there’s a problem)
+
 
 🖼️ UI Elements:
 
@@ -138,7 +136,7 @@ Delivery confirmation modal
 
 Rating stars for farmer & driver
 
-Option to upload proof (photo or comment)
+
 
 Step 8: Payment Released & Rating
 
@@ -207,9 +205,9 @@ Prepares goods for pickup.
 
 When driver arrives:
 
-Farmer confirms pickup with “Confirm Pickup” button or QR scan.
+Farmer confirms pickup with “Confirm Pickup” button 
 
-Uploads proof photo (optional).
+
 
 Order → “In Transit”.
 
@@ -219,7 +217,7 @@ After vendor confirms delivery →
 
 Farmer receives “Payment Released” message.
 
-Can check wallet balance / transaction receipt.
+Can check transaction receipt. 
 
 🚚 Driver’s UI Flow
 1. Available Deliveries Page
@@ -246,19 +244,19 @@ When arriving at farmer’s location:
 
 Click “Picked Up”
 
-Upload photo or signature.
+
 
 4. Delivery
 
 On arrival, click “Delivered”.
 
-Upload proof of delivery photo or signature.
+
 
 5. Payment
 
 After vendor confirmation:
 
-System releases delivery fee to driver wallet.
+System releases delivery fee to driver . 
 
 🧑‍💼 Admin Dashboard (Management UI)
 
@@ -274,5 +272,4 @@ Active drivers
 
 Top-selling products
 
-Total deliveries per day
-
+Total deliveries per day                                                                                                                                        
