@@ -6,7 +6,7 @@ All members  run:
 bash
 git clone https://github.com/cherab19/agri-tech-platform.git
 cd agri-tech-platform
-Step 2: Verify Branch Structure
+                                                                                                                                                                          Step 2: Verify Branch Structure
 Check available branches:
 
 bash
