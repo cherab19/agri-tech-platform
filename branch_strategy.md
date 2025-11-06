@@ -1,53 +1,32 @@
 here's how the team members should create and work with their feature branches:
-Step 1: Everyone Clones the Repository
-All members  run:
 
-bash
-git clone https://github.com/cherab19/agri-tech-platform.git
+Step 1: Everyone Clones the Repository
+All members  run:                                                                 git clone https://github.com/cherab19/agri-tech-platform.git
 cd agri-tech-platform
 Step 2: Verify Branch Structure
-Check available branches:
-
-bash
-git branch -a
-You should see:
-
-text
-* main
+Check available branches:                                                         git branch -a
+You should see:                                                                   * main
   develop
   remotes/origin/main
-  remotes/origin/develop
-Step 3: Create Feature Branches from Develop
+  remotes/origin/develop                                                         Step 3: Create Feature Branches from Develop
 Each member creates their feature branch FROM the develop branch:
 
-Member 1 (Vendor UI):
-bash
-# Sync with latest develop
+Member 1 (Vendor UI):                                                            # Sync with latest develop
 git checkout develop
-git pull origin develop
-
-# Create feature branch example
+git pull origin develop                                                          # Create feature branch example
 git checkout -b feature/vendor-marketplace-ui
-Member 2 (Farmer/Driver UI):
-bash
-git checkout develop
+Member 2 (Farmer/Driver UI):                                                  git checkout develop
 git pull origin develop
 git checkout -b feature/farmer-dashboard
-Member 3 (Core Backend):
-bash
-git checkout develop
+Member 3 (Core Backend):                                                      git checkout develop
 git pull origin develop
 git checkout -b feature/database-schema
 Member 4 (Payments):
-bash
 git checkout develop
 git pull origin develop
 git checkout -b feature/payment-service-setup
 Step 4: Start Working on Your Branch
-Now each member works on their local feature branch:
-
-bash
-# You're now on your feature branch
+Now each member works on their local feature branch:                          # You're now on your feature branch
 git branch  # Should show your feature branch with *
 
 # Make changes, add files, commit
@@ -56,16 +35,13 @@ git commit -m "feat: create initial vendor product cards"
 Step 5: Push Feature Branch to Remote
 First time pushing your feature branch:
 
-bash
 git push -u origin feature/your-branch-name
 Example for Member 1:
 
-bash
 git push -u origin feature/vendor-marketplace-ui
 Step 6: Daily Workflow - Syncing with Latest Changes
 Every time, before starting work:
 
-bash
 # Switch to develop branch
 git checkout develop
 
@@ -82,7 +58,6 @@ git merge develop
 Step 7: Making Regular Commits
 During development:
 
-bash
 # Add your changes
 git add .
 
@@ -94,7 +69,6 @@ git push origin feature/your-branch-name
 Quick Reference - Branch Naming Convention:
 Each member should use:
 
-bash
 # Features
 git checkout -b feature/vendor-order-tracking
 
@@ -102,4 +76,4 @@ git checkout -b feature/vendor-order-tracking
 git checkout -b fix/payment-validation-issue
 
 # Hotfixes (urgent)
-git checkout -b hotfix/critical-security-patch                                                                                               rewrite this file in to display on github on the way u write as it is
+git checkout -b hotfix/critical-security-patch                                                                                            
