@@ -1,7 +1,7 @@
 here's how the team members should create and work with their feature branches:
 
 Step 1: Everyone Clones the Repository
-All members (1-4) run:
+All members  run:
 
 bash
 git clone https://github.com/cherab19/agri-tech-platform.git
