@@ -1,5 +1,4 @@
 here's how the team members should create and work with their feature branches:
-
 Step 1: Everyone Clones the Repository
 All members  run:
 
