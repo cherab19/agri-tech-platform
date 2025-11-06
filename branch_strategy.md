@@ -25,14 +25,14 @@ Member 4 (Payments):
 git checkout develop
 git pull origin develop
 git checkout -b feature/payment-service-setup
-Step 4: Start Working on Your Branch
+                                                                            Step 4: Start Working on Your Branch
 Now each member works on their local feature branch:                          # You're now on your feature branch
 git branch  # Should show your feature branch with *
 
 # Make changes, add files, commit
 git add .
 git commit -m "feat: create initial vendor product cards"
-Step 5: Push Feature Branch to Remote
+   Step 5: Push Feature Branch to Remote
 First time pushing your feature branch:
 
 git push -u origin feature/your-branch-name
