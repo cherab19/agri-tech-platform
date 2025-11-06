@@ -1,7 +1,6 @@
 NB:all mocked data should be removed
 
-🌾 SMART ORDER FLOW (from Public UI Perspective)
-🧍‍♂️ Vendor’s UI Flow (Buyer Cooperative)
+🌾 logical flow (from Public UI Perspective) of the system                                                                                        🧍‍♂️ Vendor’s UI Flow (Buyer Cooperative)
 Step 1: Browse Marketplace
 
 Page: Marketplace / Products
@@ -16,7 +15,7 @@ Clicks on a product → opens Product Details Page.
 
 Product cards with image, name, price/kg, seller info, rating.
 
-"View Details" or "Buy Now" buttons.
+"View Details" button
 
 Step 2: View Product Details
 
@@ -36,17 +35,52 @@ Quantity input box
 
 Delivery location selector
 
-“Estimated delivery fee: calculated automatically”
+"Estimated delivery fee: calculated automatically"
 
-Step 3: Place Order
+🔐 AUTHENTICATION GATE (Critical Security Step)
+Step 2.5: Authentication Redirect
 
-Vendor enters:
+Action: Vendor clicks "Order Now" button on Product Details Page
 
-Quantity
+System Logic:
 
-Delivery address
+Checks if user is authenticated
 
-Delivery date
+If NOT authenticated: Redirects to Login Page
+
+If authenticated: Proceeds directly to Step 3 (Place Order)
+
+🖼️ UI Elements on Login Page:
+
+"Please login to place your order"
+
+Cooperative ID/Email field
+
+Password field
+
+"Login" button
+
+"Forgot Password?" link
+
+Data Persistence: System temporarily saves the product, quantity, and delivery preferences to restore after login
+
+Login Success Logic:
+
+text
+User submits credentials → System verifies against cooperative database → 
+If successful: Redirects to Step 3 (Place Order page) with saved product data pre-filled →
+If failed: Shows "Invalid credentials. Please try again."
+Step 3: Place Order (Post-Authentication)
+
+Page: Order Summary / Place Order
+
+Vendor sees pre-filled information from Step 2:
+
+Selected product and quantity
+
+Delivery location
+
+Vendor can modify: Quantity, Delivery address, Delivery date
 
 The system calculates total cost:
 
@@ -58,8 +92,9 @@ Total = (Price × Quantity) + Estimated Delivery Fee
 
 Summary box showing total cost, farmer info, delivery estimate
 
-When clicked → backend creates order (status = Pending Payment).
-Redirects vendor to Payment Page.
+"Welcome back, [Cooperative Name]!" confirmation message
+
+When clicked → backend creates order (status = Pending Payment). Redirects vendor to Payment Page.
 
 Step 4: Payment Page
 
@@ -69,7 +104,7 @@ Options: Telebirr / Chapa / Bank / Card / Wallet Balance
 
 After successful payment:
 
-Order status → “Payment Held in Escrow”
+Order status → "Payment Held in Escrow"
 
 Redirects to Order Details Page
 
@@ -79,18 +114,15 @@ Payment methods section
 
 Spinner/loading state
 
-“Payment Successful – Driver will be assigned soon” message
+"Payment Successful – Driver will be assigned soon" message
 
 Step 5: Order Tracking Page
 
 Once payment confirmed:
 
-UI shows “Awaiting Driver Assignment”
+UI shows "Awaiting Driver Assignment"
 
-A progress bar:
-
-Pending Payment → Driver Assigned → Picked Up → In Transit → Delivered
-
+A progress bar: Pending Payment → Driver Assigned → Picked Up → In Transit → Delivered
 
 Auto-refreshes when a driver is assigned.
 
@@ -98,15 +130,15 @@ Auto-refreshes when a driver is assigned.
 
 Live status timeline
 
-“Driver Assigned” card with driver name, phone, truck type, ETA
+"Driver Assigned" card with driver name, phone, truck type, ETA
 
-Button: “View Driver on Map”
+Button: "View Driver on Map"
 
 Step 6: Delivery Tracking
 
-Map view showing truck’s live GPS movement.
+Map view showing truck's live GPS movement.
 
-“In Transit” status highlighted.
+"In Transit" status highlighted.
 
 Estimated arrival countdown.
 
@@ -116,19 +148,17 @@ Map (Google Maps / OpenStreetMap)
 
 Status badges: 🟢 In Transit, 🔴 Delayed, ⚪ Delivered
 
-
-
 Step 7: Delivery Confirmation
 
-When the driver marks “Delivered”:
+When the driver marks "Delivered":
 
-Vendor sees “Goods Delivered” notification.
+Vendor sees "Goods Delivered" notification.
 
 Vendor inspects goods and clicks:
 
-✅ “Confirm Delivery” (if all good)                                                                                                                ⚠️ “Raise Issue” (if there’s a problem)                                                                                                                              
+✅ "Confirm Delivery" (if all good)
 
-
+⚠️ "Raise Issue" (if there's a problem)
 
 🖼️ UI Elements:
 
@@ -136,15 +166,13 @@ Delivery confirmation modal
 
 Rating stars for farmer & driver
 
-
-
 Step 8: Payment Released & Rating
 
 If vendor confirms:
 
 Platform releases payment from escrow to farmer & driver.
 
-Order status → “Completed”
+Order status → "Completed"
 
 Vendor prompted to rate both:
 
@@ -154,7 +182,7 @@ Vendor prompted to rate both:
 
 🖼️ UI Elements:
 
-“Thank you” message
+"Thank you" message
 
 Rating form
 
@@ -172,9 +200,7 @@ Filters: Completed / Pending / Disputed.
 
 Order table
 
-Status badge colors (green = completed, yellow = in transit, red = dispute)
-
-👩‍🌾 Farmer’s UI Flow (Seller Cooperative)
+Status badge colors (green = completed, yellow = in transit, red = dispute)                                                 👩‍🌾 Farmer’s UI Flow (Seller Cooperative)
 1. Product Listing Page
 
 Farmers add new products (with images, price, quantity).
@@ -270,6 +296,4 @@ See live analytics:
 
 Active drivers
 
-Top-selling products
-
-Total deliveries per day                                                                                                                                        
+Top-selling products                                                                                                                                      
