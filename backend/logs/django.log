@@ -673,3 +673,9 @@ INFO 2025-11-05 21:28:01,186 autoreload 8056 10220 Watching for file changes wit
 WARNING 2025-11-05 21:30:18,795 log 8056 2728 Unauthorized: /api/auth/token/verify/
 WARNING 2025-11-05 21:30:18,795 log 8056 3060 Unauthorized: /api/auth/token/verify/
 INFO 2025-11-08 17:01:42,035 autoreload 7400 9988 Watching for file changes with StatReloader
+WARNING 2025-11-08 17:03:16,138 log 7400 8444 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-08 17:03:16,138 log 7400 1636 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-08 17:06:01,260 log 7400 4440 Not Found: /api/drivers/6/stats
+WARNING 2025-11-08 17:06:01,263 log 7400 7984 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-08 17:06:01,266 log 7400 9240 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-08 17:06:01,269 log 7400 6444 Not Found: /api/drivers/6/stats
