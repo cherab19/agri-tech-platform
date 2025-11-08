@@ -672,3 +672,4 @@ INFO 2025-11-05 21:28:00,545 autoreload 1184 2312 Watching for file changes with
 INFO 2025-11-05 21:28:01,186 autoreload 8056 10220 Watching for file changes with StatReloader
 WARNING 2025-11-05 21:30:18,795 log 8056 2728 Unauthorized: /api/auth/token/verify/
 WARNING 2025-11-05 21:30:18,795 log 8056 3060 Unauthorized: /api/auth/token/verify/
+INFO 2025-11-08 17:01:42,035 autoreload 7400 9988 Watching for file changes with StatReloader
