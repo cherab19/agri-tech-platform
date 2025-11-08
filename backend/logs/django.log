@@ -1237,3 +1237,14 @@ WARNING 2025-11-08 22:12:56,088 log 7400 6536 Not Found: /api/vendors/4/orders
 WARNING 2025-11-08 22:12:56,105 log 7400 6536 Not Found: /api/vendors/4/orders
 WARNING 2025-11-08 22:13:35,194 log 7400 5256 Not Found: /api/farmers/5/products
 WARNING 2025-11-08 22:13:35,211 log 7400 5256 Not Found: /api/farmers/5/products
+WARNING 2025-11-08 22:44:34,343 log 7400 1576 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-08 22:44:34,353 log 7400 9760 Not Found: /api/drivers/6/stats
+WARNING 2025-11-08 22:44:34,362 log 7400 12268 Not Found: /api/drivers/6/stats
+WARNING 2025-11-08 22:44:34,382 log 7400 1144 Not Found: /api/drivers/6/orders/assigned
+WARNING 2025-11-08 22:45:04,955 log 7400 12268 Not Found: /api/vendors/4/orders
+WARNING 2025-11-08 22:45:04,964 log 7400 9760 Not Found: /api/vendors/4/orders
+WARNING 2025-11-08 22:45:24,275 log 7400 14056 Not Found: /api/farmers/5/products
+WARNING 2025-11-08 22:45:24,279 log 7400 4740 Not Found: /api/farmers/5/products
+WARNING 2025-11-08 22:45:36,636 log 7400 4740 Not Found: /api/farmers/5/products
+WARNING 2025-11-08 22:45:36,646 log 7400 14056 Not Found: /api/farmers/5/products
+WARNING 2025-11-08 22:45:36,661 log 7400 7140 Not Found: /api/farmers/5/products
