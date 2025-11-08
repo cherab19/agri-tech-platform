@@ -1,74 +1,48 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLanguage } from '../../contexts/LanguageContext'
 import { FarmerLoading } from '../../components/common/LoadingSpinner'
 import './transactions-page.scss'
+import { useAuth } from '../../contexts/AuthContext'
+import { farmersService } from '../../services/api/farmers'
 
 const TransactionsPage = () => {
   const { t } = useLanguage()
+  const { user, token } = useAuth()
   const [loading, setLoading] = useState(false)
+  const [initialLoading, setInitialLoading] = useState(true)
   const [dateRange, setDateRange] = useState('30days')
+  const [transactions, setTransactions] = useState([])
 
-  const transactions = [
-    {
-      id: 'TXN-001',
-      orderId: 'ORD-004',
-      date: '2024-01-12',
-      type: 'sale',
-      product: 'Onions',
-      quantity: 75,
-      amount: 5625,
-      status: 'completed',
-      paymentMethod: 'TeleBirr'
-    },
-    {
-      id: 'TXN-002',
-      orderId: 'ORD-003',
-      date: '2024-01-15',
-      type: 'sale',
-      product: 'Carrots',
-      quantity: 100,
-      amount: 9000,
-      status: 'completed',
-      paymentMethod: 'TeleBirr'
-    },
-    {
-      id: 'TXN-003',
-      orderId: 'ORD-002',
-      date: '2024-01-16',
-      type: 'sale',
-      product: 'Green Peppers',
-      quantity: 25,
-      amount: 4500,
-      status: 'pending',
-      paymentMethod: 'TeleBirr'
-    },
-    {
-      id: 'TXN-004',
-      orderId: 'ORD-001',
-      date: '2024-01-17',
-      type: 'sale',
-      product: 'Fresh Tomatoes',
-      quantity: 50,
-      amount: 6000,
-      status: 'pending',
-      paymentMethod: 'TeleBirr'
-    },
-    {
-      id: 'TXN-005',
-      date: '2024-01-05',
-      type: 'commission',
-      description: 'Platform service fee',
-      amount: -300,
-      status: 'completed',
-      paymentMethod: 'Auto-deduct'
+  const coopId = user?.cooperative_id || user?.cooperativeId || user?.cooperative?.id || user?.id
+
+  useEffect(() => {
+    const fetchTransactions = async () => {
+      setInitialLoading(true)
+      try {
+        if (coopId) {
+          const res = await farmersService.getTransactions(coopId, token, {})
+          const data = res && res.data ? res.data : res
+          const list = Array.isArray(data) ? data : (data.results || [])
+          setTransactions(list)
+        } else {
+          setTransactions([])
+        }
+      } catch (err) {
+        console.error('Failed to fetch transactions', err)
+        setTransactions([])
+      } finally {
+        setInitialLoading(false)
+      }
     }
-  ]
+
+    fetchTransactions()
+  }, [coopId, token])
 
   const summaryStats = {
-    totalRevenue: transactions.filter(t => t.type === 'sale').reduce((sum, t) => sum + t.amount, 0),
-    pendingAmount: transactions.filter(t => t.status === 'pending').reduce((sum, t) => sum + t.amount, 0),
-    totalCommission: Math.abs(transactions.filter(t => t.type === 'commission').reduce((sum, t) => sum + t.amount, 0)),
-    netEarnings: transactions.reduce((sum, t) => sum + t.amount, 0)
+    totalRevenue: transactions.filter(t => t.type === 'sale').reduce((sum, it) => sum + (it.amount || 0), 0),
+    pendingAmount: transactions.filter(t => t.status === 'pending').reduce((sum, it) => sum + (it.amount || 0), 0),
+    totalCommission: Math.abs(transactions.filter(t => t.type === 'commission').reduce((sum, it) => sum + (it.amount || 0), 0)),
+    netEarnings: transactions.reduce((sum, it) => sum + (it.amount || 0), 0)
   }
 
   const getStatusBadge = (status) => {
@@ -107,7 +81,7 @@ const TransactionsPage = () => {
     setTimeout(() => setLoading(false), 1000)
   }
 
-  if (loading) {
+  if (initialLoading) {
     return (
       <div className="transactions-page-loading">
         <FarmerLoading />

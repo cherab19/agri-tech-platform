@@ -1,10 +1,13 @@
-import { apiClient } from '../apiClient';
+import { apiClient } from './apiClient';
 
 export const vendorsService = {
   // Product catalog
   async getAvailableProducts(filters = {}) {
-    const queryParams = new URLSearchParams(filters).toString();
-    return apiClient.get(`/products/available?${queryParams}`);
+    // Use the canonical products list endpoint and request only available items by default
+    const merged = { ...filters };
+    if (!('available_only' in merged)) merged.available_only = true;
+    const queryParams = new URLSearchParams(merged).toString();
+    return apiClient.get(`/products?${queryParams}`);
   },
 
   async getProductDetails(productId) {

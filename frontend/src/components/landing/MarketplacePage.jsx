@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { useLanguage } from '../../contexts/LanguageContext'
 import { VendorLoading } from '../../components/common/LoadingSpinner'
 import { notify } from '../../components/common/Notification'
 import './marketplace-page.scss'
+import { vendorsService } from '../../services/api/vendors'
 
 const MarketplacePage = () => {
   const { t } = useLanguage()
@@ -20,103 +22,36 @@ const MarketplacePage = () => {
     { value: 'legumes', label: t('marketplace.legumes', 'Legumes') }
   ]
 
-  const products = [
-    {
-      id: 1,
-      name: 'Fresh Tomatoes',
-      category: 'vegetables',
-      farmer: 'Green Valley Farmers',
-      price: 120,
-      unit: 'kg',
-      minOrder: 5,
-      available: 150,
-      rating: 4.8,
-      reviews: 45,
-      image: '/images/products/tomatoes.jpg',
-      deliveryTime: '1-2 days',
-    
-    },
-    {
-      id: 2,
-      name: 'Green Peppers',
-      category: 'vegetables',
-      farmer: 'Oromia Farm Coop',
-      price: 180,
-      unit: 'kg',
-      minOrder: 2,
-      available: 80,
-      rating: 4.6,
-      reviews: 32,
-      image: '/images/products/peppers.jpg',
-      deliveryTime: '1-2 days',
-  
-    },
-    {
-      id: 3,
-      name: 'Carrots',
-      category: 'vegetables',
-      farmer: 'Highland Growers',
-      price: 90,
-      unit: 'kg',
-      minOrder: 5,
-      available: 200,
-      rating: 4.9,
-      reviews: 28,
-      image: '/images/products/carrots.jpg',
-      deliveryTime: '2-3 days',
- 
-    },
-    {
-      id: 4,
-      name: 'Onions',
-      category: 'vegetables',
-      farmer: 'Rift Valley Farms',
-      price: 75,
-      unit: 'kg',
-      minOrder: 10,
-      available: 300,
-      rating: 4.5,
-      reviews: 38,
-      image: '/images/products/onions.jpg',
-      deliveryTime: '1-2 days',
-     
-    },
-    {
-      id: 5,
-      name: 'Potatoes',
-      category: 'tubers',
-      farmer: 'Mountain Harvest',
-      price: 60,
-      unit: 'kg',
-      minOrder: 10,
-      available: 500,
-      rating: 4.7,
-      reviews: 52,
-      image: '/images/products/potatoes.jpg',
-      deliveryTime: '2-3 days',
-      
-    },
-    {
-      id: 6,
-      name: 'Bananas',
-      category: 'fruits',
-      farmer: 'Tropical Fruits Coop',
-      price: 150,
-      unit: 'bunch',
-      minOrder: 3,
-      available: 50,
-      rating: 4.8,
-      reviews: 41,
-      image: '/images/products/bananas.jpg',
-      deliveryTime: '1 day',
-     
+  // products state will be populated from the backend
+  const [products, setProducts] = useState([])
+  const [initialLoading, setInitialLoading] = useState(true)
+
+  const fetchProducts = async () => {
+    try {
+      const res = await vendorsService.getAvailableProducts({ available_only: true })
+      const data = res && res.data ? res.data : res
+      // backend returns an array or { results: [] }
+      const list = Array.isArray(data) ? data : (data.results || [])
+      setProducts(list)
+    } catch (err) {
+      // No fallback data — show empty state and let user know via console
+      console.error('Failed to fetch available products', err)
+    } finally {
+      setInitialLoading(false)
     }
-  ]
+  }
+
+  useEffect(() => {
+    // fetch live products on mount
+    fetchProducts()
+    // optionally we could return a cleanup or interval here in the future
+  }, [])
 
   const filteredProducts = products.filter(product => {
-    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         product.farmer.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory
+    const farmerName = product.farmer_cooperative_name || ''
+    const matchesSearch = (product.name || '').toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         farmerName.toLowerCase().includes(searchTerm.toLowerCase())
+    const matchesCategory = selectedCategory === 'all' || (product.category || '').toLowerCase() === selectedCategory
     return matchesSearch && matchesCategory
   })
 
@@ -169,7 +104,7 @@ const MarketplacePage = () => {
     ))
   }
 
-  if (loading) {
+  if (loading || initialLoading) {
     return (
       <div className="marketplace-page-loading">
         <VendorLoading />
@@ -267,35 +202,37 @@ const MarketplacePage = () => {
             {sortedProducts.map((product) => (
               <div key={product.id} className="col-xl-4 col-lg-6 col-md-6">
                 <div className="product-card">
-                  <div className="card border-0 shadow-sm h-100">
-                    {/* Product Image */}
-                    <div className="product-image position-relative">
-                      <img
-                        src={product.image}
-                        className="card-img-top"
-                        style={{ height: '200px', objectFit: 'cover' }}
-                      />
-                      {product.organic && (
-                        <span className="position-absolute top-0 start-0 m-2 badge bg-success">
-                          <i className="fas fa-leaf me-1"></i>
-                          {t('marketplace.organic', 'Organic')}
-                        </span>
-                      )}
-                      <div className="position-absolute top-0 end-0 m-2">
-                        <button className="btn btn-light btn-sm rounded-circle">
-                          <i className="far fa-heart"></i>
-                        </button>
+                  <Link to={`/product/${product.id}`} className="text-decoration-none text-dark d-block h-100">
+                    <div className="card border-0 shadow-sm h-100">
+                      {/* Product Image */}
+                      <div className="product-image position-relative">
+                        <img
+                          src={product.image}
+                          className="card-img-top"
+                          style={{ height: '200px', objectFit: 'cover' }}
+                          alt={product.name}
+                        />
+                        {product.organic && (
+                          <span className="position-absolute top-0 start-0 m-2 badge bg-success">
+                            <i className="fas fa-leaf me-1"></i>
+                            {t('marketplace.organic', 'Organic')}
+                          </span>
+                        )}
+                        <div className="position-absolute top-0 end-0 m-2">
+                          <button className="btn btn-light btn-sm rounded-circle" onClick={(e) => e.stopPropagation()}>
+                            <i className="far fa-heart"></i>
+                          </button>
+                        </div>
                       </div>
-                    </div>
 
-                    <div className="card-body">
-                      {/* Product Info */}
-                      <div className="product-info mb-3">
-                        <h5 className="product-name fw-semibold mb-1">
-                          {product.name}
-                        </h5>
+                        <div className="card-body">
+                        {/* Product Info */}
+                        <div className="product-info mb-3">
+                          <h5 className="product-name fw-semibold mb-1">
+                            {product.name}
+                          </h5>
                         <p className="product-farmer text-muted small mb-2">
-                          {t('marketplace.by', 'By')} {product.farmer}
+                          {t('marketplace.by', 'By')} {product.farmer_cooperative_name || ''}
                         </p>
                         
                         {/* Rating */}
@@ -313,9 +250,9 @@ const MarketplacePage = () => {
 
                         {/* Availability */}
                         <div className="product-availability d-flex justify-content-between align-items-center mb-2">
-                          <span className="availability text-success small">
+                            <span className="availability text-success small">
                             <i className="fas fa-check-circle me-1"></i>
-                            {t('marketplace.in_stock', 'In Stock')} ({product.available} {product.unit})
+                            {t('marketplace.in_stock', 'In Stock')} ({product.available_quantity || product.available || 0} {product.unit || ''})
                           </span>
                           <span className="delivery-time text-muted small">
                             <i className="fas fa-truck me-1"></i>
@@ -333,13 +270,13 @@ const MarketplacePage = () => {
                                       <small className="text-muted">/{product.unit}</small>
                                     </h4>
                                     <small className="text-muted">
-                                      {t('marketplace.min_order', 'Min. order')}: {product.minOrder} {product.unit}
+                                      {t('marketplace.min_order', 'Min. order')}: {product.min_order_quantity || product.minOrder || 1} {product.unit || ''}
                                     </small>
                                     </div>
                                     <div className="action-buttons">
                                     <button
                                       className="btn btn-outline-primary btn-sm me-2"
-                                      onClick={() => handleAddToCart(product)}
+                                      onClick={(e) => { e.stopPropagation(); handleAddToCart(product) }}
                                       disabled={loading}
                                     >
                                       <i className="fas fa-cart-plus me-1"></i>
@@ -347,19 +284,20 @@ const MarketplacePage = () => {
                                     </button>
                                     <button
                                       className="btn btn-primary btn-sm"
-                                      onClick={() => handleQuickOrder(product)}
+                                      onClick={(e) => { e.stopPropagation(); handleQuickOrder(product) }}
                                       disabled={loading}
                                     >
                                       {t('marketplace.order', 'Order')}
                                     </button>
                                     </div>
-                                  </div>
+                                    </div>
                                   </div>
                                 </div>
-                                </div>
                               </div>
-                              </div>
-                            ))}
+                    </Link>
+                </div>
+              </div>
+            ))}
                             </div>
 
                             {/* Empty State */}

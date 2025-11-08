@@ -1,81 +1,48 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLanguage } from '../../contexts/LanguageContext'
 import { FarmerLoading } from '../../components/common/LoadingSpinner'
 import { notify } from '../../components/common/Notification'
 import './orders-page.scss'
+import { useAuth } from '../../contexts/AuthContext'
+import { farmersService } from '../../services/api/farmers'
 
 const OrdersPage = () => {
   const { t } = useLanguage()
+  const { user, token } = useAuth()
   const [loading, setLoading] = useState(false)
+  const [initialLoading, setInitialLoading] = useState(true)
   const [activeTab, setActiveTab] = useState('all')
+  const [orders, setOrders] = useState([])
 
-  const orders = [
-    {
-      id: 'ORD-001',
-      product: 'Fresh Tomatoes',
-      vendor: 'City Market Vendors',
-      quantity: 50,
-      unit: 'kg',
-      price: 120,
-      total: 6000,
-      status: 'pending',
-      orderDate: '2024-01-15',
-      deliveryDate: '2024-01-17',
-      driver: 'Not assigned'
-    },
-    {
-      id: 'ORD-002',
-      product: 'Green Peppers',
-      vendor: 'Local Grocery Store',
-      quantity: 25,
-      unit: 'kg',
-      price: 180,
-      total: 4500,
-      status: 'accepted',
-      orderDate: '2024-01-14',
-      deliveryDate: '2024-01-16',
-      driver: 'Abebe Tesfaye'
-    },
-    {
-      id: 'ORD-003',
-      product: 'Carrots',
-      vendor: 'Supermarket Chain',
-      quantity: 100,
-      unit: 'kg',
-      price: 90,
-      total: 9000,
-      status: 'ready',
-      orderDate: '2024-01-13',
-      deliveryDate: '2024-01-15',
-      driver: 'Mekonnen Alemu'
-    },
-    {
-      id: 'ORD-004',
-      product: 'Onions',
-      vendor: 'Restaurant Supply',
-      quantity: 75,
-      unit: 'kg',
-      price: 75,
-      total: 5625,
-      status: 'completed',
-      orderDate: '2024-01-10',
-      deliveryDate: '2024-01-12',
-      driver: 'Dawit Solomon'
-    },
-    {
-      id: 'ORD-005',
-      product: 'Potatoes',
-      vendor: 'Wholesale Market',
-      quantity: 200,
-      unit: 'kg',
-      price: 60,
-      total: 12000,
-      status: 'cancelled',
-      orderDate: '2024-01-08',
-      deliveryDate: '2024-01-10',
-      driver: 'Not assigned'
+  // derive a cooperative id defensively from user object
+  const coopId = user?.cooperative_id || user?.cooperativeId || user?.cooperative?.id || user?.id
+
+  useEffect(() => {
+    const fetchOrders = async () => {
+      setInitialLoading(true)
+      try {
+        // Use farmer-specific incoming orders endpoint if available
+        let res
+        if (coopId) {
+          res = await farmersService.getIncomingOrders(coopId, token)
+        } else {
+          // fallback: request generic orders list (may return permissions error)
+          res = await fetch('/api/orders')
+          res = await (res.ok ? res.json() : [])
+        }
+        const data = res && res.data ? res.data : res
+        const list = Array.isArray(data) ? data : (data.results || [])
+        setOrders(list)
+      } catch (err) {
+        console.error('Failed to fetch farmer orders', err)
+        setOrders([])
+      } finally {
+        setInitialLoading(false)
+      }
     }
-  ]
+
+    fetchOrders()
+  }, [coopId, token])
 
   const statusTabs = [
     { key: 'all', label: t('orders.all_orders', 'All Orders'), count: orders.length },
@@ -86,9 +53,7 @@ const OrdersPage = () => {
     { key: 'cancelled', label: t('orders.cancelled', 'Cancelled'), count: orders.filter(o => o.status === 'cancelled').length }
   ]
 
-  const filteredOrders = activeTab === 'all' 
-    ? orders 
-    : orders.filter(order => order.status === activeTab)
+  const filteredOrders = activeTab === 'all' ? orders : orders.filter(order => order.status === activeTab)
 
   const getStatusBadge = (status) => {
     const statusConfig = {
@@ -191,7 +156,7 @@ const OrdersPage = () => {
     }
   }
 
-  if (loading) {
+  if (initialLoading) {
     return (
       <div className="orders-page-loading">
         <FarmerLoading />

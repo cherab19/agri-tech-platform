@@ -1,87 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import { useLanguage } from '../../contexts/LanguageContext'
 import { VendorLoading } from '../../components/common/LoadingSpinner'
 import './vendor-dashboard.scss'
+import { apiClient } from '../../services/api/apiClient'
+import { vendorsService } from '../../services/api/vendors'
 
 const VendorDashboard = () => {
-  const { user } = useAuth()
+  const { user, token } = useAuth()
   const { t } = useLanguage()
 
-  // Mock data for dashboard
-  const dashboardStats = [
-    {
-      title: t('vendor.total_orders', 'Total Orders'),
-      value: '18',
-      change: '+5',
-      trend: 'up',
-      icon: 'fas fa-shopping-cart',
-      color: 'primary'
-    },
-    {
-      title: t('vendor.monthly_spending', 'Monthly Spending'),
-      value: '₦156,800',
-      change: '+18%',
-      trend: 'up',
-      icon: 'fas fa-money-bill-wave',
-      color: 'success'
-    },
-    {
-      title: t('vendor.pending_deliveries', 'Pending Deliveries'),
-      value: '3',
-      change: '-2',
-      trend: 'down',
-      icon: 'fas fa-truck',
-      color: 'warning'
-    },
-    {
-      title: t('vendor.savings', 'Total Savings'),
-      value: '₦42,500',
-      change: '+12%',
-      trend: 'up',
-      icon: 'fas fa-piggy-bank',
-      color: 'info'
-    }
-  ]
+  // dashboard state driven from backend APIs (migrated from earlier placeholders)
+  const [totalOrders, setTotalOrders] = useState(null)
+  const [monthlySpending, setMonthlySpending] = useState(null)
+  const [pendingDeliveries, setPendingDeliveries] = useState(null)
+  const [totalSavings, setTotalSavings] = useState(null)
 
-  const recentOrders = [
-    {
-      id: 'ORD-006',
-      product: 'Fresh Tomatoes',
-      farmer: 'Green Valley Farmers',
-      quantity: 50,
-      status: 'delivered',
-      amount: 6000,
-      deliveryDate: '2024-01-15'
-    },
-    {
-      id: 'ORD-007',
-      product: 'Green Peppers',
-      farmer: 'Oromia Farm Coop',
-      quantity: 25,
-      status: 'in-transit',
-      amount: 4500,
-      deliveryDate: '2024-01-16'
-    },
-    {
-      id: 'ORD-008',
-      product: 'Carrots',
-      farmer: 'Highland Growers',
-      quantity: 100,
-      status: 'processing',
-      amount: 9000,
-      deliveryDate: '2024-01-17'
-    },
-    {
-      id: 'ORD-009',
-      product: 'Onions',
-      farmer: 'Rift Valley Farms',
-      quantity: 75,
-      status: 'delivered',
-      amount: 5625,
-      deliveryDate: '2024-01-14'
-    }
-  ]
+  const [recentOrders, setRecentOrders] = useState([])
+  const [statsLoading, setStatsLoading] = useState(true)
 
   const quickActions = [
     {
@@ -114,30 +50,96 @@ const VendorDashboard = () => {
     }
   ]
 
-  const popularProducts = [
+  const [popularProducts, setPopularProducts] = useState([])
+
+  useEffect(() => {
+    const fetchVendorDashboard = async () => {
+  setStatsLoading(true)
+      try {
+        const coopId = user?.cooperative_id || user?.cooperativeId || user?.cooperative?.id || user?.id
+
+        // Orders
+        let ordersRes
+        if (coopId) {
+          ordersRes = await vendorsService.getVendorOrders(coopId, token)
+        } else {
+          const fallback = await fetch('/api/orders')
+          ordersRes = await (fallback.ok ? fallback.json() : [])
+        }
+        const ordersData = ordersRes && ordersRes.data ? ordersRes.data : ordersRes
+        const ordersList = Array.isArray(ordersData) ? ordersData : (ordersData.results || [])
+        setRecentOrders(ordersList.slice(0, 6))
+        setTotalOrders(ordersList.length)
+        setPendingDeliveries(ordersList.filter(o => o.status !== 'delivered' && o.status !== 'cancelled').length)
+
+        // Purchase history -> monthly spending
+        try {
+          if (coopId) {
+            const phRes = await vendorsService.getPurchaseHistory(coopId, token, { period: 'month' })
+            const phData = phRes && phRes.data ? phRes.data : phRes
+            const phList = Array.isArray(phData) ? phData : (phData.results || [])
+            const monthTotal = phList.reduce((acc, p) => acc + (p.amount || 0), 0)
+            setMonthlySpending(monthTotal)
+          }
+        } catch (e) {
+          console.warn('Failed to fetch purchase history', e)
+        }
+
+        // Vendor profile for savings or additional stats
+        try {
+          if (coopId) {
+            const profileRes = await vendorsService.getVendorProfile(coopId, token)
+            const profile = profileRes && profileRes.data ? profileRes.data : profileRes
+            setTotalSavings(profile?.savings ?? null)
+            // if profile provides popular products, use them
+            if (profile?.popular_products) setPopularProducts(profile.popular_products)
+          }
+        } catch (e) {
+          console.warn('Failed to fetch vendor profile', e)
+        }
+      } catch (err) {
+        console.error('Failed to fetch vendor dashboard data', err)
+      } finally {
+        setStatsLoading(false)
+      }
+    }
+
+    fetchVendorDashboard()
+  }, [user, token])
+
+  // Compose dashboard stats from available backend-driven state
+  const dashboardStats = [
     {
-      name: 'Fresh Tomatoes',
-      farmer: 'Green Valley Farmers',
-      price: 120,
-      unit: 'kg',
-      rating: 4.8,
-      orders: 45
+      title: t('vendor.total_orders', 'Total Orders'),
+      value: statsLoading ? '...' : (totalOrders ?? '—'),
+      change: '',
+      trend: 'up',
+      icon: 'fas fa-shopping-cart',
+      color: 'primary'
     },
     {
-      name: 'Green Peppers',
-      farmer: 'Oromia Farm Coop',
-      price: 180,
-      unit: 'kg',
-      rating: 4.6,
-      orders: 32
+      title: t('vendor.monthly_spending', 'Monthly Spending'),
+      value: monthlySpending ?? '—',
+      change: '',
+      trend: 'up',
+      icon: 'fas fa-money-bill-wave',
+      color: 'success'
     },
     {
-      name: 'Carrots',
-      farmer: 'Highland Growers',
-      price: 90,
-      unit: 'kg',
-      rating: 4.9,
-      orders: 28
+      title: t('vendor.pending_deliveries', 'Pending Deliveries'),
+      value: pendingDeliveries ?? '—',
+      change: '',
+      trend: 'down',
+      icon: 'fas fa-truck',
+      color: 'warning'
+    },
+    {
+      title: t('vendor.savings', 'Total Savings'),
+      value: totalSavings ?? '—',
+      change: '',
+      trend: 'up',
+      icon: 'fas fa-piggy-bank',
+      color: 'info'
     }
   ]
 
@@ -304,26 +306,34 @@ const VendorDashboard = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          {recentOrders.map((order) => (
-                            <tr key={order.id}>
-                              <td className="fw-semibold">{order.id}</td>
-                              <td>{order.product}</td>
-                              <td className="small">{order.farmer}</td>
-                              <td>{order.quantity} kg</td>
-                              <td>₦{order.amount.toLocaleString()}</td>
-                              <td>
-                                <span className={getStatusBadge(order.status)}>
-                                  {order.status === 'processing' ? t('vendor.processing', 'Processing') :
-                                   order.status === 'in-transit' ? t('vendor.in_transit', 'In Transit') :
-                                   order.status === 'delivered' ? t('vendor.delivered', 'Delivered') :
-                                   t('vendor.cancelled', 'Cancelled')}
-                                </span>
-                              </td>
-                              <td className="small">
-                                {new Date(order.deliveryDate).toLocaleDateString()}
+                          {recentOrders.length > 0 ? (
+                            recentOrders.map((order) => (
+                              <tr key={order.id}>
+                                <td className="fw-semibold">{order.id}</td>
+                                <td>{order.product}</td>
+                                <td className="small">{order.farmer}</td>
+                                <td>{order.quantity} kg</td>
+                                <td>₦{order.amount ? order.amount.toLocaleString() : '—'}</td>
+                                <td>
+                                  <span className={getStatusBadge(order.status)}>
+                                    {order.status === 'processing' ? t('vendor.processing', 'Processing') :
+                                     order.status === 'in-transit' ? t('vendor.in_transit', 'In Transit') :
+                                     order.status === 'delivered' ? t('vendor.delivered', 'Delivered') :
+                                     t('vendor.cancelled', 'Cancelled')}
+                                  </span>
+                                </td>
+                                <td className="small">
+                                  {order.deliveryDate ? new Date(order.deliveryDate).toLocaleDateString() : '—'}
+                                </td>
+                              </tr>
+                            ))
+                          ) : (
+                            <tr>
+                              <td colSpan="7" className="text-center text-muted">
+                                {t('vendor.no_recent_orders', 'No recent orders')}
                               </td>
                             </tr>
-                          ))}
+                          )}
                         </tbody>
                       </table>
                     </div>
@@ -344,33 +354,39 @@ const VendorDashboard = () => {
                   </div>
                   <div className="card-body">
                     <div className="products-list">
-                      {popularProducts.map((product, index) => (
-                        <div key={index} className="product-item d-flex align-items-center mb-3 pb-3 border-bottom">
-                          <div className="product-image me-3">
-                            <div className="bg-light rounded-circle d-flex align-items-center justify-content-center" 
-                                 style={{ width: '40px', height: '40px', fontSize: '18px' }}>
-                              <span aria-hidden="true">{getProductIcon(product.name)}</span>
+                      {popularProducts.length > 0 ? (
+                        popularProducts.map((product, index) => (
+                          <div key={index} className="product-item d-flex align-items-center mb-3 pb-3 border-bottom">
+                            <div className="product-image me-3">
+                              <div className="bg-light rounded-circle d-flex align-items-center justify-content-center" 
+                                   style={{ width: '40px', height: '40px', fontSize: '18px' }}>
+                                <span aria-hidden="true">{getProductIcon(product.name)}</span>
+                              </div>
                             </div>
-                          </div>
-                          <div className="flex-grow-1">
-                            <h6 className="product-name fw-semibold mb-1">
-                              {product.name}
-                            </h6>
-                            <p className="product-farmer text-muted small mb-1">
-                              {product.farmer}
-                            </p>
-                            <div className="d-flex justify-content-between align-items-center">
-                              <span className="product-price fw-bold text-success">
-                                ₦{product.price}/{product.unit}
-                              </span>
-                              <div className="product-rating small">
-                                <i className="fas fa-star text-warning"></i>
-                                {product.rating}
+                            <div className="flex-grow-1">
+                              <h6 className="product-name fw-semibold mb-1">
+                                {product.name}
+                              </h6>
+                              <p className="product-farmer text-muted small mb-1">
+                                {product.farmer}
+                              </p>
+                              <div className="d-flex justify-content-between align-items-center">
+                                <span className="product-price fw-bold text-success">
+                                  ₦{product.price}/{product.unit}
+                                </span>
+                                <div className="product-rating small">
+                                  <i className="fas fa-star text-warning"></i>
+                                  {product.rating}
+                                </div>
                               </div>
                             </div>
                           </div>
+                        ))
+                      ) : (
+                        <div className="text-center text-muted py-3">
+                          {t('vendor.no_popular_products', 'No popular products')}
                         </div>
-                      ))}
+                      )}
                     </div>
                     <a href="/vendor/marketplace" className="btn btn-outline-primary w-100 mt-2">
                       {t('vendor.browse_all', 'Browse All Products')}
@@ -388,23 +404,8 @@ const VendorDashboard = () => {
                     </h5>
                   </div>
                   <div className="card-body">
-                    <div className="delivery-item d-flex align-items-center justify-content-between mb-3">
-                      <div>
-                        <h6 className="mb-1">Fresh Tomatoes</h6>
-                        <small className="text-muted">Green Valley Farmers</small>
-                      </div>
-                      <span className="badge bg-success bg-opacity-25 text-success">
-                        {t('vendor.expected', 'Expected')}
-                      </span>
-                    </div>
-                    <div className="delivery-item d-flex align-items-center justify-content-between">
-                      <div>
-                        <h6 className="mb-1">Green Peppers</h6>
-                        <small className="text-muted">Oromia Farm Coop</small>
-                      </div>
-                      <span className="badge bg-warning bg-opacity-25 text-warning">
-                        {t('vendor.in_transit', 'In Transit')}
-                      </span>
+                    <div className="text-center text-muted py-3">
+                      {t('vendor.no_deliveries_today', 'No deliveries scheduled for today')}
                     </div>
                   </div>
                 </div>

@@ -1,58 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLanguage } from '../../contexts/LanguageContext'
 import { FarmerLoading } from '../../components/common/LoadingSpinner'
 import { notify } from '../../components/common/Notification'
 import './products-page.scss'
+import { apiClient } from '../../services/api/apiClient'
 
 const ProductsPage = () => {
   const { t } = useLanguage()
   const [loading, setLoading] = useState(false)
-  const [products, setProducts] = useState([
-    {
-      id: 1,
-      name: 'Fresh Tomatoes',
-      category: 'Vegetables',
-      price: 120,
-      unit: 'kg',
-      quantity: 150,
-      available: 100,
-      status: 'active',
-      image: '/images/products/tomatoes.jpg'
-    },
-    {
-      id: 2,
-      name: 'Green Peppers',
-      category: 'Vegetables',
-      price: 180,
-      unit: 'kg',
-      quantity: 80,
-      available: 60,
-      status: 'active',
-      image: '/images/products/peppers.jpg'
-    },
-    {
-      id: 3,
-      name: 'Carrots',
-      category: 'Vegetables',
-      price: 90,
-      unit: 'kg',
-      quantity: 200,
-      available: 50,
-      status: 'low-stock',
-      image: '/images/products/carrots.jpg'
-    },
-    {
-      id: 4,
-      name: 'Onions',
-      category: 'Vegetables',
-      price: 75,
-      unit: 'kg',
-      quantity: 0,
-      available: 0,
-      status: 'out-of-stock',
-      image: '/images/products/onions.jpg'
+  const [initialLoading, setInitialLoading] = useState(true)
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    const fetchMyProducts = async () => {
+      setInitialLoading(true)
+      try {
+        const res = await apiClient.get('/products/my-products/')
+        const data = res && res.data ? res.data : res
+        const list = Array.isArray(data) ? data : (data.results || [])
+        setProducts(list)
+      } catch (err) {
+        console.error('Failed to fetch my products', err)
+        setProducts([])
+      } finally {
+        setInitialLoading(false)
+      }
     }
-  ])
+
+    fetchMyProducts()
+  }, [])
 
   const categories = [
     t('products.vegetables', 'Vegetables'),
@@ -111,7 +87,7 @@ const ProductsPage = () => {
     return `badge bg-${config.class} bg-opacity-25 text-${config.class}`
   }
 
-  if (loading) {
+  if (initialLoading) {
     return (
       <div className="products-page-loading">
         <FarmerLoading />

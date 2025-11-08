@@ -8,88 +8,24 @@ const TrackingPage = () => {
   const [loading, setLoading] = useState(true)
   const [activeOrder, setActiveOrder] = useState(null)
 
-  // Mock delivery data
-  const deliveryData = {
-    orderId: 'ORD-007',
-    farmer: 'Highland Growers',
-    driver: 'Mekonnen Alemu',
-    vehicle: 'Toyota Truck - A1234',
-    phone: '+251 911 234 567',
-    estimatedDelivery: '2024-01-17T14:00:00',
-    currentStatus: 'in-transit',
-    trackingId: 'TRK-789013',
-    products: [
-      { name: 'Carrots', quantity: 100, unit: 'kg' }
-    ],
-    total: 9000,
-    timeline: [
-      {
-        status: 'order-placed',
-        title: t('tracking.order_placed', 'Order Placed'),
-        description: t('tracking.order_placed_desc', 'Your order has been confirmed'),
-        timestamp: '2024-01-14T09:30:00',
-        completed: true
-      },
-      {
-        status: 'order-accepted',
-        title: t('tracking.order_accepted', 'Order Accepted'),
-        description: t('tracking.order_accepted_desc', 'Farmer has accepted your order'),
-        timestamp: '2024-01-14T10:15:00',
-        completed: true
-      },
-      {
-        status: 'driver-assigned',
-        title: t('tracking.driver_assigned', 'Driver Assigned'),
-        description: t('tracking.driver_assigned_desc', 'Mekonnen Alemu is assigned for delivery'),
-        timestamp: '2024-01-14T11:00:00',
-        completed: true
-      },
-      {
-        status: 'picked-up',
-        title: t('tracking.picked_up', 'Picked Up'),
-        description: t('tracking.picked_up_desc', 'Driver has picked up goods from farmer'),
-        timestamp: '2024-01-16T08:30:00',
-        completed: true
-      },
-      {
-        status: 'in-transit',
-        title: t('tracking.in_transit', 'In Transit'),
-        description: t('tracking.in_transit_desc', 'Goods are on the way to your location'),
-        timestamp: '2024-01-16T09:00:00',
-        completed: true,
-        current: true
-      },
-      {
-        status: 'out-for-delivery',
-        title: t('tracking.out_for_delivery', 'Out for Delivery'),
-        description: t('tracking.out_for_delivery_desc', 'Driver is in your area'),
-        timestamp: null,
-        completed: false
-      },
-      {
-        status: 'delivered',
-        title: t('tracking.delivered', 'Delivered'),
-        description: t('tracking.delivered_desc', 'Order delivered successfully'),
-        timestamp: null,
-        completed: false
-      }
-    ],
-    currentLocation: {
-      lat: 9.0054,
-      lng: 38.7636,
-      address: 'Bole Road, Near Friendship City Center',
-      lastUpdated: '2024-01-16T10:30:00'
-    },
-    estimatedArrival: '30-45 minutes'
-  }
-
   useEffect(() => {
-    // Simulate API call to fetch tracking data
+    // Try to fetch active tracking data from backend; if unavailable, show empty state
     const fetchTrackingData = async () => {
       setLoading(true)
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      setActiveOrder(deliveryData)
-      setLoading(false)
+      try {
+        const res = await fetch('/api/orders/active/')
+        if (!res.ok) {
+          setActiveOrder(null)
+        } else {
+          const data = await res.json()
+          setActiveOrder(data)
+        }
+      } catch (err) {
+        // no active order or endpoint unavailable
+        setActiveOrder(null)
+      } finally {
+        setLoading(false)
+      }
     }
 
     fetchTrackingData()

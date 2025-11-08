@@ -11,6 +11,7 @@ import LoginPage from './pages/auth/LoginPage'
 import LogoutPage from './pages/auth/LogoutPage'
 import FarmerDashboard from './pages/farmers/FarmerDashboard'
 import VendorDashboard from './pages/vendors/VendorDashboard'
+import ProductDetail from './pages/products/ProductDetail'
 import DriverDashboard from './pages/drivers/DriverDashboard'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import ProtectedRoute from './components/common/Auth/ProtectedRoute'
@@ -27,6 +28,7 @@ const routes = [
   { path: '/faq', element: <FAQPage /> },
   { path: '/login', element: <LoginPage /> },
   { path: '/logout', element: <LogoutPage /> },
+  { path: '/product/:id', element: <ProductDetail /> },
   
   // Protected routes - Farmers
   { 

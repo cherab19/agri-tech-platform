@@ -1,74 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLanguage } from '../../contexts/LanguageContext'
 import { VendorLoading } from '../../components/common/LoadingSpinner'
 import { notify } from '../../components/common/Notification'
 import './orders-page.scss'
+import { useAuth } from '../../contexts/AuthContext'
+import { apiClient } from '../../services/api/apiClient'
 
 const OrdersPage = () => {
   const { t } = useLanguage()
+  const { user, token } = useAuth()
   const [loading, setLoading] = useState(false)
+  const [initialLoading, setInitialLoading] = useState(true)
   const [activeTab, setActiveTab] = useState('all')
+  const [orders, setOrders] = useState([])
 
-  const orders = [
-    {
-      id: 'ORD-006',
-      products: [
-        { name: 'Fresh Tomatoes', quantity: 50, unit: 'kg', price: 120 },
-        { name: 'Green Peppers', quantity: 25, unit: 'kg', price: 180 }
-      ],
-      farmer: 'Green Valley Farmers',
-      total: 10500,
-      status: 'delivered',
-      orderDate: '2024-01-15',
-      deliveryDate: '2024-01-16',
-      driver: 'Abebe Tesfaye',
-      trackingId: 'TRK-789012',
-      paymentStatus: 'paid'
-    },
-    {
-      id: 'ORD-007',
-      products: [
-        { name: 'Carrots', quantity: 100, unit: 'kg', price: 90 }
-      ],
-      farmer: 'Highland Growers',
-      total: 9000,
-      status: 'in-transit',
-      orderDate: '2024-01-14',
-      deliveryDate: '2024-01-17',
-      driver: 'Mekonnen Alemu',
-      trackingId: 'TRK-789013',
-      paymentStatus: 'paid'
-    },
-    {
-      id: 'ORD-008',
-      products: [
-        { name: 'Onions', quantity: 75, unit: 'kg', price: 75 },
-        { name: 'Potatoes', quantity: 50, unit: 'kg', price: 60 }
-      ],
-      farmer: 'Rift Valley Farms',
-      total: 8625,
-      status: 'processing',
-      orderDate: '2024-01-16',
-      deliveryDate: '2024-01-18',
-      driver: 'Not assigned',
-      trackingId: 'TRK-789014',
-      paymentStatus: 'pending'
-    },
-    {
-      id: 'ORD-009',
-      products: [
-        { name: 'Bananas', quantity: 10, unit: 'bunch', price: 150 }
-      ],
-      farmer: 'Tropical Fruits Coop',
-      total: 1500,
-      status: 'cancelled',
-      orderDate: '2024-01-12',
-      deliveryDate: '2024-01-14',
-      driver: 'Not assigned',
-      trackingId: 'TRK-789015',
-      paymentStatus: 'refunded'
+  useEffect(() => {
+    const fetchOrders = async () => {
+      setInitialLoading(true)
+      try {
+        // Try vendor-specific endpoint if cooperative id is available
+        const res = await apiClient.get('/orders', token ? { headers: { Authorization: `Bearer ${token}` } } : {})
+        const data = res && res.data ? res.data : res
+        const list = Array.isArray(data) ? data : (data.results || [])
+        setOrders(list)
+      } catch (err) {
+        console.error('Failed to fetch orders', err)
+        setOrders([])
+      } finally {
+        setInitialLoading(false)
+      }
     }
-  ]
+
+    fetchOrders()
+  }, [token])
 
   const statusTabs = [
     { key: 'all', label: t('orders.all_orders', 'All Orders'), count: orders.length },
@@ -141,7 +105,7 @@ const OrdersPage = () => {
     }
   }
 
-  if (loading) {
+  if (initialLoading) {
     return (
       <div className="orders-page-loading">
         <VendorLoading />

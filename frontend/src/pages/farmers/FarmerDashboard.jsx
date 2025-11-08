@@ -1,79 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAuth } from '../../contexts/AuthContext'
 import { useLanguage } from '../../contexts/LanguageContext'
 import { FarmerLoading } from '../../components/common/LoadingSpinner'
 import './farmer-dashboard.scss'
+import { apiClient } from '../../services/api/apiClient'
+import { farmersService } from '../../services/api/farmers'
 
 const FarmerDashboard = () => {
-  const { user } = useAuth()
+  const { user, token } = useAuth()
   const { t } = useLanguage()
 
-  // Mock data for dashboard
-  const dashboardStats = [
-    {
-      title: t('farmer.total_products', 'Total Products'),
-      value: '24',
-      change: '+12%',
-      trend: 'up',
-      icon: 'fas fa-seedling',
-      color: 'success'
-    },
-    {
-      title: t('farmer.active_orders', 'Active Orders'),
-      value: '8',
-      change: '+3',
-      trend: 'up',
-      icon: 'fas fa-shopping-cart',
-      color: 'primary'
-    },
-    {
-      title: t('farmer.pending_payments', 'Pending Payments'),
-      value: '₦45,600',
-      change: '-₦12,400',
-      trend: 'down',
-      icon: 'fas fa-money-bill-wave',
-      color: 'warning'
-    },
-    {
-      title: t('farmer.monthly_revenue', 'Monthly Revenue'),
-      value: '₦189,200',
-      change: '+23%',
-      trend: 'up',
-      icon: 'fas fa-chart-line',
-      color: 'info'
-    }
-  ]
-
-  const recentActivities = [
-    {
-      id: 1,
-      type: 'order',
-      message: t('farmer.new_order', 'New order received for 50kg of tomatoes'),
-      time: '2 hours ago',
-      status: 'success'
-    },
-    {
-      id: 2,
-      type: 'payment',
-      message: t('farmer.payment_received', 'Payment received for maize delivery'),
-      time: '5 hours ago',
-      status: 'success'
-    },
-    {
-      id: 3,
-      type: 'product',
-      message: t('farmer.low_stock', 'Carrots stock is running low'),
-      time: '1 day ago',
-      status: 'warning'
-    },
-    {
-      id: 4,
-      type: 'delivery',
-      message: t('farmer.delivery_scheduled', 'Delivery scheduled for tomorrow morning'),
-      time: '1 day ago',
-      status: 'info'
-    }
-  ]
+  // dashboard state driven from backend APIs (migrated from previous hardcoded mock data)
+  const [totalProducts, setTotalProducts] = useState(null)
+  const [statsLoading, setStatsLoading] = useState(true)
+  const [recentActivities, setRecentActivities] = useState([])
+  const [recentOrders, setRecentOrders] = useState([])
+  const [monthlyRevenue, setMonthlyRevenue] = useState(null)
+  const [activeOrdersCount, setActiveOrdersCount] = useState(0)
+  const [pendingPayments, setPendingPayments] = useState(null)
 
   const quickActions = [
     {
@@ -102,6 +46,105 @@ const FarmerDashboard = () => {
       description: t('farmer.view_reports_desc', 'Sales analytics and performance metrics'),
       icon: 'fas fa-chart-bar',
       link: '/farmer/analytics',
+      color: 'info'
+    }
+  ]
+
+  useEffect(() => {
+    const fetchDashboardStats = async () => {
+      setStatsLoading(true)
+      try {
+        // derive cooperative id defensively (same logic as OrdersPage)
+        const coopId = user?.cooperative_id || user?.cooperativeId || user?.cooperative?.id || user?.id
+
+        // Products
+        let prodRes
+        if (coopId) {
+          prodRes = await farmersService.getProducts(coopId, token)
+        } else {
+          prodRes = await apiClient.get('/products/my-products/')
+        }
+        const prodData = prodRes && prodRes.data ? prodRes.data : prodRes
+        const prodList = Array.isArray(prodData) ? prodData : (prodData.results || [])
+        setTotalProducts(prodList.length)
+
+        // Incoming orders (recent preview)
+        let ordersRes
+        if (coopId) {
+          ordersRes = await farmersService.getIncomingOrders(coopId, token)
+        } else {
+          const fallback = await fetch('/api/orders')
+          ordersRes = await (fallback.ok ? fallback.json() : [])
+        }
+        const ordersData = ordersRes && ordersRes.data ? ordersRes.data : ordersRes
+        const ordersList = Array.isArray(ordersData) ? ordersData : (ordersData.results || [])
+        setRecentOrders(ordersList.slice(0, 5))
+        setActiveOrdersCount(ordersList.length)
+
+        // Earnings / payments summary
+        try {
+          if (coopId) {
+            const earnRes = await farmersService.getEarningsSummary(coopId, token)
+            const earnData = earnRes && earnRes.data ? earnRes.data : earnRes
+            setMonthlyRevenue(earnData?.monthly_total ?? null)
+            setPendingPayments(earnData?.pending_payments ?? null)
+          } else {
+            // fallback: try transactions and compute a simple monthly total
+            const txRes = await farmersService.getTransactions(coopId, token, { limit: 10 })
+            const txData = txRes && txRes.data ? txRes.data : txRes
+            const txList = Array.isArray(txData) ? txData : (txData.results || [])
+            const monthTotal = txList.reduce((acc, t) => acc + (t.amount || 0), 0)
+            setMonthlyRevenue(monthTotal)
+            setPendingPayments(null)
+          }
+        } catch (e) {
+    // If earnings endpoint not present, keep placeholders
+          console.warn('Earnings summary fetch failed', e)
+        }
+      } catch (err) {
+        console.error('Failed to fetch farmer dashboard data', err)
+        setTotalProducts(0)
+        setRecentOrders([])
+      } finally {
+        setStatsLoading(false)
+      }
+    }
+
+    fetchDashboardStats()
+  }, [user, token])
+
+  // Compose dashboard stats from fetched data (fallback placeholders for items without backend endpoints)
+  const dashboardStats = [
+    {
+      title: t('farmer.total_products', 'Total Products'),
+      value: statsLoading ? '...' : (totalProducts ?? 0),
+      change: '',
+      trend: 'up',
+      icon: 'fas fa-seedling',
+      color: 'success'
+    },
+    {
+      title: t('farmer.active_orders', 'Active Orders'),
+      value: statsLoading ? '...' : activeOrdersCount,
+      change: '',
+      trend: 'up',
+      icon: 'fas fa-shopping-cart',
+      color: 'primary'
+    },
+    {
+      title: t('farmer.pending_payments', 'Pending Payments'),
+      value: statsLoading ? '...' : (pendingPayments != null ? pendingPayments : '—'),
+      change: '',
+      trend: 'down',
+      icon: 'fas fa-money-bill-wave',
+      color: 'warning'
+    },
+    {
+      title: t('farmer.monthly_revenue', 'Monthly Revenue'),
+      value: statsLoading ? '...' : (monthlyRevenue != null ? monthlyRevenue : '—'),
+      change: '',
+      trend: 'up',
+      icon: 'fas fa-chart-line',
       color: 'info'
     }
   ]
@@ -236,36 +279,31 @@ const FarmerDashboard = () => {
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td className="fw-semibold">#ORD-001</td>
-                            <td>Fresh Tomatoes</td>
-                            <td>50 kg</td>
-                            <td>
-                              <span className="badge bg-warning bg-opacity-25 text-warning">
-                                {t('farmer.pending', 'Pending')}
-                              </span>
-                            </td>
-                            <td>
-                              <button className="btn btn-outline-primary btn-sm">
-                                {t('farmer.view', 'View')}
-                              </button>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td className="fw-semibold">#ORD-002</td>
-                            <td>Green Peppers</td>
-                            <td>25 kg</td>
-                            <td>
-                              <span className="badge bg-success bg-opacity-25 text-success">
-                                {t('farmer.completed', 'Completed')}
-                              </span>
-                            </td>
-                            <td>
-                              <button className="btn btn-outline-primary btn-sm">
-                                {t('farmer.view', 'View')}
-                              </button>
-                            </td>
-                          </tr>
+                          {recentOrders.length > 0 ? (
+                            recentOrders.map((order) => (
+                              <tr key={order.id}>
+                                <td className="fw-semibold">{order.order_number || order.id}</td>
+                                <td>{order.product_name}</td>
+                                <td>{order.quantity}</td>
+                                <td>
+                                  <span className={`badge bg-${order.status === 'completed' ? 'success' : 'warning'} bg-opacity-25 text-${order.status === 'completed' ? 'success' : 'warning'}`}>
+                                    {order.status || t('farmer.pending', 'Pending')}
+                                  </span>
+                                </td>
+                                <td>
+                                  <button className="btn btn-outline-primary btn-sm">
+                                    {t('farmer.view', 'View')}
+                                  </button>
+                                </td>
+                              </tr>
+                            ))
+                          ) : (
+                            <tr>
+                              <td colSpan="5" className="text-center text-muted">
+                                {t('farmer.no_recent_orders', 'No recent orders')}
+                              </td>
+                            </tr>
+                          )}
                         </tbody>
                       </table>
                     </div>
@@ -285,25 +323,31 @@ const FarmerDashboard = () => {
                   </div>
                   <div className="card-body">
                     <div className="activities-list">
-                      {recentActivities.map((activity) => (
-                        <div key={activity.id} className="activity-item d-flex align-items-start mb-3 pb-3 border-bottom">
-                          <div className={`activity-icon bg-${activity.status}-subtle text-${activity.status} rounded-circle p-2 me-3`}>
-                            <i className={`fas fa-${
-                              activity.type === 'order' ? 'shopping-cart' :
-                              activity.type === 'payment' ? 'money-bill' :
-                              activity.type === 'product' ? 'box' : 'truck'
-                            }`}></i>
+                      {recentActivities.length > 0 ? (
+                        recentActivities.map((activity) => (
+                          <div key={activity.id} className="activity-item d-flex align-items-start mb-3 pb-3 border-bottom">
+                            <div className={`activity-icon bg-${activity.status}-subtle text-${activity.status} rounded-circle p-2 me-3`}>
+                              <i className={`fas fa-${
+                                activity.type === 'order' ? 'shopping-cart' :
+                                activity.type === 'payment' ? 'money-bill' :
+                                activity.type === 'product' ? 'box' : 'truck'
+                              }`}></i>
+                            </div>
+                            <div className="flex-grow-1">
+                              <p className="activity-message mb-1 small">
+                                {activity.message}
+                              </p>
+                              <small className="activity-time text-muted">
+                                {activity.time}
+                              </small>
+                            </div>
                           </div>
-                          <div className="flex-grow-1">
-                            <p className="activity-message mb-1 small">
-                              {activity.message}
-                            </p>
-                            <small className="activity-time text-muted">
-                              {activity.time}
-                            </small>
-                          </div>
+                        ))
+                      ) : (
+                        <div className="text-center text-muted py-4">
+                          {t('farmer.no_recent_activities', 'No recent activities')}
                         </div>
-                      ))}
+                      )}
                     </div>
                     <a href="/farmer/activities" className="btn btn-outline-primary w-100 mt-3">
                       {t('farmer.view_all_activities', 'View All Activities')}
