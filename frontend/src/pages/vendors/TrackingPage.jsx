@@ -278,7 +278,7 @@ const TrackingPage = () => {
                   </div>
                   <div className="order-total d-flex justify-content-between align-items-center fw-bold fs-5">
                     <span>{t('tracking.total', 'Total')}</span>
-                    <span className="text-primary">₦{activeOrder.total.toLocaleString()}</span>
+                    <span className="text-primary">ETB{activeOrder.total.toLocaleString()}</span>
                   </div>
                 </div>
               </div>

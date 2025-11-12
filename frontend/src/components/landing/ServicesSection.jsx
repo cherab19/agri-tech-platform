@@ -36,7 +36,6 @@ const ServicesSection = () => {
       title: t('services.digital_payments', 'Digital Payments'),
       description: t('services.digital_payments_desc', 'Secure TeleBirr integration for instant payments and automated settlements.'),
       features: [
-        t('services.payment_feature1', 'TeleBirr integration'),
         t('services.payment_feature2', 'Instant payment processing'),
         t('services.payment_feature3', 'Automated settlements'),
         t('services.payment_feature4', 'Transaction history')

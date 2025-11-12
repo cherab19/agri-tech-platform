@@ -20,7 +20,7 @@ const HowItWorksPage = () => {
       answer: t('how_it_works.faq3_answer', 'Our system automatically assigns the nearest available driver based on location, capacity, and current workload. Both farmers and vendors can track the delivery in real-time.')
     },
     {
-      question: t('how_it_works.faq4_question', 'What commissions does Agar charge?'),
+      question: t('how_it_works.faq4_question', 'What commissions does AgriMart charge?'),
       answer: t('how_it_works.faq4_answer', 'We charge a small service commission only on successful transactions. The exact percentage varies based on the product type and is transparently displayed before order confirmation.')
     },
     {
@@ -37,7 +37,7 @@ const HowItWorksPage = () => {
           <div className="row justify-content-center text-center">
             <div className="col-lg-8">
               <h1 className="display-4 fw-bold mb-3">
-                {t('how_it_works.how_it_works', 'How Agar Agritech Works')}
+                {t('how_it_works.how_it_works', 'How AgriMart Works')}
               </h1>
               <p className="lead mb-0 opacity-75">
                 {t('how_it_works.page_subtitle', 'Learn how our platform connects farmers, vendors, and drivers for efficient agricultural trade')}

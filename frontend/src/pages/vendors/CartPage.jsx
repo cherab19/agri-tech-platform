@@ -11,35 +11,17 @@ const CartPage = () => {
   const [loading, setLoading] = useState(false)
   const [checkoutStep, setCheckoutStep] = useState('cart') // cart, delivery, payment, confirmation
 
-  const deliveryOptions = [
-    {
-      id: 'standard',
-      name: t('cart.standard_delivery', 'Standard Delivery'),
-      description: t('cart.standard_delivery_desc', '1-2 business days'),
-      price: 500,
-      estimated: '1-2 days'
-    },
-    {
-      id: 'express',
-      name: t('cart.express_delivery', 'Express Delivery'),
-      description: t('cart.express_delivery_desc', 'Same day delivery'),
-      price: 1000,
-      estimated: 'Same day'
-    },
-    {
-      id: 'scheduled',
-      name: t('cart.scheduled_delivery', 'Scheduled Delivery'),
-      description: t('cart.scheduled_delivery_desc', 'Choose your delivery date'),
-      price: 750,
-      estimated: 'Flexible'
-    }
-  ]
+  // Delivery options should come from the backend; remove hard-coded mocks.
+  const deliveryOptions = []
 
-  const [selectedDelivery, setSelectedDelivery] = useState(deliveryOptions[0])
+  // selectedDelivery will be provided by backend/checkout flow; default to null when unavailable
+  const [selectedDelivery, setSelectedDelivery] = useState(null)
+
+  // Clear default address — keep empty fields so user can enter their own address
   const [deliveryAddress, setDeliveryAddress] = useState({
-    street: 'Bole Road',
-    city: 'Addis Ababa',
-    region: 'Addis Ababa',
+    street: '',
+    city: '',
+    region: '',
     instructions: ''
   })
 
@@ -94,7 +76,7 @@ const CartPage = () => {
     }
   }
 
-  const totalWithDelivery = cartTotal + selectedDelivery.price
+  const totalWithDelivery = cartTotal + (selectedDelivery?.price || 0)
 
   if (loading) {
     return (
@@ -193,8 +175,8 @@ const CartPage = () => {
                                 <p className="item-farmer text-muted small mb-2">
                                   {t('cart.by', 'By')} {item.farmer}
                                 </p>
-                                <div className="item-price fw-bold text-primary">
-                                  ₦{item.price}/{item.unit}
+                                  <div className="item-price fw-bold text-primary">
+                                  ETB{item.price}/{item.unit}
                                 </div>
                               </div>
 
@@ -224,7 +206,7 @@ const CartPage = () => {
                               {/* Total Price */}
                               <div className="item-total me-4">
                                 <h6 className="fw-bold text-dark mb-0">
-                                  ₦{(item.price * item.quantity).toLocaleString()}
+                                  ETB{(item.price * item.quantity).toLocaleString()}
                                 </h6>
                               </div>
 
@@ -327,38 +309,44 @@ const CartPage = () => {
                           {t('cart.delivery_options', 'Delivery Options')}
                         </h6>
                         <div className="options-list">
-                          {deliveryOptions.map((option) => (
-                            <div
-                              key={option.id}
-                              className={`delivery-option card mb-2 cursor-pointer ${
-                                selectedDelivery.id === option.id ? 'border-primary' : ''
-                              }`}
-                              onClick={() => setSelectedDelivery(option)}
-                            >
-                              <div className="card-body">
-                                <div className="form-check">
-                                  <input
-                                    className="form-check-input"
-                                    type="radio"
-                                    checked={selectedDelivery.id === option.id}
-                                    onChange={() => setSelectedDelivery(option)}
-                                  />
-                                  <label className="form-check-label w-100">
-                                    <div className="d-flex justify-content-between align-items-center">
-                                      <div>
-                                        <h6 className="mb-1">{option.name}</h6>
-                                        <p className="text-muted small mb-0">{option.description}</p>
+                          {deliveryOptions.length > 0 ? (
+                            deliveryOptions.map((option) => (
+                              <div
+                                key={option.id}
+                                className={`delivery-option card mb-2 cursor-pointer ${
+                                  selectedDelivery?.id === option.id ? 'border-primary' : ''
+                                }`}
+                                onClick={() => setSelectedDelivery(option)}
+                              >
+                                <div className="card-body">
+                                  <div className="form-check">
+                                    <input
+                                      className="form-check-input"
+                                      type="radio"
+                                      checked={selectedDelivery?.id === option.id}
+                                      onChange={() => setSelectedDelivery(option)}
+                                    />
+                                    <label className="form-check-label w-100">
+                                      <div className="d-flex justify-content-between align-items-center">
+                                        <div>
+                                          <h6 className="mb-1">{option.name}</h6>
+                                          <p className="text-muted small mb-0">{option.description}</p>
+                                        </div>
+                                        <div className="text-end">
+                                          <div className="fw-bold text-primary">ETB{option.price}</div>
+                                          <small className="text-muted">{option.estimated}</small>
+                                        </div>
                                       </div>
-                                      <div className="text-end">
-                                        <div className="fw-bold text-primary">₦{option.price}</div>
-                                        <small className="text-muted">{option.estimated}</small>
-                                      </div>
-                                    </div>
-                                  </label>
+                                    </label>
+                                  </div>
                                 </div>
                               </div>
+                            ))
+                          ) : (
+                            <div className="text-muted small py-3">
+                              {t('cart.no_delivery_options', 'No delivery options are available. Please contact support or proceed to place order for pickup.')}
                             </div>
-                          ))}
+                          )}
                         </div>
                       </div>
                     </div>
@@ -384,10 +372,10 @@ const CartPage = () => {
                           <strong>{t('cart.order_number', 'Order Number')}:</strong> #ORD-{Date.now().toString().slice(-6)}
                         </p>
                         <p className="mb-2">
-                          <strong>{t('cart.estimated_delivery', 'Estimated Delivery')}:</strong> {selectedDelivery.estimated}
+                          <strong>{t('cart.estimated_delivery', 'Estimated Delivery')}:</strong> {selectedDelivery?.estimated || t('cart.no_estimated_delivery', '—')}
                         </p>
                         <p className="mb-0">
-                          <strong>{t('cart.total_amount', 'Total Amount')}:</strong> ₦{totalWithDelivery.toLocaleString()}
+                          <strong>{t('cart.total_amount', 'Total Amount')}:</strong> ETB{totalWithDelivery.toLocaleString()}
                         </p>
                       </div>
                       <div className="action-buttons">
@@ -423,11 +411,11 @@ const CartPage = () => {
                               <span className="item-name small">{item.name}</span>
                               <br />
                               <small className="text-muted">
-                                {item.quantity} {item.unit} × ₦{item.price}
+                                {item.quantity} {item.unit} × ETB{item.price}
                               </small>
                             </div>
                             <div className="item-total fw-semibold">
-                              ₦{(item.price * item.quantity).toLocaleString()}
+                              ETB{(item.price * item.quantity).toLocaleString()}
                             </div>
                           </div>
                         ))}
@@ -437,16 +425,16 @@ const CartPage = () => {
                       <div className="summary-totals">
                         <div className="d-flex justify-content-between mb-2">
                           <span>{t('cart.subtotal', 'Subtotal')}</span>
-                          <span>₦{cartTotal.toLocaleString()}</span>
+                          <span>ETB{cartTotal.toLocaleString()}</span>
                         </div>
                         <div className="d-flex justify-content-between mb-2">
                           <span>{t('cart.delivery_fee', 'Delivery Fee')}</span>
-                          <span>₦{selectedDelivery.price.toLocaleString()}</span>
+                          <span>{selectedDelivery ? `ETB${selectedDelivery.price.toLocaleString()}` : t('cart.no_delivery_selected', '—')}</span>
                         </div>
                         <hr />
                         <div className="d-flex justify-content-between fw-bold fs-5">
                           <span>{t('cart.total', 'Total')}</span>
-                          <span className="text-primary">₦{totalWithDelivery.toLocaleString()}</span>
+                          <span className="text-primary">ETB{totalWithDelivery.toLocaleString()}</span>
                         </div>
                       </div>
 

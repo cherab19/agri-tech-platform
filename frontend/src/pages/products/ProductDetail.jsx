@@ -61,7 +61,7 @@ const ProductDetail = () => {
           <h2 className="fw-bold">{product.name}</h2>
           <p className="text-muted mb-1">{t('marketplace.by', 'By')} {product.farmer || product.vendor}</p>
           <div className="mb-3">
-            <h3 className="text-primary">₦{product.price} <small className="text-muted">/{product.unit}</small></h3>
+            <h3 className="text-primary">ETB{product.price} <small className="text-muted">/{product.unit}</small></h3>
             <small className="text-muted">{t('marketplace.min_order', 'Min. order')}: {product.minOrder} {product.unit}</small>
           </div>
 

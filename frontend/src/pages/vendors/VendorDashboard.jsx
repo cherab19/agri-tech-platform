@@ -313,7 +313,7 @@ const VendorDashboard = () => {
                                 <td>{order.product}</td>
                                 <td className="small">{order.farmer}</td>
                                 <td>{order.quantity} kg</td>
-                                <td>₦{order.amount ? order.amount.toLocaleString() : '—'}</td>
+                                <td>ETB{order.amount ? order.amount.toLocaleString() : '—'}</td>
                                 <td>
                                   <span className={getStatusBadge(order.status)}>
                                     {order.status === 'processing' ? t('vendor.processing', 'Processing') :
@@ -371,8 +371,8 @@ const VendorDashboard = () => {
                                 {product.farmer}
                               </p>
                               <div className="d-flex justify-content-between align-items-center">
-                                <span className="product-price fw-bold text-success">
-                                  ₦{product.price}/{product.unit}
+                                  <span className="product-price fw-bold text-success">
+                                  ETB{product.price}/{product.unit}
                                 </span>
                                 <div className="product-rating small">
                                   <i className="fas fa-star text-warning"></i>

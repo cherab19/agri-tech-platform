@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "Agar Agritech"
+    "name": "AgriMart"
   },
   "nav": {
     "home": "Home",
@@ -68,9 +68,9 @@
     "contact_us": "Contact Us"
   },
   "how_it_works": {
-    "how_it_works": "How Agar Agritech Works",
+    "how_it_works": "How AgriMart Works",
     "benefits_by_role": "Benefits of our platform to users",
-    "page_subtitle": "Agar Agritech connects farmers, vendors, and drivers through a seamless digital platform that streamlines the agricultural supply chain.",
+    "page_subtitle": "AgriMart connects farmers, vendors, and drivers through a seamless digital platform that streamlines the agricultural supply chain.",
     "get_started": "Get Started",
     "process_description": "A simple, efficient process that connects farmers directly with vendors through our digital platform.",
     "farmers_list": "Farmers List Produce",
@@ -105,7 +105,7 @@
     "faq2_answer": "We currently support TeleBirr for all payments. Vendors pay instantly through TeleBirr, and farmers receive their payments through automated settlements after successful delivery.",
     "faq3_question": "How are delivery drivers assigned?",
     "faq3_answer": "Our system automatically assigns the nearest available driver based on location, capacity, and current workload. Both farmers and vendors can track the delivery in real-time.",
-    "faq4_question": "What commissions does Agar charge?",
+    "faq4_question": "What commissions does AgriMart charge?",
     "faq4_answer": "We charge a small service commission only on successful transactions. The exact percentage varies based on the product type and is transparently displayed before order confirmation.",
     "faq5_question": "How do I get started as a vendor?",
     "faq5_answer": "Simply create a vendor account, verify your business, and you can immediately start browsing products, placing orders, and making payments through our secure platform.",

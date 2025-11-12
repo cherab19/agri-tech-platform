@@ -5,6 +5,7 @@ import { VendorLoading } from '../../components/common/LoadingSpinner'
 import { notify } from '../../components/common/Notification'
 import './marketplace-page.scss'
 import { vendorsService } from '../../services/api/vendors'
+import { productsService } from '../../services/api/products'
 
 const MarketplacePage = () => {
   const { t } = useLanguage()
@@ -72,8 +73,19 @@ const MarketplacePage = () => {
   const handleAddToCart = async (product) => {
     setLoading(true)
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // Fetch fresh product details from backend before adding to cart
+      let detailRes
+      try {
+        detailRes = await productsService.getProduct(product.id)
+      } catch (fetchErr) {
+        console.warn('Failed to fetch product detail before add to cart, using card data', fetchErr)
+      }
+
+      const detailedProduct = detailRes && detailRes.data ? detailRes.data : (detailRes || product)
+
+      // TODO: call cart context addToCart when integrated; for now simulate and notify
+      // e.g. addToCart(detailedProduct, 1)
+      await new Promise(resolve => setTimeout(resolve, 300))
       notify.success(t('marketplace.added_to_cart', 'Product added to cart successfully'))
     } catch (error) {
       notify.error(t('marketplace.add_to_cart_failed', 'Failed to add product to cart'))
@@ -85,8 +97,18 @@ const MarketplacePage = () => {
   const handleQuickOrder = async (product) => {
     setLoading(true)
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      // Fetch fresh product details from backend before quick ordering
+      let detailRes
+      try {
+        detailRes = await productsService.getProduct(product.id)
+      } catch (fetchErr) {
+        console.warn('Failed to fetch product detail before quick order, using card data', fetchErr)
+      }
+
+      const detailedProduct = detailRes && detailRes.data ? detailRes.data : (detailRes || product)
+
+      // TODO: place a real quick-order request using detailedProduct
+      await new Promise(resolve => setTimeout(resolve, 300))
       notify.success(t('marketplace.quick_order_placed', 'Quick order placed successfully'))
     } catch (error) {
       notify.error(t('marketplace.quick_order_failed', 'Failed to place quick order'))
@@ -266,7 +288,7 @@ const MarketplacePage = () => {
                                   <div className="d-flex justify-content-between align-items-center">
                                     <div className="price-section">
                                     <h4 className="price fw-bold text-primary mb-0">
-                                      ₦{product.price}
+                                      ETB{product.price}
                                       <small className="text-muted">/{product.unit}</small>
                                     </h4>
                                     <small className="text-muted">

@@ -225,7 +225,7 @@ const ProductsPage = () => {
                         </td>
                         <td>{product.category}</td>
                         <td>
-                          <span className="fw-semibold">₦{product.price}</span>
+                          <span className="fw-semibold">ETB{product.price}</span>
                           <small className="text-muted">/{product.unit}</small>
                         </td>
                         <td>{product.quantity} {product.unit}</td>

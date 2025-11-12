@@ -267,14 +267,14 @@ const OrdersPage = () => {
                         </td>
                         <td>
                           <div className="fw-semibold">{order.product}</div>
-                          <small className="text-muted">₦{order.price}/{order.unit}</small>
+                          <small className="text-muted">ETB{order.price}/{order.unit}</small>
                         </td>
                         <td>{order.vendor}</td>
                         <td>
                           {order.quantity} {order.unit}
                         </td>
                         <td>
-                          <span className="fw-bold">₦{order.total.toLocaleString()}</span>
+                          <span className="fw-bold">ETB{order.total.toLocaleString()}</span>
                         </td>
                         <td>
                           <span className={getStatusBadge(order.status)}>

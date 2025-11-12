@@ -143,7 +143,7 @@ const HowItWorks = () => {
         <div className="row">
           <div className="col-12">
             <h3 className="text-center fw-bold mb-5">
-              {t('how_it_works.benefits_by_role', 'Benefits for Each Role')}
+              {t('how_it_works.benefits_by_role', 'Benefits for Each User')}
             </h3>
             <div className="row g-4">
               {userTypes.map((userType, index) => (

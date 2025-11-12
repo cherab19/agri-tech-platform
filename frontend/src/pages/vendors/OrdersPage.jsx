@@ -201,9 +201,9 @@ const OrdersPage = () => {
                           {t('orders.from', 'From')} {order.farmer}
                         </p>
                       </div>
-                      <div className="text-end">
+                        <div className="text-end">
                         <div className="order-total h5 fw-bold text-dark mb-1">
-                          ₦{order.total.toLocaleString()}
+                          ETB{order.total.toLocaleString()}
                         </div>
                         <div className="order-date text-muted small">
                           {new Date(order.orderDate).toLocaleDateString()}
@@ -223,7 +223,7 @@ const OrdersPage = () => {
                               {product.quantity} {product.unit} {product.name}
                             </span>
                             <span className="product-price fw-semibold">
-                              ₦{(product.quantity * product.price).toLocaleString()}
+                              ETB{(product.quantity * product.price).toLocaleString()}
                             </span>
                           </div>
                         ))}

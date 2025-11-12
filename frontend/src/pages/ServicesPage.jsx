@@ -169,10 +169,7 @@ const ServicesPage = () => {
                 {t('services.integration_description', 'Our platform integrates with popular tools and services to provide a complete agricultural solution:')}
               </p>
               <ul className="integration-list list-unstyled">
-                <li className="integration-item mb-3">
-                  <i className="fas fa-mobile-alt text-primary me-3"></i>
-                  <strong>TeleBirr Payments</strong> - Secure digital payments
-                </li>
+               
                 <li className="integration-item mb-3">
                   <i className="fas fa-sms text-primary me-3"></i>
                   <strong>SMS Notifications</strong> - Real-time order updates

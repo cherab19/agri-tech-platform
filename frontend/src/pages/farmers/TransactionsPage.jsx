@@ -167,7 +167,7 @@ const TransactionsPage = () => {
                       <i className="fas fa-money-bill-wave"></i>
                     </div>
                     <h3 className="stat-value fw-bold text-success mb-1">
-                      ₦{summaryStats.totalRevenue.toLocaleString()}
+                      ETB{summaryStats.totalRevenue.toLocaleString()}
                     </h3>
                     <p className="stat-label text-muted mb-0">
                       {t('transactions.total_revenue', 'Total Revenue')}
@@ -184,7 +184,7 @@ const TransactionsPage = () => {
                       <i className="fas fa-clock"></i>
                     </div>
                     <h3 className="stat-value fw-bold text-warning mb-1">
-                      ₦{summaryStats.pendingAmount.toLocaleString()}
+                      ETB{summaryStats.pendingAmount.toLocaleString()}
                     </h3>
                     <p className="stat-label text-muted mb-0">
                       {t('transactions.pending_payments', 'Pending Payments')}
@@ -201,7 +201,7 @@ const TransactionsPage = () => {
                       <i className="fas fa-percentage"></i>
                     </div>
                     <h3 className="stat-value fw-bold text-danger mb-1">
-                      ₦{summaryStats.totalCommission.toLocaleString()}
+                      ETB{summaryStats.totalCommission.toLocaleString()}
                     </h3>
                     <p className="stat-label text-muted mb-0">
                       {t('transactions.total_commission', 'Total Commission')}
@@ -218,7 +218,7 @@ const TransactionsPage = () => {
                       <i className="fas fa-wallet"></i>
                     </div>
                     <h3 className="stat-value fw-bold text-primary mb-1">
-                      ₦{summaryStats.netEarnings.toLocaleString()}
+                      ETB{summaryStats.netEarnings.toLocaleString()}
                     </h3>
                     <p className="stat-label text-muted mb-0">
                       {t('transactions.net_earnings', 'Net Earnings')}
@@ -296,7 +296,7 @@ const TransactionsPage = () => {
                           <span className={`fw-bold ${
                             transaction.amount >= 0 ? 'text-success' : 'text-danger'
                           }`}>
-                            {transaction.amount >= 0 ? '+' : ''}₦{Math.abs(transaction.amount).toLocaleString()}
+                            {transaction.amount >= 0 ? '+' : ''}ETB{Math.abs(transaction.amount).toLocaleString()}
                           </span>
                         </td>
                         <td>
