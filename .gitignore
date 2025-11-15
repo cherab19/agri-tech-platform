@@ -1,0 +1,24 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+backend/logs/
+*.log
+
+# Virtual environments
+myenv/
+venv/
+env/
+
+# Node
+frontend/node_modules/
+
+# Build outputs
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db

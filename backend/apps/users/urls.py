@@ -1,17 +1,32 @@
-from django.urls import path, include
-from rest_framework.routers import DefaultRouter
+from django.urls import path
 from rest_framework_simplejwt.views import TokenRefreshView
-from .views import RegisterView, LoginView, UserProfileView, VendorViewSet, FarmerViewSet, DriverViewSet
-
-router = DefaultRouter()
-router.register(r'vendors', VendorViewSet, basename='vendor')
-router.register(r'farmers', FarmerViewSet, basename='farmer')
-router.register(r'drivers', DriverViewSet, basename='driver')
+from .views import (
+    UserRegistrationView,
+    UserLoginView,
+    UserProfileView,
+    VendorListView,
+    VendorProfileView,
+    FarmerListView,
+    FarmerProfileView,
+    DriverListView,
+    DriverProfileView,
+)
 
 urlpatterns = [
-    path('register/', RegisterView.as_view(), name='register'),
-    path('login/', LoginView.as_view(), name='login'),
+    path('register/', UserRegistrationView.as_view(), name='register'),
+    path('login/', UserLoginView.as_view(), name='login'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('profile/', UserProfileView.as_view(), name='profile'),
-    path('', include(router.urls)),
+
+    # Vendor endpoints
+    path('vendors/', VendorListView.as_view(), name='vendor-list'),
+    path('vendors/<int:id>/', VendorProfileView.as_view(), name='vendor-detail'),
+
+    # Farmer endpoints
+    path('farmers/', FarmerListView.as_view(), name='farmer-list'),
+    path('farmers/<int:id>/', FarmerProfileView.as_view(), name='farmer-detail'),
+
+    # Driver endpoints
+    path('drivers/', DriverListView.as_view(), name='driver-list'),
+    path('drivers/<int:id>/', DriverProfileView.as_view(), name='driver-detail'),
 ]
