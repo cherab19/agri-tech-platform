@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './DeliveryHistory.scss';
 import { useApi } from '../../hooks/useApi';
 import { useAuth } from '../../contexts/AuthContext';
 import LoadingSpinner from '../common/LoadingSpinner';
@@ -197,14 +198,20 @@ const DeliveryHistory = () => {
       </div>
 
       {/* Deliveries List */}
-      <div className="deliveries-list">
-        {filteredDeliveries.length === 0 ? (
-          <div className="empty-state">
-            <p>No delivery history found for the selected period.</p>
+        {/* Wrap the history list in the same overview-style card so styles match the dashboard */}
+        <div className="deliveries-preview-card">
+          <div className="card-header">
+            <h3 className="card-title">Delivery History</h3>
           </div>
-        ) : (
-          filteredDeliveries.map(delivery => (
-            <div key={delivery.id} className="delivery-card">
+
+          <div className="deliveries-list">
+            {filteredDeliveries.length === 0 ? (
+              <div className="empty-state">
+                <p>No delivery history found for the selected period.</p>
+              </div>
+            ) : (
+              filteredDeliveries.map(delivery => (
+                <div key={delivery.id} className="delivery-card delivery-item">
               <div className="delivery-header">
                 <div className="delivery-info">
                   <h3>Delivery #{delivery.delivery_number}</h3>
@@ -291,6 +298,7 @@ const DeliveryHistory = () => {
           ))
         )}
       </div>
+    </div>
 
       {/* Summary */}
       {filteredDeliveries.length > 0 && (

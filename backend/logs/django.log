@@ -2483,3 +2483,883 @@ INFO 2025-11-12 22:22:11,739 autoreload 10196 2528 Watching for file changes wit
 INFO 2025-11-12 22:23:16,533 autoreload 10196 2528 C:\agri-tech-platform\backend\apps\products\models\product.py changed, reloading.
 INFO 2025-11-12 22:23:18,231 autoreload 12820 12852 Watching for file changes with StatReloader
 INFO 2025-11-12 22:58:37,775 autoreload 888 6860 Watching for file changes with StatReloader
+WARNING 2025-11-12 23:05:18,439 log 888 10088 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-12 23:05:18,439 log 888 10744 Not Found: /api/drivers/9/stats
+WARNING 2025-11-12 23:05:18,466 log 888 10088 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-12 23:05:18,483 log 888 10744 Not Found: /api/drivers/9/stats
+WARNING 2025-11-12 23:05:58,134 log 888 10088 Not Found: /api/drivers/9/availability
+WARNING 2025-11-12 23:06:00,200 log 888 10088 Not Found: /api/drivers/9/availability
+WARNING 2025-11-12 23:07:39,249 log 888 8696 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:07:39,253 log 888 11772 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:25:59,640 log 888 10204 Not Found: /favicon.ico
+WARNING 2025-11-12 23:31:35,885 log 888 12976 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:31:35,904 log 888 9360 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:37:10,754 log 888 6268 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:37:10,766 log 888 12188 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:37:21,705 log 888 11932 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:37:21,721 log 888 13180 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:37:41,233 log 888 11932 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:37:41,240 log 888 13180 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:37:49,386 log 888 11932 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:37:49,390 log 888 13180 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:37:57,398 log 888 13180 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:37:57,405 log 888 11932 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:38:06,916 log 888 11932 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:38:06,921 log 888 13180 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:40:47,000 log 888 13180 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:40:47,010 log 888 12092 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:41:59,413 log 888 12092 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-12 23:41:59,453 log 888 12092 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-12 23:42:43,732 log 888 12092 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:42:43,743 log 888 13180 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:45:00,462 log 888 5448 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:45:00,478 log 888 13212 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:46:10,752 log 888 5448 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:46:10,763 log 888 13212 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:46:14,050 log 888 5448 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-12 23:46:14,069 log 888 13212 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-12 23:46:17,568 log 888 13212 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:46:17,586 log 888 5448 Not Found: /api/farmers/7/products
+WARNING 2025-11-12 23:50:10,564 log 888 13268 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:50:10,578 log 888 10544 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:50:22,035 log 888 13268 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:50:22,042 log 888 10544 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:50:50,736 log 888 13268 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:50:50,736 log 888 10544 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:52:22,147 log 888 6884 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:52:22,157 log 888 4172 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:52:40,551 log 888 10772 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:52:40,560 log 888 7528 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:53:49,052 log 888 7528 Not Found: /api/vendors/8/purchase-history
+WARNING 2025-11-12 23:53:49,082 log 888 7528 Not Found: /api/vendors/8/purchase-history
+WARNING 2025-11-12 23:54:07,492 log 888 7528 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:54:07,505 log 888 10772 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:55:24,062 log 888 7528 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:55:24,099 log 888 7528 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:55:43,876 log 888 7528 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:55:43,882 log 888 10772 Not Found: /api/vendors/8/orders
+WARNING 2025-11-12 23:59:14,626 log 888 7648 Not Found: /api/vendors/8/profile
+WARNING 2025-11-12 23:59:14,641 log 888 7648 Not Found: /api/vendors/8/profile
+WARNING 2025-11-13 00:00:08,227 log 888 7648 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 00:00:08,241 log 888 10216 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 00:00:19,076 log 888 10220 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 00:00:19,115 log 888 8324 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 00:00:20,736 log 888 10220 Not Found: /api/vendors/8/purchase-history
+WARNING 2025-11-13 00:00:20,745 log 888 8324 Not Found: /api/vendors/8/purchase-history
+WARNING 2025-11-13 00:00:27,121 log 888 10220 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 00:00:27,125 log 888 8324 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 00:00:41,615 log 888 10220 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 00:01:36,372 log 888 11328 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 00:01:36,413 log 888 10324 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 00:02:38,775 log 888 10228 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 00:02:38,780 log 888 5616 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 00:02:43,951 log 888 10228 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 00:02:43,961 log 888 5616 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 00:03:31,865 log 888 7904 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:03:31,873 log 888 12236 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:05:33,314 log 888 12236 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:05:33,327 log 888 7904 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:07:13,642 log 888 7904 Not Found: /api/farmers/7/earnings
+WARNING 2025-11-13 00:07:13,668 log 888 12236 Not Found: /api/farmers/7/earnings
+WARNING 2025-11-13 00:08:24,714 log 888 7904 Not Found: /api/farmers/7/earnings
+WARNING 2025-11-13 00:08:33,975 log 888 7904 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:08:33,978 log 888 12236 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:11:29,600 log 888 12536 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:11:29,610 log 888 8448 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:14:55,245 log 888 4352 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:14:55,262 log 888 12000 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:15:04,010 log 888 4352 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:15:04,017 log 888 12000 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:15:07,286 log 888 12000 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 00:15:07,294 log 888 4352 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 00:15:10,454 log 888 12000 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:15:10,464 log 888 4352 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 00:15:42,728 log 888 9404 Not Found: /api/drivers/9/stats
+WARNING 2025-11-13 00:15:42,742 log 888 10556 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 00:15:42,758 log 888 8716 Not Found: /api/drivers/9/stats
+WARNING 2025-11-13 00:15:42,772 log 888 12120 Not Found: /api/drivers/9/orders/assigned
+ERROR 2025-11-13 00:18:15,835 log 888 11800 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:18:15,841 log 888 10348 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:18:36,515 log 888 4264 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:18:36,554 log 888 7580 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:21:36,561 log 888 13012 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:21:36,598 log 888 12972 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:22:00,528 log 888 7712 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:22:00,571 log 888 13144 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:22:08,724 log 888 10444 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:22:08,757 log 888 10872 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:22:16,800 log 888 5736 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:22:16,899 log 888 11408 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:22:39,262 log 888 11408 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:22:39,299 log 888 8808 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:27:37,911 log 888 8232 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:32:29,625 log 888 8736 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 00:32:29,647 log 888 416 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+WARNING 2025-11-13 01:25:17,646 log 888 4220 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-13 01:25:17,650 log 888 11916 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-13 01:26:39,946 log 888 11916 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 01:26:39,963 log 888 4220 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 01:32:38,067 log 888 11928 Method Not Allowed: /api/auth/token/verify/
+WARNING 2025-11-13 01:32:38,317 log 888 5948 Not Found: /favicon.ico
+WARNING 2025-11-13 01:34:35,901 log 888 10404 Not Found: /api/drivers/9/stats
+WARNING 2025-11-13 01:34:35,904 log 888 8696 Not Found: /api/drivers/9/stats
+WARNING 2025-11-13 01:34:35,927 log 888 8696 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:34:35,938 log 888 10404 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:35:05,928 log 888 8696 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:35:05,933 log 888 10404 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:35:15,928 log 888 10404 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:35:15,948 log 888 10404 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:35:21,011 log 888 10404 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:35:21,016 log 888 8696 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:35:25,436 log 888 10404 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:35:25,450 log 888 8696 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:35:52,628 log 888 10404 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:35:52,633 log 888 8696 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:36:19,984 log 888 10404 Not Found: /api/drivers/9/availability
+WARNING 2025-11-13 01:36:22,509 log 888 8696 Not Found: /api/drivers/9/availability
+WARNING 2025-11-13 01:36:33,622 log 888 10404 Not Found: /api/drivers/9/availability
+WARNING 2025-11-13 01:36:51,287 log 888 8696 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:36:51,298 log 888 10404 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:37:01,752 log 888 8696 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:37:01,765 log 888 10404 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:37:05,384 log 888 8696 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:37:05,398 log 888 10404 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:37:07,764 log 888 8696 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:37:07,775 log 888 10404 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:37:22,371 log 888 8696 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:37:22,383 log 888 10404 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:37:26,880 log 888 8696 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:37:26,891 log 888 10404 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:37:29,681 log 888 8696 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:37:29,691 log 888 10404 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:37:33,662 log 888 8696 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:37:33,668 log 888 10404 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:37:35,149 log 888 8696 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:37:35,163 log 888 10404 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:39:37,724 log 888 13884 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:39:37,730 log 888 5488 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:43:36,243 log 888 7472 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:43:36,248 log 888 13392 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:43:38,691 log 888 7472 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:43:38,701 log 888 13392 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:57:46,984 log 888 7052 Not Found: /api/drivers/9/stats
+WARNING 2025-11-13 01:57:46,991 log 888 13756 Not Found: /api/drivers/9/stats
+WARNING 2025-11-13 01:57:47,037 log 888 3016 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:57:47,083 log 888 12932 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:57:52,937 log 888 3016 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:57:52,944 log 888 12932 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:57:55,160 log 888 3016 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:57:55,170 log 888 12932 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:58:50,456 log 888 3016 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:58:50,463 log 888 12932 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:58:54,360 log 888 3016 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:58:54,378 log 888 12932 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 01:58:56,416 log 888 3016 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 01:58:56,425 log 888 12932 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:01:11,209 log 888 7056 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:01:11,215 log 888 13836 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:11:21,475 log 888 5964 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:11:21,503 log 888 2852 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:11:22,987 log 888 5964 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:11:23,010 log 888 2852 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:11:33,349 log 888 5964 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:11:33,360 log 888 2852 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:18:33,893 log 888 2600 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:18:33,904 log 888 2076 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:21:39,534 log 888 8040 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:21:39,538 log 888 14068 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:27:48,702 log 888 14232 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:27:48,714 log 888 14036 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:27:52,789 log 888 14232 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:27:52,801 log 888 14036 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:27:55,589 log 888 14232 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:27:55,600 log 888 14036 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:28:22,164 log 888 14232 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:28:22,171 log 888 14036 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:28:32,191 log 888 14232 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:28:32,199 log 888 14036 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:28:32,328 log 888 14232 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:28:55,914 log 888 14036 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:28:55,926 log 888 14232 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:29:02,242 log 888 14036 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:29:02,252 log 888 14232 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:29:16,435 log 888 14036 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:29:16,443 log 888 14232 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:29:19,911 log 888 14036 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:29:19,920 log 888 14232 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:32:35,962 log 888 11040 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:32:54,474 log 888 11040 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:32:54,501 log 888 11452 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:33:08,261 log 888 11040 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:33:08,269 log 888 11452 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:33:38,362 log 888 11040 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:33:38,371 log 888 11452 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:34:00,008 log 888 11040 Not Found: /api/drivers/9/availability
+WARNING 2025-11-13 02:34:15,604 log 888 11040 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:34:15,608 log 888 11452 Not Found: /api/drivers/9/stats
+WARNING 2025-11-13 02:34:15,671 log 888 12376 Not Found: /api/drivers/9/stats
+WARNING 2025-11-13 02:34:15,719 log 888 8472 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:34:32,519 log 888 11452 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:34:32,525 log 888 11040 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 02:34:35,342 log 888 11452 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:34:35,353 log 888 11040 Not Found: /api/drivers/9/deliveries/history
+WARNING 2025-11-13 02:35:12,416 log 888 11452 Not Found: /api/drivers/9/availability
+WARNING 2025-11-13 02:35:20,174 log 888 11452 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-13 02:35:20,179 log 888 11040 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-13 02:36:51,401 log 888 8472 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 02:36:51,412 log 888 11520 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 02:40:10,138 log 888 9636 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 02:40:10,149 log 888 12832 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:00:32,593 log 888 13484 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:00:32,664 log 888 9248 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:01:07,560 log 888 9576 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:01:07,577 log 888 8016 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:01:20,146 log 888 9576 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 03:01:20,160 log 888 8016 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 03:01:54,171 log 888 8016 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:01:54,185 log 888 9576 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:07:18,878 log 888 13260 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:07:18,893 log 888 11616 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:07:18,909 log 888 2824 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:07:22,298 log 888 2824 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 03:07:22,308 log 888 11616 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 03:11:15,181 log 888 7456 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 03:11:15,185 log 888 12688 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 03:11:31,402 log 888 7456 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 03:11:31,413 log 888 12688 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 03:21:49,013 log 888 3244 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:21:49,024 log 888 12444 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:24:29,514 log 888 9508 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:24:29,523 log 888 712 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:24:33,007 log 888 712 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 03:24:33,017 log 888 9508 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 03:26:45,829 log 888 1284 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 03:26:45,839 log 888 5884 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 03:27:50,940 log 888 12004 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:27:50,951 log 888 11628 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:31:33,442 log 888 14240 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:31:33,460 log 888 14068 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:42:00,196 log 888 3588 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:42:00,219 log 888 10204 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:42:00,278 log 888 3588 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:42:13,838 log 888 3860 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:42:13,871 log 888 2456 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:42:22,451 log 888 3860 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:42:22,458 log 888 2456 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:42:24,656 log 888 3860 Not Found: /api/farmers/7/earnings
+WARNING 2025-11-13 03:42:24,660 log 888 2456 Not Found: /api/farmers/7/earnings
+WARNING 2025-11-13 03:51:33,630 log 888 600 Not Found: /api/farmers/7/earnings
+WARNING 2025-11-13 03:51:33,642 log 888 12112 Not Found: /api/farmers/7/earnings
+WARNING 2025-11-13 03:51:40,754 log 888 12112 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:51:40,773 log 888 600 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:51:51,416 log 888 12112 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:51:51,431 log 888 600 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 03:52:10,466 log 888 8028 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:52:10,474 log 888 12948 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:52:24,200 log 888 932 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:52:24,211 log 888 5552 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:52:26,681 log 888 932 Not Found: /api/vendors/8/purchase-history
+WARNING 2025-11-13 03:52:26,688 log 888 5552 Not Found: /api/vendors/8/purchase-history
+WARNING 2025-11-13 03:52:32,278 log 888 5552 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:52:32,289 log 888 932 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:52:37,804 log 888 5552 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:52:37,813 log 888 932 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:52:42,500 log 888 932 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:52:42,511 log 888 5552 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:52:45,476 log 888 932 Not Found: /api/vendors/8/profile
+WARNING 2025-11-13 03:52:45,477 log 888 5552 Not Found: /api/vendors/8/profile
+WARNING 2025-11-13 03:53:00,871 log 888 932 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:53:00,876 log 888 5552 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:53:15,168 log 888 13132 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:53:15,169 log 888 12496 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 03:53:19,169 log 888 13132 Not Found: /api/vendors/8/purchase-history
+WARNING 2025-11-13 03:53:19,181 log 888 12496 Not Found: /api/vendors/8/purchase-history
+WARNING 2025-11-13 04:03:14,372 log 888 7452 Not Found: /api/vendors/8/purchase-history
+WARNING 2025-11-13 04:03:14,390 log 888 11816 Not Found: /api/vendors/8/purchase-history
+WARNING 2025-11-13 04:03:24,488 log 888 7452 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:03:24,496 log 888 11816 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:03:24,570 log 888 14264 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:03:33,506 log 888 11816 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:03:33,515 log 888 7452 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:03:56,218 log 888 7452 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:03:56,224 log 888 11816 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:04:03,011 log 888 7452 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:04:03,016 log 888 11816 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:04:05,886 log 888 11816 Not Found: /api/vendors/8/profile
+WARNING 2025-11-13 04:04:05,892 log 888 7452 Not Found: /api/vendors/8/profile
+WARNING 2025-11-13 04:04:12,850 log 888 11816 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:04:12,859 log 888 7452 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:19:24,459 log 888 8960 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:19:24,463 log 888 11800 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:19:36,142 log 888 392 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:19:36,152 log 888 14184 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:19:38,329 log 888 392 Not Found: /api/vendors/8/purchase-history
+WARNING 2025-11-13 04:19:38,344 log 888 14184 Not Found: /api/vendors/8/purchase-history
+WARNING 2025-11-13 04:19:42,682 log 888 14184 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:19:42,698 log 888 392 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:19:45,545 log 888 392 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:19:45,553 log 888 14184 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:19:52,226 log 888 392 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:19:52,233 log 888 14184 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:19:54,317 log 888 392 Not Found: /api/vendors/8/profile
+WARNING 2025-11-13 04:19:54,328 log 888 14184 Not Found: /api/vendors/8/profile
+WARNING 2025-11-13 04:20:16,628 log 888 392 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:20:16,644 log 888 14184 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 04:20:55,022 log 888 9284 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 04:20:55,026 log 888 1792 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 04:21:25,498 log 888 11276 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 04:21:25,511 log 888 6272 Not Found: /api/farmers/7/products
+INFO 2025-11-13 14:18:14,666 autoreload 4556 644 Watching for file changes with StatReloader
+WARNING 2025-11-13 14:19:50,324 log 4556 11736 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-13 14:19:50,324 log 4556 11740 Unauthorized: /api/auth/token/verify/
+WARNING 2025-11-13 16:23:25,690 log 4556 12388 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 16:23:25,705 log 4556 13184 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 16:24:21,880 log 4556 11140 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 16:24:21,896 log 4556 5112 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 16:24:25,918 log 4556 11140 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 16:24:25,929 log 4556 5112 Not Found: /api/farmers/7/orders/incoming
+WARNING 2025-11-13 16:24:36,658 log 4556 11140 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 16:24:36,673 log 4556 5112 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 16:25:46,084 log 4556 2908 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 16:25:46,099 log 4556 8092 Not Found: /api/vendors/8/orders
+WARNING 2025-11-13 16:27:30,520 log 4556 11348 Not Found: /api/drivers/9/stats
+WARNING 2025-11-13 16:27:30,549 log 4556 11568 Not Found: /api/drivers/9/stats
+WARNING 2025-11-13 16:27:30,561 log 4556 11348 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 16:27:30,588 log 4556 888 Not Found: /api/drivers/9/orders/assigned
+WARNING 2025-11-13 16:40:35,570 log 4556 13872 Not Found: /api/farmers/7/products
+WARNING 2025-11-13 16:40:35,578 log 4556 8568 Not Found: /api/farmers/7/products
+ERROR 2025-11-13 16:46:33,085 log 4556 13944 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+ERROR 2025-11-13 16:46:33,091 log 4556 10832 Internal Server Error: /api/products/2/
+Traceback (most recent call last):
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 208, in get
+    return self.retrieve(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\mixins.py", line 54, in retrieve
+    instance = self.get_object()
+  File "C:\agri-tech-platform\myenv\Lib\site-packages\rest_framework\generics.py", line 88, in get_object
+    assert lookup_url_kwarg in self.kwargs, (
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected view ProductDetailView to be called with a URL keyword argument named "id". Fix your URL conf, or set the `.lookup_field` attribute on the view correctly.
+INFO 2025-11-13 16:57:57,871 autoreload 7608 3952 Watching for file changes with StatReloader

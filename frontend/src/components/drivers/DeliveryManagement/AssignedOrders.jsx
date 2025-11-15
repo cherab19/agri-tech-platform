@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './AssignedOrders.scss';
 import { useApi } from '../../../hooks/useApi';
 import { useAuth } from '../../../contexts/AuthContext';
 import LoadingSpinner from '../../common/LoadingSpinner';
@@ -93,17 +94,23 @@ const AssignedOrders = () => {
         <Notification message={notification.message} type={notification.type} />
       )}
 
-      <div className="deliveries-list">
-        {orders.length === 0 ? (
-          <div className="empty-state">
-            <p>No assigned deliveries at the moment.</p>
-            <p className="empty-subtext">
-              New deliveries will appear here when assigned to you.
-            </p>
-          </div>
-        ) : (
-          orders.map(order => (
-            <div key={order.id} className="delivery-card">
+      {/* Use the same overview card wrapper so dashboard styles apply */}
+      <div className="deliveries-preview-card">
+        <div className="card-header">
+          <h3 className="card-title">Assigned Deliveries</h3>
+        </div>
+
+        <div className="deliveries-list">
+          {orders.length === 0 ? (
+            <div className="empty-state">
+              <p>No assigned deliveries at the moment.</p>
+              <p className="empty-subtext">
+                New deliveries will appear here when assigned to you.
+              </p>
+            </div>
+          ) : (
+            orders.map(order => (
+              <div key={order.id} className="delivery-card delivery-item">
               <div className="delivery-header">
                 <div>
                   <h3>Delivery #{order.delivery_number}</h3>
@@ -202,9 +209,10 @@ const AssignedOrders = () => {
                   View Details
                 </button>
               </div>
-            </div>
-          ))
-        )}
+              </div>
+            ))
+          )}
+        </div>
       </div>
 
       {selectedOrder && (

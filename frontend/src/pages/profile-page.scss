@@ -1,0 +1,20 @@
+.profile-page {
+  .card {
+    border-radius: 0.5rem;
+  }
+
+  .card-header {
+    background-color: #fff;
+  }
+
+  .form-label {
+    font-weight: 600;
+  }
+}
+
+.profile-loading {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

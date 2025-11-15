@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { useLanguage } from '../../contexts/LanguageContext'
 import { VendorLoading } from '../../components/common/LoadingSpinner'
 import './tracking-page.scss'
+import { useAuth } from '../../contexts/AuthContext'
+import { vendorsService } from '../../services/api/vendors'
 
 const TrackingPage = () => {
   const { t } = useLanguage()
+  const { user, token } = useAuth()
   const [loading, setLoading] = useState(true)
   const [activeOrder, setActiveOrder] = useState(null)
 
@@ -13,12 +16,42 @@ const TrackingPage = () => {
     const fetchTrackingData = async () => {
       setLoading(true)
       try {
-        const res = await fetch('/api/orders/active/')
-        if (!res.ok) {
-          setActiveOrder(null)
+        // If user is logged in, try to fetch active order for vendor via vendorsService
+        let dataRes
+        if (token) {
+          // Ideally the app would supply an order id; we try vendor's recent orders and pick the first active
+          const coopId = user?.cooperative_id || user?.cooperativeId || user?.cooperative?.id || user?.id
+          if (coopId) {
+            const ordersRes = await vendorsService.getVendorOrders(coopId, token, { status: 'in-transit,processing,out-for-delivery' })
+            const ordersData = ordersRes && ordersRes.data ? ordersRes.data : ordersRes
+            const list = Array.isArray(ordersData) ? ordersData : (ordersData.results || [])
+            dataRes = list.length > 0 ? list[0] : null
+          }
+        }
+
+        if (!dataRes) {
+          // Fallback to the public endpoint
+          const res = await fetch('/api/orders/active/')
+          if (!res.ok) {
+            setActiveOrder(null)
+            setLoading(false)
+            return
+          }
+          dataRes = await res.json()
+        }
+
+        // If tracking endpoint exists for a found order, try vendorsService.trackDelivery
+        if (dataRes && dataRes.id) {
+          try {
+            const trackRes = token ? await vendorsService.trackDelivery(dataRes.id, token) : null
+            const trackData = trackRes && trackRes.data ? trackRes.data : (trackRes || dataRes)
+            setActiveOrder(trackData)
+          } catch (e) {
+            // If no tracking endpoint, use the order data as-is
+            setActiveOrder(dataRes)
+          }
         } else {
-          const data = await res.json()
-          setActiveOrder(data)
+          setActiveOrder(dataRes)
         }
       } catch (err) {
         // no active order or endpoint unavailable

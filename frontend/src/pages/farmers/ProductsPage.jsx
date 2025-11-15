@@ -4,9 +4,12 @@ import { FarmerLoading } from '../../components/common/LoadingSpinner'
 import { notify } from '../../components/common/Notification'
 import './products-page.scss'
 import { apiClient } from '../../services/api/apiClient'
+import { useAuth } from '../../contexts/AuthContext'
+import { productsService } from '../../services/api/products'
 
 const ProductsPage = () => {
   const { t } = useLanguage()
+  const { user, token } = useAuth()
   const [loading, setLoading] = useState(false)
   const [initialLoading, setInitialLoading] = useState(true)
   const [products, setProducts] = useState([])
@@ -15,7 +18,9 @@ const ProductsPage = () => {
     const fetchMyProducts = async () => {
       setInitialLoading(true)
       try {
-        const res = await apiClient.get('/products/my-products/')
+        const res = token
+          ? await apiClient.get('/products/my-products/', { headers: { Authorization: `Bearer ${token}` } })
+          : await apiClient.get('/products/my-products/')
         const data = res && res.data ? res.data : res
         const list = Array.isArray(data) ? data : (data.results || [])
         setProducts(list)
@@ -28,7 +33,7 @@ const ProductsPage = () => {
     }
 
     fetchMyProducts()
-  }, [])
+  }, [token])
 
   const categories = [
     t('products.vegetables', 'Vegetables'),
@@ -41,13 +46,14 @@ const ProductsPage = () => {
   const handleStatusChange = async (productId, newStatus) => {
     setLoading(true)
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
+      // Map newStatus to API payload; backend expects is_active flag
+      const payload = { is_active: newStatus === 'active' }
+      await productsService.updateProduct(productId, payload, token)
+
       setProducts(prev => prev.map(product =>
-        product.id === productId ? { ...product, status: newStatus } : product
+        product.id === productId ? { ...product, status: newStatus, is_active: payload.is_active } : product
       ))
-      
+
       notify.success(t('products.status_updated', 'Product status updated successfully'))
     } catch (error) {
       notify.error(t('products.update_failed', 'Failed to update product status'))
@@ -63,9 +69,7 @@ const ProductsPage = () => {
 
     setLoading(true)
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
+      await productsService.deleteProduct(productId, token)
       setProducts(prev => prev.filter(product => product.id !== productId))
       notify.success(t('products.deleted', 'Product deleted successfully'))
     } catch (error) {
@@ -73,6 +77,17 @@ const ProductsPage = () => {
     } finally {
       setLoading(false)
     }
+  }
+
+  const getProductStatus = (product) => {
+    if (product.status) return product.status
+    if (product.available_quantity != null) {
+      if (Number(product.available_quantity) <= 0) return 'out-of-stock'
+      // low-stock threshold (example: < min_order_quantity * 2)
+      if (product.min_order_quantity && Number(product.available_quantity) < Number(product.min_order_quantity) * 2) return 'low-stock'
+    }
+    if (product.is_active === false) return 'inactive'
+    return 'active'
   }
 
   const getStatusBadge = (status) => {
@@ -134,7 +149,7 @@ const ProductsPage = () => {
             <div className="col-lg-3 col-md-6">
               <div className="summary-card text-center p-3 bg-white rounded shadow-sm">
                 <h3 className="fw-bold text-success mb-1">
-                  {products.filter(p => p.status === 'active').length}
+                  {products.filter(p => getProductStatus(p) === 'active').length}
                 </h3>
                 <p className="text-muted mb-0 small">
                   {t('products.active_products', 'Active Products')}
@@ -144,7 +159,7 @@ const ProductsPage = () => {
             <div className="col-lg-3 col-md-6">
               <div className="summary-card text-center p-3 bg-white rounded shadow-sm">
                 <h3 className="fw-bold text-warning mb-1">
-                  {products.filter(p => p.status === 'low-stock').length}
+                  {products.filter(p => getProductStatus(p) === 'low-stock').length}
                 </h3>
                 <p className="text-muted mb-0 small">
                   {t('products.low_stock', 'Low Stock')}
@@ -154,7 +169,7 @@ const ProductsPage = () => {
             <div className="col-lg-3 col-md-6">
               <div className="summary-card text-center p-3 bg-white rounded shadow-sm">
                 <h3 className="fw-bold text-danger mb-1">
-                  {products.filter(p => p.status === 'out-of-stock').length}
+                  {products.filter(p => getProductStatus(p) === 'out-of-stock').length}
                 </h3>
                 <p className="text-muted mb-0 small">
                   {t('products.out_of_stock', 'Out of Stock')}
@@ -228,16 +243,25 @@ const ProductsPage = () => {
                           <span className="fw-semibold">ETB{product.price}</span>
                           <small className="text-muted">/{product.unit}</small>
                         </td>
-                        <td>{product.quantity} {product.unit}</td>
-                        <td>{product.available} {product.unit}</td>
-                        <td>
-                          <span className={getStatusBadge(product.status)}>
-                            {getStatusBadge(product.status).includes('success') ? t('products.active', 'Active') :
-                             getStatusBadge(product.status).includes('warning') ? t('products.low_stock', 'Low Stock') :
-                             getStatusBadge(product.status).includes('danger') ? t('products.out_of_stock', 'Out of Stock') :
-                             t('products.inactive', 'Inactive')}
-                          </span>
-                        </td>
+                        {(() => {
+                          const qty = product.quantity ?? product.available_quantity ?? 0
+                          const avail = product.available_quantity ?? product.available ?? 0
+                          const status = getProductStatus(product)
+                          return (
+                            <>
+                              <td>{qty} {product.unit}</td>
+                              <td>{avail} {product.unit}</td>
+                              <td>
+                                <span className={getStatusBadge(status)}>
+                                  {status === 'active' ? t('products.active', 'Active') :
+                                   status === 'low-stock' ? t('products.low_stock', 'Low Stock') :
+                                   status === 'out-of-stock' ? t('products.out_of_stock', 'Out of Stock') :
+                                   t('products.inactive', 'Inactive')}
+                                </span>
+                              </td>
+                            </>
+                          )
+                        })()}
                         <td>
                           <div className="btn-group btn-group-sm">
                             <a

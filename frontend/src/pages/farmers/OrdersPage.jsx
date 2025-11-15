@@ -71,24 +71,34 @@ const OrdersPage = () => {
   const handleOrderAction = async (orderId, action) => {
     setLoading(true)
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      
-      let message = ''
+      // Call backend to update the order status
+      let statusPayload = {}
       switch (action) {
         case 'accept':
-          message = t('orders.order_accepted', 'Order accepted successfully')
+          statusPayload = { status: 'accepted' }
           break
         case 'reject':
-          message = t('orders.order_rejected', 'Order rejected successfully')
+          statusPayload = { status: 'cancelled' }
           break
         case 'ready':
-          message = t('orders.marked_ready', 'Order marked as ready for pickup')
+          statusPayload = { status: 'ready' }
           break
         default:
-          message = t('orders.action_completed', 'Action completed successfully')
+          statusPayload = { status: action }
       }
-      
+
+      const res = await farmersService.updateOrderStatus(orderId, statusPayload, token)
+
+      // Try to use server response to update local state; otherwise optimistic update
+      const updatedOrder = res && res.data ? res.data : res
+      setOrders(prev => prev.map(o => (o.id === orderId ? { ...o, ...(updatedOrder || statusPayload) } : o)))
+
+      let message = ''
+      if (action === 'accept') message = t('orders.order_accepted', 'Order accepted successfully')
+      else if (action === 'reject') message = t('orders.order_rejected', 'Order rejected successfully')
+      else if (action === 'ready') message = t('orders.marked_ready', 'Order marked as ready for pickup')
+      else message = t('orders.action_completed', 'Action completed successfully')
+
       notify.success(message)
     } catch (error) {
       notify.error(t('orders.action_failed', 'Failed to complete action'))

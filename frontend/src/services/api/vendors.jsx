@@ -73,6 +73,12 @@ export const vendorsService = {
     });
   },
 
+  async updateVendorProfile(vendorCooperativeId, profileData, token) {
+    return apiClient.put(`/vendors/${vendorCooperativeId}/profile`, profileData, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+  },
+
   async getPurchaseHistory(vendorCooperativeId, token, filters = {}) {
     const queryParams = new URLSearchParams(filters).toString();
     return apiClient.get(`/vendors/${vendorCooperativeId}/purchase-history?${queryParams}`, {

@@ -281,6 +281,7 @@
     "snnpr_address": " Wolkite,arround bus station"
    
     
+    
   },
   "auth": {
     "welcome_back": "Welcome Back",
@@ -309,7 +310,7 @@
     "go_home": "Go Home",
     "go_to_dashboard": "Go to Dashboard",
     "farmer_desc": "Farmers and agricultural cooperatives who want to sell their produce directly to vendors.",
-    "vendor_desc": "Vendors, retailers, and businesses who want to source fresh agricultural products.",
+    "vendor_desc": "Vendors, retailers, and businesses who want to source fresh agricultura",
     "driver_desc": "Truck drivers and logistics providers who want to participate in our delivery network.",
     "admin_desc": "Platform administrators and system staff who manage operations.",
     "benefits": "Benefits",
@@ -333,7 +334,8 @@
     "no_account": "Don't have an account?",
     "sign_up": "Sign up",
     "need_help": "Need help?",
-    "contact_support": "Contact support"
+    "contact_support": "Contact support",
+    "login_required": "You must be logged in to place orders."
   },
   "logout": {
     "logging_out": "Logging Out",
@@ -563,7 +565,15 @@
     "delivery_scheduled": "Delivery scheduled for tomorrow morning",
     "view_all": "View All",
     "view": "View",
-    "view_all_activities": "View All Activities"
+    "view_all_activities": "View All Activities",
+    "no_recent_orders": "No recent orders",
+    "no_recent_activities": "No recent activities",
+    "analytics": "Analytics",
+     "analytics_description": "Sales analytics and performance metrics",
+
+    "total_transactions": "Total Transactions",
+    "avg_order_value": "Average Order Value",
+    "recent_transactions": "Recent Transactions"
   },
   "marketplace": {
     "marketplace": "Marketplace",
@@ -600,7 +610,10 @@
   
   "common": {
     "loading": "Loading...",
-    "friday": "Friday"
+    "friday": "Friday",
+    "cancel": "Cancel",
+    "error_loading": "Error loading data. Please try again later.",
+    "back": "Back"
   },
   "driver": {
     "online": "Online",
@@ -685,6 +698,67 @@
     "todays_deliveries": "Today's Deliveries",
     "expected": "Expected",
     "track_all": "Track All Deliveries"
+  },
+"products": {
+  "add_product": "Add Product",
+  "name": "Product Name",
+  "category": "Category",
+  "price": "Price",
+  "unit": "Unit",
+  "available": "Available",
+  "description": "Description",
+  "min_order_quantity": "Minimum Order Quantity",
+  "is_organic": "Is Organic",
+  "tags": "Tags",
+  "select_category": "Select Category",
+  "cancel": "Cancel",
+  "save": "Save",
+  "my_products": "My Products",
+  "manage_inventory": "Manage Inventory",
+  "total_products": "Total Products",
+  "active_products": "Active Products",
+  "low_stock": "Low Stock",
+  "out_of_stock": "Out of Stock",
+  "all_products": "All Products",
+  "product": "Product",
+  "quantity": "Quantity",
+  "status": "Status",
+  "actions": "Actions",
+  "active": "Active",
+  "inactive": "Inactive"
+},
+"orders": {
+  "order_management": "Order Management",
+  "manage_incoming": "Manage Incoming Orders",
+  "total_orders": "Total Orders",
+  "pending": "Pending",
+  "all_orders": "All Orders",
+  "order_id": "Order ID",
+  "product": "Product",
+  "vendor": "Vendor",
+  "quantity": "Quantity",
+  "total": "Total",
+  "status": "Status",
+  "delivery_date": "Delivery Date",
+  "driver": "Driver",
+  "actions": "Actions",
+  "no_orders": "No Orders Found",
+  "no_orders_description": "There are currently no orders to display. Once customers place orders, they will appear here for processing and tracking.",
+  "accepted": "Accepted",
+  "completed": "Completed",
+  "cancelled": "Cancelled",
+  "ready": "Ready for Pickup"
+},
+
+
+  "quickorder": {
+    "title": "Quick Order",
+    "description": "Quickly reorder your most frequently purchased products.",
+    "no_favorites": "No frequent items found.",
+    "no_items": "No items selected.",
+    "place_order": "Place Order",
+    "placed": "Quick order placed successfully!",
+    "failed": "Failed to place quick order."
   }
 }
 

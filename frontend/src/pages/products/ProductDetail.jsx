@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { productsService } from '../../services/api/products'
+import { vendorsService } from '../../services/api/vendors'
+import { useCart } from '../../contexts/CartContext'
+import { useAuth } from '../../contexts/AuthContext'
+import { notify } from '../../components/common/Notification'
 import { VendorLoading } from '../../components/common/LoadingSpinner'
 import { useLanguage } from '../../contexts/LanguageContext'
 import './product-detail.scss'
@@ -12,6 +16,8 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true)
   const [product, setProduct] = useState(null)
   const [error, setError] = useState(null)
+  const { addToCart } = useCart()
+  const { user, token } = useAuth()
 
   useEffect(() => {
     let mounted = true
@@ -72,8 +78,82 @@ const ProductDetail = () => {
           </div>
 
           <div className="d-flex gap-2">
-            <button className="btn btn-outline-primary">{t('marketplace.add_to_cart', 'Add to Cart')}</button>
-            <button className="btn btn-primary">{t('marketplace.order', 'Order')}</button>
+            <button
+              className="btn btn-outline-primary"
+              onClick={() => {
+                try {
+                  const cartProduct = {
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    unit: product.unit,
+                    image: product.image,
+                    availableQuantity: product.available ?? product.available_quantity
+                  }
+                  addToCart(cartProduct, 1)
+                  notify.success(t('marketplace.added_to_cart', 'Product added to cart successfully'))
+                } catch (e) {
+                  console.error('Add to cart failed', e)
+                  notify.error(t('marketplace.add_to_cart_failed', 'Failed to add product to cart'))
+                }
+              }}
+            >
+              {t('marketplace.add_to_cart', 'Add to Cart')}
+            </button>
+
+            <button
+              className="btn btn-primary"
+              onClick={async () => {
+                // Order now flow: prompt for quantity and place a quick order using vendorsService
+                if (!user) {
+                  notify.error(t('auth.login_required', 'You must be logged in to place orders'))
+                  navigate('/login')
+                  return
+                }
+
+                const defaultQty = product.minOrder || 1
+                const input = window.prompt(t('marketplace.enter_quantity', 'Enter quantity'), String(defaultQty))
+                if (!input) return
+                const qty = Number(input)
+                if (!qty || qty <= 0) {
+                  notify.error(t('marketplace.invalid_quantity', 'Invalid quantity'))
+                  return
+                }
+
+                // basic availability check
+                const available = Number(product.available ?? product.available_quantity ?? product.quantity ?? 0)
+                if (available > 0 && qty > available) {
+                  const proceed = window.confirm(t('marketplace.quantity_exceeds', 'Requested quantity exceeds available stock. Proceed?'))
+                  if (!proceed) return
+                }
+
+                const coopId = user?.cooperative_id || user?.cooperativeId || user?.cooperative?.id || user?.id
+
+                const orderPayload = {
+                  buyer_cooperative_id: coopId,
+                  items: [
+                    { product_id: product.id, quantity: qty }
+                  ],
+                  // optional fields (address, notes) - backend may ignore if not present
+                  delivery: { address: user?.address || '' }
+                }
+
+                try {
+                  const res = await vendorsService.placeOrder(orderPayload, token)
+                  const data = res && res.data ? res.data : res
+                  notify.success(t('marketplace.quick_order_placed', 'Quick order placed successfully'))
+                  // navigate to orders/tracking page if order id returned
+                  const orderId = data?.id || data?.order_id || data?.order?.id
+                  if (orderId) navigate(`/vendor/tracking?order=${orderId}`)
+                } catch (e) {
+                  console.error('Quick order failed', e)
+                  notify.error(t('marketplace.quick_order_failed', 'Failed to place quick order'))
+                }
+              }}
+            >
+              {t('marketplace.order', 'Order')}
+            </button>
+
             <button className="btn btn-link text-muted" onClick={() => navigate(-1)}>{t('product.go_back', 'Go back')}</button>
           </div>
         </div>

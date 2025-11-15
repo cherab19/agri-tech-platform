@@ -1,22 +1,17 @@
 import React from 'react'
 import { useLanguage } from '../../contexts/LanguageContext'
+import DeliveryHistory from '../../components/drivers/DeliveryHistory'
 
 const HistoryPage = () => {
   const { t } = useLanguage()
 
+  // Render the styled DeliveryHistory component so the cards, filters and lists use the dashboard styles
   return (
     <div className="history-page">
-      <div className="container text-center py-5">
-        <div className="empty-state">
-          <i className="fas fa-clipboard-list text-muted mb-3" style={{ fontSize: '3rem' }}></i>
-          <h3>{t('history.coming_soon', 'Delivery History Coming Soon')}</h3>
-          <p className="text-muted">
-            {t('history.feature_description', 'Soon you\'ll be able to view your complete delivery history, track your performance, and analyze your earnings over time.')}
-          </p>
-          <a href="/driver/dashboard" className="btn btn-primary">
-            {t('history.back_to_dashboard', 'Back to Dashboard')}
-          </a>
-        </div>
+      <div className="container py-4">
+        <h2 className="mb-3">{t('driver.delivery_history', 'Delivery History')}</h2>
+        <p className="text-muted mb-4">{t('driver.delivery_history_description', 'Track your completed deliveries and earnings')}</p>
+        <DeliveryHistory />
       </div>
     </div>
   )
