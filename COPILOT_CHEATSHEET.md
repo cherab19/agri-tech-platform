@@ -28,7 +28,7 @@ Quick reference for AI-assisted development in the Agri-Tech Platform.
 
 # 3. SERIALIZER PATTERN
 # In serializers.py, type:
-class ReviewSerializer
+class ReviewSerializer(serializers.ModelSerializer):
     # Include all fields
     # Add read-only average_rating
     # Validate rating is between 1-5
@@ -81,11 +81,11 @@ class ProductViewSet(viewsets.ModelViewSet):
 ```javascript
 // Frontend: Type the service structure
 export const productService = {
-  getAll: (params) => // Copilot completes
-  getById: (id) =>
-  create: (data) =>
-  update: (id, data) =>
-  delete: (id) =>
+  getAll: (params) => {}, // Copilot completes
+  getById: (id) => {},
+  create: (data) => {},
+  update: (id, data) => {},
+  delete: (id) => {}
 }
 ```
 

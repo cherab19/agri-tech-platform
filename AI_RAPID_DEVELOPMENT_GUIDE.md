@@ -1,8 +1,8 @@
-# 🚀 The Mysterious Way to Build Fullstack Apps with AI Copilot
+# 🚀 The Mysterious Way to Build Full-Stack Apps with AI Copilot
 
 ## 🎯 The Secret: Leverage AI + Architecture + Patterns
 
-Building a fullstack application in record time isn't about magic—it's about combining **AI-powered development tools** with **smart architectural decisions** and **established patterns**. This guide reveals the "mysterious" techniques used to rapidly develop this Agri-Tech Platform.
+Building a full-stack application in record time isn't about magic—it's about combining **AI-powered development tools** with **smart architectural decisions** and **established patterns**. This guide reveals the "mysterious" techniques used to rapidly develop this Agri-Tech Platform.
 
 ---
 
@@ -63,7 +63,7 @@ Start typing common patterns and let AI complete them:
 
 ```python
 # Django View Pattern
-class ProductListView  # AI completes the rest!
+class ProductListView(generic.ListView):  # AI completes the rest!
 # Result: Full CBV with pagination, filtering, and serialization
 
 # React Component Pattern
@@ -153,7 +153,7 @@ const ProductForm = () => {
 # models.py
 from django.db import models
 
-class Product  # AI suggests full model structure
+class Product(models.Model):  # AI suggests full model structure
     """
     Product model for agricultural items
     - name, description, category
@@ -171,7 +171,7 @@ class Product  # AI suggests full model structure
 from rest_framework import serializers
 from .models import Product
 
-class ProductSerializer  # AI completes with ModelSerializer
+class ProductSerializer(serializers.ModelSerializer):  # AI completes with ModelSerializer
     # Just add: class Meta:
     # AI suggests model and fields automatically!
 ```
@@ -182,7 +182,7 @@ class ProductSerializer  # AI completes with ModelSerializer
 # views.py
 from rest_framework import viewsets
 
-class ProductViewSet  # AI suggests full CRUD implementation
+class ProductViewSet(viewsets.ModelViewSet):  # AI suggests full CRUD implementation
     """
     ViewSet for Product operations
     - List all products with filtering
@@ -268,10 +268,10 @@ import ProductCard from '../ProductCard'
 
 describe('ProductCard', () => {
   // Write test descriptions, AI generates assertions
-  it('should display product name and price')
-  it('should show farmer cooperative name')
-  it('should handle add to cart click')
-  it('should display rating stars correctly')
+  it('should display product name and price', () => {})
+  it('should show farmer cooperative name', () => {})
+  it('should handle add to cart click', () => {})
+  it('should display rating stars correctly', () => {})
 })
 ```
 
@@ -281,12 +281,17 @@ describe('ProductCard', () => {
 # tests/test_products.py
 from django.test import TestCase
 
-class ProductAPITestCase  # AI suggests test methods
+class ProductAPITestCase(TestCase):  # AI suggests test methods
     """Test Product API endpoints"""
     
-    def test_list_products  # AI: creates test data + assertions
-    def test_create_product_as_farmer  # AI: auth + validation
-    def test_unauthorized_user_cannot_create  # AI: permission test
+    def test_list_products(self):  # AI: creates test data + assertions
+        pass
+    
+    def test_create_product_as_farmer(self):  # AI: auth + validation
+        pass
+    
+    def test_unauthorized_user_cannot_create(self):  # AI: permission test
+        pass
 ```
 
 ---
@@ -431,7 +436,7 @@ const ProductCard = ({ name, price }) => <div>{name}: ${price}</div>
 2. Integration tests - **2 hours**
 3. UI polish & responsiveness - **3 hours**
 
-**Total: 7 days for a production-ready fullstack app!**
+**Total: 7 days for a production-ready full-stack app!**
 
 ---
 
@@ -546,7 +551,7 @@ npm run dev
 
 ---
 
-**Remember:** The "mysterious way" is really just smart development practices amplified by AI assistance. Master the fundamentals, leverage AI for speed, and you'll build fullstack applications faster than you ever thought possible! 🚀
+**Remember:** The "mysterious way" is really just smart development practices amplified by AI assistance. Master the fundamentals, leverage AI for speed, and you'll build full-stack applications faster than you ever thought possible! 🚀
 
 ---
 
