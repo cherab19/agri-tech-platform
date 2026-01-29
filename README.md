@@ -5,6 +5,7 @@ A fullstack agricultural technology platform connecting farmers, vendors, and dr
 ## 🚀 Quick Links
 
 - **[AI-Powered Rapid Development Guide](./AI_RAPID_DEVELOPMENT_GUIDE.md)** - Learn the mysterious ways to build fullstack apps 10x faster with AI Copilot
+- **[GitHub Copilot Cheat Sheet](./COPILOT_CHEATSHEET.md)** - Quick reference for AI-assisted coding patterns
 - **[System Logic Flow](./Readlogicflow.md)** - Complete user flow documentation
 - **[Branch Strategy](./branch_strategy.md)** - Git workflow for the team
 
@@ -108,6 +109,7 @@ npm run dev
 ## 📚 Documentation
 
 - **[AI Rapid Development Guide](./AI_RAPID_DEVELOPMENT_GUIDE.md)** - Master fullstack development with AI assistance
+- **[Copilot Cheat Sheet](./COPILOT_CHEATSHEET.md)** - Quick patterns and shortcuts for AI coding
 - **[System Logic Flow](./Readlogicflow.md)** - Detailed user flows and business logic
 - **[Branch Strategy](./branch_strategy.md)** - Git workflow and collaboration guide
 
